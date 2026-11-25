@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=00da170e">
+<link rel="stylesheet" href="../../assets/css/style.css?v=abeefa3d">
 </head>
 <body>
 <header class="topbar"><a class="nm" href="../index.html">Bomin Lee</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../../works/p04.html" lang="ko">한국어</a><span>/</span><a href="../works/p04.html" lang="en" class=on>English</a></div></header>
@@ -57,8 +57,8 @@
 </nav>
 </main>
 </div>
-<script src="../../assets/js/main.js?v=c99373d1"></script>
-<script src="../../assets/js/figs.js?v=8ff91a52"></script>
+<script src="../../assets/js/main.js?v=f68461ae"></script>
+<script src="../../assets/js/figs.js?v=a68c3607"></script>
 <script>
 
 const {mount}=PF, F=FIG;
@@ -66,8 +66,8 @@ mount(document.getElementById('f-gap'), w=>{
  const X=F.lin(0,12,4,w-90); let s='';
  s+=`<rect x="${X(0)}" y="14" width="${X(10.7)-X(0)}" height="22" fill="none" stroke="#141414"/>`;
  s+=`<rect x="${X(0)}" y="14" width="${X(2.75)-X(0)}" height="22" fill="#1F32A8"/>`;
- s+=F.T(X(10.7)+8,30,'10.7',{disp:true,fs:16})+F.T(X(10.7)+8,46,'Observed gap',{fs:10.5,c:'#686863'});
- [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686863'}));
+ s+=F.T(X(10.7)+8,30,'10.7',{disp:true,fs:16})+F.T(X(10.7)+8,46,'Observed gap',{fs:10.5,c:'#686868'});
+ [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686868'}));
  s+=F.T(X(0),76,'+2.75 · confirmed by experiment',{fs:11.5,b:true,c:'#1F32A8'});
  return F.svg(w,82,s);});
 mount(document.getElementById('f-ci'), F.ci({min:0,max:6,lo:.96,hi:4.54,est:2.75,mde:3,zeroLabel:'No effect'}));

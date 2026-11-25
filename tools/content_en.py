@@ -135,15 +135,15 @@ mount(document.getElementById('f-auc'), F.hbars({min:.4,max:1,ticks:[.4,.5,.6,.7
  rows:[{k:'IMAGE',v:.907,note:'Community Forensics'},{k:'FACE',v:.858,note:'KoDF · Korean faces'},{k:'VOICE',v:.988,note:'ASVspoof2019'}]}));
 mount(document.getElementById('f-res'), w=>{
  const X=F.lin(0,5,10,w-10), r=['1080p','720p','480p',null,'360p','240p'], pos=[0,1,2,2.55,3.4,4.6];
- let s=`<line x1="${X(0)}" x2="${X(5)}" y1="40" y2="40" stroke="#C6C6C0"/>`;
- r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A37"/>`+F.T(X(pos[i]),28,t,{a:'middle',fs:10.5,c:'#686863'}); });
+ let s=`<line x1="${X(0)}" x2="${X(5)}" y1="40" y2="40" stroke="#C8C8C8"/>`;
+ r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A3A"/>`+F.T(X(pos[i]),28,t,{a:'middle',fs:10.5,c:'#686868'}); });
  s+=`<line x1="${X(2.55)}" x2="${X(2.55)}" y1="8" y2="86" stroke="#141414" stroke-width="1.2"/>`+F.T(X(2.55),6,'Face 170px',{a:'middle',fs:11,b:true});
  s+=`<rect x="${X(0)}" y="58" width="${X(2.55)-X(0)-4}" height="5" fill="#141414"/>`+F.T(X(0),80,'CLIP · 480p and up',{fs:11});
- s+=`<rect x="${X(2.55)+4}" y="58" width="${X(5)-X(2.55)-4}" height="5" fill="#8C8C86"/>`+F.T(X(2.55)+8,80,w<520?'XCEPTION':'XCEPTION · 360p and below · face under 170px',{fs:11});
+ s+=`<rect x="${X(2.55)+4}" y="58" width="${X(5)-X(2.55)-4}" height="5" fill="#8C8C8C"/>`+F.T(X(2.55)+8,80,w<520?'XCEPTION':'XCEPTION · 360p and below · face under 170px',{fs:11});
  return F.svg(w,92,s);});
 mount(document.getElementById('f-ood'), F.dotrows({min:.3,max:1,ticks:[.3,.5,.7,.9],ref:.5,refLabel:'0.5',rowH:26,inline:true,labelW:128,
  rows:[['CLIP last layer',.878],['CLIP multi · chosen',.834,1],['ConvNeXt-S',.831],['DINOv2-L',.821],['Xception',.796],['EfficientNet-B4',.754],['FFT baseline',.486],['UnivFD public',.398]]
- .map(([k,v,sel])=>({k,sel,sub:'',pts:[{v,t:v.toFixed(3),a:'start',dx:9,r:sel?5:3.5,c:sel?'#141414':'#8C8C86'}]}))}));
+ .map(([k,v,sel])=>({k,sel,sub:'',pts:[{v,t:v.toFixed(3),a:'start',dx:9,r:sel?5:3.5,c:sel?'#141414':'#8C8C8C'}]}))}));
 mount(document.getElementById('f-fft'), F.dotrows({min:0,max:1,ticks:[0,.2,.4,.6,.8,1],band:[.45,.55],ref:.5,refLabel:'0.5 = chance',notes:true,rowH:88,
  rows:[{k:'01  BEFORE',sub:'Same code · 3 runs',range:true,note:'Different\\nevery run',pts:[{v:.015,t:'0.015'},{v:.5,t:'0.500',below:true},{v:.601,t:'0.601'}]},
        {k:'02  FIX 1',sub:'All saved as 384 JPEG',note:'Chance level',pts:[{v:.49,t:'OOD 0.490',a:'start',dx:9},{v:.46,t:'Ext. 0.460',a:'end',dx:-9,below:true}]},
@@ -199,7 +199,7 @@ document.getElementById('e-a').innerHTML=PF.cells(34,i=>i===23?'x':'f',34);
 mount(document.getElementById('f-cov'), F.target({v:.902,t:.9,tl:'Target 90%',vt:'0.902'}));
 mount(document.getElementById('f-rmse'), w=>{
  const X=F.lin(0,22,70,w-90); let s='';
- [0,5,10,15,20].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="4" y2="76" stroke="#C6C6C0" stroke-width=".6"/>`+F.T(X(t),92,t+'%',{a:'middle',fs:10.5,c:'#686863'});});
+ [0,5,10,15,20].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="4" y2="76" stroke="#C8C8C8" stroke-width=".6"/>`+F.T(X(t),92,t+'%',{a:'middle',fs:10.5,c:'#686868'});});
  s+=F.T(0,24,'BEFORE',{fs:11,b:true})+`<rect x="${X(0)}" y="12" width="${X(15)-X(0)}" height="16" fill="#141414"/>`;
  for(let x=X(15);x<X(20);x+=4) s+=`<rect x="${x}" y="12" width="2" height="16" fill="#141414"/>`;
  s+=F.T(X(20)+8,25,'+15~20%',{disp:true,fs:15});
@@ -271,8 +271,8 @@ mount(document.getElementById('f-gap'), w=>{
  const X=F.lin(0,12,4,w-90); let s='';
  s+=`<rect x="${X(0)}" y="14" width="${X(10.7)-X(0)}" height="22" fill="none" stroke="#141414"/>`;
  s+=`<rect x="${X(0)}" y="14" width="${X(2.75)-X(0)}" height="22" fill="#1F32A8"/>`;
- s+=F.T(X(10.7)+8,30,'10.7',{disp:true,fs:16})+F.T(X(10.7)+8,46,'Observed gap',{fs:10.5,c:'#686863'});
- [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686863'}));
+ s+=F.T(X(10.7)+8,30,'10.7',{disp:true,fs:16})+F.T(X(10.7)+8,46,'Observed gap',{fs:10.5,c:'#686868'});
+ [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686868'}));
  s+=F.T(X(0),76,'+2.75 · confirmed by experiment',{fs:11.5,b:true,c:'#1F32A8'});
  return F.svg(w,82,s);});
 mount(document.getElementById('f-ci'), F.ci({min:0,max:6,lo:.96,hi:4.54,est:2.75,mde:3,zeroLabel:'No effect'}));
@@ -314,8 +314,8 @@ PAGES['more.html'] = dict(title='P05–08', desc='Olist SQL · university declin
  script='''
 const {mount}=PF, F=FIG;
 mount(document.getElementById('f-fan'), F.fanout({}));
-mount(document.getElementById('f-over'), F.hbars({min:0,max:32,ticks:[0,10,20,30],noteW:80,labelW:80,rows:[{k:'Payments',v:28.23,vt:'+28.23%'},{k:'Item sales',v:4.48,vt:'+4.48%',c:'#8C8C86'}]}));
+mount(document.getElementById('f-over'), F.hbars({min:0,max:32,ticks:[0,10,20,30],noteW:80,labelW:80,rows:[{k:'Payments',v:28.23,vt:'+28.23%'},{k:'Item sales',v:4.48,vt:'+4.48%',c:'#8C8C8C'}]}));
 mount(document.getElementById('f-gs'), F.dotrows({min:0,max:70,ticks:[0,10,20,30,40,50,60,70],tf:0,rowH:58,rows:[{k:'Capital',sub:'',pts:[{v:24,t:'24.0'}]},{k:'Elsewhere',sub:'Δ 28.5 · p<0.001',pts:[{v:52.5,t:'52.5'}]}]}));
 mount(document.getElementById('f-scree'), F.scree({ev:[5.28,1.22,.67,.49,.47,.38,.27,.17,.02],k:4,cum:'85.3%'}));
-mount(document.getElementById('f-r2'), F.hbars({min:0,max:.8,ticks:[0,.2,.4,.6,.8],noteW:110,labelW:80,rows:[{k:'All',v:.587,vt:'0.587'},{k:'Without 12',v:.633,vt:'0.633',c:'#B9B9B3',note:'12 removed'}]}));
+mount(document.getElementById('f-r2'), F.hbars({min:0,max:.8,ticks:[0,.2,.4,.6,.8],noteW:110,labelW:80,rows:[{k:'All',v:.587,vt:'0.587'},{k:'Without 12',v:.633,vt:'0.633',c:'#BABABA',note:'12 removed'}]}));
 ''')

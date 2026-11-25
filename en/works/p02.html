@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=00da170e">
+<link rel="stylesheet" href="../../assets/css/style.css?v=abeefa3d">
 </head>
 <body>
 <header class="topbar"><a class="nm" href="../index.html">Bomin Lee</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../../works/p02.html" lang="ko">한국어</a><span>/</span><a href="../works/p02.html" lang="en" class=on>English</a></div></header>
@@ -63,8 +63,8 @@
 </nav>
 </main>
 </div>
-<script src="../../assets/js/main.js?v=c99373d1"></script>
-<script src="../../assets/js/figs.js?v=8ff91a52"></script>
+<script src="../../assets/js/main.js?v=f68461ae"></script>
+<script src="../../assets/js/figs.js?v=a68c3607"></script>
 <script>
 
 const {mount}=PF, F=FIG;
@@ -74,7 +74,7 @@ document.getElementById('e-a').innerHTML=PF.cells(34,i=>i===23?'x':'f',34);
 mount(document.getElementById('f-cov'), F.target({v:.902,t:.9,tl:'Target 90%',vt:'0.902'}));
 mount(document.getElementById('f-rmse'), w=>{
  const X=F.lin(0,22,70,w-90); let s='';
- [0,5,10,15,20].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="4" y2="76" stroke="#C6C6C0" stroke-width=".6"/>`+F.T(X(t),92,t+'%',{a:'middle',fs:10.5,c:'#686863'});});
+ [0,5,10,15,20].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="4" y2="76" stroke="#C8C8C8" stroke-width=".6"/>`+F.T(X(t),92,t+'%',{a:'middle',fs:10.5,c:'#686868'});});
  s+=F.T(0,24,'BEFORE',{fs:11,b:true})+`<rect x="${X(0)}" y="12" width="${X(15)-X(0)}" height="16" fill="#141414"/>`;
  for(let x=X(15);x<X(20);x+=4) s+=`<rect x="${x}" y="12" width="2" height="16" fill="#141414"/>`;
  s+=F.T(X(20)+8,25,'+15~20%',{disp:true,fs:15});

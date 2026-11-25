@@ -1,6 +1,6 @@
 /* figures drawn from the real numbers; each builder returns an SVG string for a given width */
 (() => {
-  const INK = '#141414', INK2 = '#3A3A37', MUTE = '#686863', LINE = '#C6C6C0', CELL = '#B9B9B3', ACC = '#1F32A8', PAPER = '#ECECE8';
+  const INK = '#141414', INK2 = '#3A3A3A', MUTE = '#686868', LINE = '#C8C8C8', CELL = '#BABABA', ACC = '#1F32A8', PAPER = '#FFFFFF';
   const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
   const EN = document.documentElement.lang === 'en', TR = (k, e) => EN ? e : k;
   const KO = /[\uAC00-\uD7A3]/;
@@ -106,7 +106,7 @@
       let s = '';
       for (let i = 0; i < n; i++) {
         const x = i * (cw + gap), seen = i < o.peek;
-        s += `<rect x="${x + .5}" y="${y + .5}" width="${cw - 1}" height="${cw - 1}" fill="${seen ? CELL : 'none'}" stroke="${seen ? '#8C8C86' : '#8C8C86'}" stroke-width=".8"/>`;
+        s += `<rect x="${x + .5}" y="${y + .5}" width="${cw - 1}" height="${cw - 1}" fill="${seen ? CELL : 'none'}" stroke="${seen ? '#8C8C8C' : '#8C8C8C'}" stroke-width=".8"/>`;
         if (o.lab.includes(i + 1)) s += T(x, y + cw + 16, 'D' + (i + 1), { fs: w < 520 ? 8.5 : 10.5, c: MUTE });
       }
       const xa = (o.ad - 1) * (cw + gap) + cw / 2;

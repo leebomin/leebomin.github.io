@@ -28,7 +28,7 @@
     const img = new Image();
     let W = 0, H = 0, dpr = 1, cols = 0, rows = 0, rgb = null, rgb2 = null, lum = null, thr = null, heat = null, noise = null, raf = 0;
     let t = 0, target = 0, last = 0, px = -1e4, py = -1e4, inside = false;
-    const C = 8, SPREAD = 0.35, DUR = 1700, R0 = 24, R1 = 72, PAPER = '#ECECE8';
+    const C = 8, SPREAD = 0.35, DUR = 1700, R0 = 24, R1 = 72, PAPER = '#FFFFFF';
     function sample(n) {
       const c = document.createElement('canvas'); c.width = Math.ceil(cols / n); c.height = Math.ceil(rows / n);
       const x = c.getContext('2d'); x.imageSmoothingQuality = 'high';
