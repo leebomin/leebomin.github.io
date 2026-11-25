@@ -93,6 +93,7 @@ INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티�
 
 PROJECTS_PAGE = dict(title='Projects · 이보민', desc='이보민의 프로젝트 — 모델 평가, 실험 설계, 통계 분석, LLM 서비스.', body=f'''
 <h1 class="pg-t rv">Projects</h1>
+<div class="trail rv" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2" aria-hidden="true"></div>
 <div class="plist">{PROJECTS}</div>
 ''')
 

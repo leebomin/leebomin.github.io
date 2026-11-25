@@ -50,6 +50,7 @@ INDEX = dict(title='Bomin Lee · Data Scientist', desc='Portfolio of Bomin Lee, 
 
 PROJECTS_PAGE = dict(title='Projects · Bomin Lee', desc='Projects by Bomin Lee: model evaluation, experiment design, statistical analysis, LLM services.', body=f'''
 <h1 class="pg-t rv">Projects</h1>
+<div class="trail rv" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2" aria-hidden="true"></div>
 <div class="plist">{PROJECTS}</div>
 ''')
 

@@ -121,6 +121,28 @@
   }
   document.querySelectorAll('.photo[data-src]').forEach(pixelPhoto);
 
+  /* ───────── keyword trail: chips follow the cursor and fade ───────── */
+  document.querySelectorAll('.trail').forEach(box => {
+    const words = box.dataset.words.split('|');
+    let n = 0, lx = null, ly = null;
+    function drop(x, y) {
+      const c = document.createElement('span');
+      const k = n++ % words.length;
+      c.className = 'chip' + (n % 9 === 0 ? ' a' : n % 3 === 0 ? ' d' : '');
+      c.textContent = words[k];
+      c.style.left = x + 'px'; c.style.top = y + 'px';
+      c.style.setProperty('--r', ((Math.sin(n * 12.9898) * 43758.5453) % 1 * 10).toFixed(1) + 'deg');
+      box.appendChild(c);
+      setTimeout(() => c.remove(), 1400);
+    }
+    box.addEventListener('pointermove', e => {
+      if (reduce) return;
+      const r = box.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      if (lx === null || Math.hypot(x - lx, y - ly) > 34) { drop(x, y); lx = x; ly = y; }
+    });
+    box.addEventListener('pointerleave', () => { lx = ly = null; });
+  });
+
   /* tiny helpers shared with figs.js */
   window.PF = {
     mount(el, fn) {
