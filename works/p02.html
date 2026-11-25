@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PREDICTIVE MAINTENANCE · 이보민</title>
+<meta name="description" content="엔진 잔여수명 확률 예측 · 정비 시점 결정">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="run">
+  <a class="brand" href="../index.html">LEE BOMIN<span class="long"> — PORTFOLIO</span></a>
+  <nav class="tracker" aria-label="프로젝트"><a href="p01.html">P01</a><a href="p02.html" class="on">P02</a><a href="p03.html">P03</a><a href="p04.html">P04</a><span class="sep"></span><a href="more.html#p05">P05</a><a href="more.html#p06">P06</a><a href="more.html#p07">P07</a><a href="more.html#p08">P08</a></nav>
+  <span class="where">(P02) PROJECT · MAIN</span>
+</header>
+<main class="wrap">
+
+<section class="p-sec p-hero" id="overview">
+ <header class="p-head rv"><div class="p-kicker"><span class="chip">P02</span>미래내일 일경험 · 제주항공 · 2026.06–07 <a class="btn" href="https://github.com/leebomin/jejuairline" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div><h1 class="p-title">PREDICTIVE MAINTENANCE</h1><p class="p-sub">엔진 잔여수명 확률 예측 · 정비 시점 결정</p></header>
+ <div class="p-grid">
+  <div class="rv">
+   <p class="p-intro">엔진 잔여수명을 숫자 하나가 아니라 <b>확률분포</b>로 예측하고, 늦은 정비(결함)와 잦은 정비(비용)의 비대칭을 반영해 <b>정비 시점</b>을 정하는 PoC입니다.</p>
+   <span class="award">에어로AI트랙 경진대회 동상 · 2026.07</span>
+   <div class="did"><p class="label">What I did</p><ol><li><span class="n">1</span><p>평가 방식을 다시 점검해, 팀이 기대한 15~20% 개선이 <b>데이터 누수</b>였음을 발견</p></li><li><span class="n">2</span><p>1D-CNN 앙상블의 예측 분포를 conformal로 보정, 90% 구간이 실제로 <b>0.902</b>를 덮는 것을 확인</p></li><li><span class="n">3</span><p>보정된 확률로 정비 시점을 정해 정비 전 고장 확률 <span class="hl">0.196 → 0.119</span>로 감소</p></li></ol></div>
+   <dl class="facts"><div><dt>ROLE</dt><dd>팀장(4명) · 1D-CNN 앙상블 · conformal 공동 구현 · 보고서</dd></div><div><dt>IMPACT</dt><dd>정비 100번 중 늦은 정비 20 → 12번 · 구간 커버리지 0.902</dd></div><div><dt>MODEL</dt><dd>1D-CNN 앙상블 + conformal · 우도비 베이즈 결합</dd></div></dl>
+  </div>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>칸 하나 = 1%</figcaption><div class="fig-part"><div class="fig-head"><span class="h">01&nbsp;&nbsp;정비 전 고장 확률</span><span class="r"></span></div><div class="waffles"><div><div id="w-a"></div><p class="w-l">기존 정책</p><p class="w-v dim">0.196</p></div><div><div id="w-b"></div><p class="w-l">확률 보정 후</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">100번 정비 결정 중 정비하기 전에 고장 나는 경우가 약 20번에서 12번으로 줄었다.</p></div></div><div class="fig-part"><div class="fig-head"><span class="h">02&nbsp;&nbsp;90% 예측 구간 커버리지</span><span class="r"></span></div><div id="f-cov"></div><p class="fig-note">“90% 구간”이라고 예측한 범위 안에 실제 잔여수명의 90.2%가 들어왔다. 이 확률을 믿고 결정해도 된다는 근거.</p></div><div class="fig-part"><div class="fig-head"><span class="h">03&nbsp;&nbsp;정책 시뮬레이션 · 엔진 34대 · 참고치</span><span class="r">칸 하나 = 엔진 1대</span></div><div class="rowfig"><span class="k">평균 기반</span><div id="e-a"></div><span class="v">1 / 34</span></div><div class="rowfig"><span class="k">확률 기반</span><div id="e-b"></div><span class="v">0 / 34</span></div><p class="fig-note">× = 정비 전에 고장 난 엔진 · 1대 차이라 단독 근거로 쓰지 않음</p></div></figure>
+ </div>
+</section>
+
+<section class="p-sec" id="data">
+ <div class="exp-grid">
+  <div class="rv">
+   <div class="p-kicker"><span class="chip">P02</span><span class="sub-k">데이터 · 모델 선정</span></div><h2 class="p-title">DATA &amp; EXPERIMENT</h2><p class="p-sub">예측 구간 보정 · 정비 결정</p>
+   <div style="margin-top:28px"><dl class="dl"><div><dt>DATA</dt><dd>N-CMAPSS 엔진 34대 (NASA 시뮬레이션)<br>NGAFID 실비행 28,935편 (진단)</dd></div><div><dt>PREPROC</dt><dd>스케일러 · 변수선택을 교차검증 폴드 안에서만 fit<br>누수로 생긴 15~20% 개선 제거</dd></div><div><dt>UNIT</dt><dd>엔진 단위 교차검증<br>같은 엔진이 학습 · 평가에 섞이지 않게</dd></div><div><dt>DECISION</dt><dd>늦은 정비(결함)와 잦은 정비(비용)의 비대칭을 반영한 정비 시점</dd></div></dl></div>
+  </div>
+  <div class="exp-right">
+   <div class="rv"><div class="dtable-wrap"><table class="dtable"><thead><tr><th>METRIC</th><th>BASELINE</th><th>FINAL</th><th>HOW</th></tr></thead><tbody><tr><td class="">정비 전 고장 확률</td><td class="n">0.196</td><td class="n"><span class="hl">0.119</span></td><td class="">보정된 분포로 정비 시점 결정</td></tr><tr><td class="">90% 구간 커버리지</td><td class="n">—</td><td class="n">0.902</td><td class="">1D-CNN 앙상블 + conformal</td></tr><tr><td class="">정책 시뮬 고장</td><td class="n">최선 1대</td><td class="n">0 / 34</td><td class="">평균 기반 → 확률 기반 정책</td></tr><tr><td class="">실비행 진단 AUC</td><td class="n">0.76</td><td class="n">0.849</td><td class="">우도비 베이즈 결합</td></tr></tbody></table></div></div>
+   <div class="exp-sub">
+    <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>정비 전 고장 확률</figcaption><div class="fig-part"><div class="fig-head"><span class="h">평균 기반 vs 확률 기반</span><span class="r"></span></div><div id="f-pf"></div><p class="fig-note">엔진 34대 시뮬레이션 · 고장 1대 → 0대는 1대 차이라 단독 근거로 쓰지 않음</p></div></figure>
+    <div class="rv"><div class="why"><p class="label">Why</p><p>RMSE가 데이터 규모의 한계에 닿은 뒤에는 모델을 더 키워도 정비 결정이 나아지지 않았다. 그래서 예측 구간이 실제로 90%를 덮는지(0.902)를 먼저 맞추고, 그 확률로 정비 시점을 정했다.</p></div><div class="takeaway"><p class="label">Takeaway</p><p>모델 크기보다 예측 구간의 신뢰도</p></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="p-sec" id="finding">
+ <div class="p-grid">
+  <div class="rv">
+   <div class="p-kicker"><span class="chip">P02</span><span class="sub-k">KEY FINDING · 항공 정비</span></div><h2 class="p-title">LEAKAGE</h2><p class="p-sub">데이터 누수 점검 · 폴드 안 전처리</p>
+   <div class="story"><div class="blk"><h5>01&nbsp;&nbsp;SITUATION</h5><p>‘LCC 단거리 가중치’를 넣자 RMSE가 <b>15~20% 개선</b>됐습니다. 같은 데이터로 실험한 팀원들의 결과와 비교하면 지나치게 큰 폭이었습니다.</p></div><div class="blk"><h5>02&nbsp;&nbsp;DOUBT</h5><p>개선폭이 실행마다 들쭉날쭉했습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p></div><div class="blk"><h5>03&nbsp;&nbsp;CHECK</h5><p>전처리를 폴드 안으로 옮기자 효과는 <b>≈ 0</b>으로 사라졌습니다. 가설을 기각하고, 같은 원인으로 생긴 <b>버그 5건</b>도 함께 고쳤습니다.</p></div><div class="takeaway"><p class="label">Takeaway</p><p>좋은 수치일수록 출처부터</p></div></div>
+  </div>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>차이는 전처리를 언제 하느냐 하나</figcaption><div class="fig-part"><div class="fig-head"><span class="h">BEFORE · 전처리 먼저, 나누기는 나중</span><span class="r"></span></div><div class="flow"><div class="box"><span class="label">DATA</span><p>전체 데이터<br><small style="font-weight:500">평가 데이터 포함</small></p></div><span class="arr">→</span><div class="box"><span class="label">FIT</span><p>스케일러 · 변수 선택<br><small style="font-weight:500">전체 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">SPLIT</span><p>학습 / 평가</p></div></div><p class="fig-note">평가 데이터까지 보고 전처리 기준을 정했다 → 평가 점수가 부풀려짐</p></div><div class="fig-part"><div class="fig-head"><span class="h">AFTER · 나누기 먼저, 전처리는 학습 데이터로만</span><span class="r"></span></div><div class="flow"><div class="box"><span class="label">SPLIT</span><p>학습 / 평가</p></div><span class="arr">→</span><div class="box"><span class="label">FIT</span><p>스케일러 · 변수 선택<br><small style="font-weight:500">학습 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">APPLY</span><p>평가에는 적용만</p></div></div><p class="fig-note">평가 데이터는 마지막에 점수를 매길 때만 쓴다</p></div><div class="fig-part"><div class="fig-head"><span class="h">결과 · RMSE 개선폭</span><span class="r"></span></div><div id="f-rmse"></div><p class="fig-note">개선처럼 보였던 15~20%는 평가 데이터를 미리 본 효과였다.</p></div></figure>
+ </div>
+</section>
+
+<nav class="pager">
+  <a href="p01.html"><span class="label">← PREV</span><span class="t">P01 DEEPFAKE DETECTION</span></a>
+  <a href="p03.html"><span class="label">NEXT →</span><span class="t">P03 PILL FINDER</span></a>
+</nav>
+</main>
+<footer class="foot"><span>© 2026 LEE BOMIN</span><a href="../index.html#works">ALL WORKS ↑</a></footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/figs.js"></script>
+<script>
+
+const {mount}=PF, F=FIG;
+document.getElementById('w-a').innerHTML=PF.cells(100,i=>i>=80?'g':'',10);
+document.getElementById('w-b').innerHTML=PF.cells(100,i=>i>=88?'f':'',10);
+mount(document.getElementById('f-cov'), F.target({v:.902,t:.9,tl:'목표 90%',vt:'0.902'}));
+document.getElementById('e-a').innerHTML=PF.cells(34,i=>i===23?'x':'f',34);
+document.getElementById('e-b').innerHTML=PF.cells(34,'f',34);
+mount(document.getElementById('f-pf'), F.hbars({min:0,max:.25,ticks:[0,.05,.1,.15,.2,.25],noteW:90,
+ rows:[{k:'평균 기반',v:.196,c:'#B9B9B3',vt:'0.196'},{k:'확률 기반',v:.119,vt:'0.119',vc:'#1F32A8'}]}));
+mount(document.getElementById('f-rmse'), w=>{
+ const X=F.lin(0,22,70,w-90); let s='';
+ [0,5,10,15,20].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="4" y2="76" stroke="#C6C6C0" stroke-width=".6"/>`+F.T(X(t),92,t+'%',{a:'middle',fs:10.5,c:'#686863'});});
+ s+=F.T(0,24,'BEFORE',{fs:11,b:true})+`<rect x="${X(0)}" y="12" width="${X(15)-X(0)}" height="16" fill="#141414"/>`;
+ for(let x=X(15);x<X(20);x+=4) s+=`<rect x="${x}" y="12" width="2" height="16" fill="#141414"/>`;
+ s+=F.T(X(20)+8,25,'+15~20%',{disp:true,fs:17});
+ s+=F.T(0,62,'AFTER',{fs:11,b:true})+`<rect x="${X(0)}" y="50" width="3" height="16" fill="#141414"/>`+F.T(X(0)+12,63,'≈ 0',{disp:true,fs:17});
+ return F.svg(w,98,s);});
+
+</script>
+</body>
+</html>

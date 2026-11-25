@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DEEPFAKE DETECTION · 이보민</title>
+<meta name="description" content="멀티모달 딥페이크 탐지 모듈 · 처음 보는 데이터에서의 성능으로 모델 선정">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="run">
+  <a class="brand" href="../index.html">LEE BOMIN<span class="long"> — PORTFOLIO</span></a>
+  <nav class="tracker" aria-label="프로젝트"><a href="p01.html" class="on">P01</a><a href="p02.html">P02</a><a href="p03.html">P03</a><a href="p04.html">P04</a><span class="sep"></span><a href="more.html#p05">P05</a><a href="more.html#p06">P06</a><a href="more.html#p07">P07</a><a href="more.html#p08">P08</a></nav>
+  <span class="where">(P01) PROJECT · MAIN</span>
+</header>
+<main class="wrap">
+
+<section class="p-sec p-hero" id="overview">
+ <header class="p-head rv"><div class="p-kicker"><span class="chip">P01</span>TOBIG'S · 멀티모달/CV 팀 · 2026.08–11</div><h1 class="p-title">DEEPFAKE DETECTION</h1><p class="p-sub">멀티모달 딥페이크 탐지 모듈</p></header>
+ <div class="p-grid">
+  <div class="rv">
+   <p class="p-intro">투자 사기 탐지 서비스에서 이미지 · 얼굴 영상 · 음성이 <b>합성인지</b> 판별하는 모듈을 맡았습니다.<br><b>처음 보는 데이터</b>에서의 성능으로 모델을 골랐습니다.</p>
+   <div class="did"><p class="label">What I did</p><ol><li><span class="n">1</span><p>이미지 · 얼굴 · 음성 후보 <b>12종</b>을 외부 데이터로 비교,<br><b>부트스트랩 신뢰구간 · 짝 비교</b>로 차이가 우연이 아님을 확인</p></li><li><span class="n">2</span><p>저화질(<b>360p 이하</b>)에서 우세 모델 역전<br>→ 얼굴 크기(<b>170px</b>) 기준 모델 <b>자동 선택</b></p></li><li><span class="n">3</span><p>외부 AUC <span class="hl">0.907 · 0.858 · 0.988</span>,<br><b>결과 전에 합격선을 고정</b>한 서비스 벤치마크 <b>8개 중 7개 통과</b></p></li></ol></div>
+   <dl class="facts"><div><dt>ROLE</dt><dd>4명 중 딥페이크 탐지 모델 전담 · 비교 · 선정 · 추론 API 구현</dd></div><div><dt>IMPACT</dt><dd>백엔드 · 웹 확장이 호출하는 API로 연결 (판정 일치율 100%)</dd></div><div><dt>MODEL</dt><dd>이미지 CLIP-L/14 · 얼굴 CLIP + Xception · 음성 wav2vec2 XLS-R</dd></div></dl>
+  </div>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>처음 보는 데이터에서의 성능</figcaption><div class="fig-part"><div class="fig-head"><span class="h">01&nbsp;&nbsp;외부 데이터 AUC</span><span class="r">학습에 쓰지 않은 데이터셋</span></div><div id="f-auc"></div></div><div class="fig-part"><div class="fig-head"><span class="h">02&nbsp;&nbsp;얼굴 크기로 모델 선택</span><span class="r">영상통화 화질 재현 실험</span></div><div id="f-res"></div></div><div class="fig-part"><div class="fig-head"><span class="h">03&nbsp;&nbsp;서비스 경로 벤치마크</span><span class="r">기준 8개 · 결과 전에 고정</span></div><div class="rowfig" style="grid-template-columns:1fr 70px"><div id="f-bench"></div><span class="v">7 / 8</span></div><p class="fig-note">미달 1개 · 탭 녹화 얼굴 탐지율 0.351 (기준 0.60)<br>음성은 탭 녹화에서도 AUC 0.999</p></div></figure>
+ </div>
+</section>
+
+<section class="p-sec" id="data">
+ <div class="exp-grid">
+  <div class="rv">
+   <div class="p-kicker"><span class="chip">P01</span><span class="sub-k">데이터 · 모델 선정</span></div><h2 class="p-title">DATA &amp; EXPERIMENT</h2><p class="p-sub">외부 데이터 기준 모델 선정</p>
+   <div style="margin-top:28px"><dl class="dl"><div><dt>DATA</dt><dd>학습 이미지 SID_Set · OpenFake<br>얼굴 ThinothW / 음성 In-the-Wild<br>외부 평가 Community Forensics · KoDF · Celeb-DF · ASVspoof2019</dd></div><div><dt>PREPROC</dt><dd>형식 단서 → 384 JPEG로 다시 저장 (기준선 0.49)<br>비율 · 크기 단서 (AUC 0.694) → 정사각 크롭 재학습</dd></div><div><dt>CRITERIA</dt><dd>외부 2종 중 낮은 쪽 AUC 기준 1위 (0.856)<br>부트스트랩 1위 확률 100%<br>앙상블보다 유의하게 높음</dd></div><div><dt>MODELS</dt><dd>이미지 CLIP-L/14 다층 · 얼굴 CLIP-L/14 + Xception<br>음성 wav2vec2 XLS-R (후보 12종 중 선정)</dd></div></dl></div>
+  </div>
+  <div class="exp-right">
+   <div class="rv"><div class="dtable-wrap"><table class="dtable"><thead><tr><th>MODALITY</th><th>EVAL SET</th><th>MODEL</th><th>EXT. AUC</th><th>NOTE</th></tr></thead><tbody><tr><td class="">이미지</td><td class="">Community Forensics</td><td class="">CLIP-L/14 다층</td><td class="n"><span class="hl">0.907</span></td><td class="">정사각 크롭 · 외부 2종 1위</td></tr><tr><td class="">얼굴 영상</td><td class="">KoDF</td><td class="">CLIP-L/14</td><td class="n">0.858</td><td class="">Xception 대비 +0.051</td></tr><tr><td class="">음성</td><td class="">ASVspoof2019</td><td class="">wav2vec2 XLS-R</td><td class="n">0.988</td><td class="">전화망 G.711 0.976</td></tr><tr><td class="">임계값</td><td class="">KoDF</td><td class="">검증셋 기준 고정</td><td class="n">46%</td><td class="">탐지율 · 재보정 필요</td></tr></tbody></table></div></div>
+   <div class="exp-sub">
+    <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>처음 보는 생성기(OOD)에서의 이미지 AUC</figcaption><div class="fig-part"><div class="fig-head"><span class="h">OOD AUC</span><span class="r">정사각 크롭 전 비교</span></div><div id="f-ood"></div><p class="fig-note">최종 선정은 외부 2종 기준 · UnivFD 공개 가중치는 2018 GAN 학습이라 우연 수준</p></div></figure>
+    <div class="rv"><div class="why"><p class="label">Why</p><p>내부 검증 점수는 데이터 단서까지 학습한 결과일 수 있어, 처음 보는 데이터의 AUC를 기준으로 했다. 차이가 작은 후보는 신뢰구간과 짝 비교로 우연이 아님을 확인한 뒤 골랐다.</p></div><div class="takeaway"><p class="label">Takeaway</p><p>처음 보는 데이터의 점수로 선정</p></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="p-sec" id="finding">
+ <div class="p-grid">
+  <div class="rv">
+   <div class="p-kicker"><span class="chip">P01</span><span class="sub-k">KEY FINDING · MULTIMODAL · CV</span></div><h2 class="p-title">SHORTCUT</h2><p class="p-sub">가짜 단서 학습 · 파일 형식과 비율</p>
+   <div class="story"><div class="blk"><h5>01&nbsp;&nbsp;SITUATION</h5><p>첫 파이프라인은 돌릴 때마다 결과가 크게 달라졌습니다. 이미지 내용을 보지 않는 <b>FFT 기준선</b>의 AUC가 실행마다 <b>0.015 · 0.500 · 0.601</b>로 흔들렸습니다.</p></div><div class="blk"><h5>02&nbsp;&nbsp;DOUBT</h5><p>진짜 이미지가 일부 샤드에서만 뽑혀 <span class="hl">파일 형식</span>이 정답과 겹쳐 있었습니다. 합성 흔적이 아니라 JPEG/PNG를 보고 맞힐 수 있는 상태였습니다.</p></div><div class="blk"><h5>03&nbsp;&nbsp;CHECK</h5><p>모든 이미지를 <b>384 JPEG</b>로 다시 저장하자 기준선은 <b>0.49</b>로 우연 수준이 됐습니다. 그럼에도 비율 · 크기 두 숫자만으로 <b>0.694</b>가 나와 <b>정사각 크롭</b>으로 다시 학습했습니다.</p></div><div class="takeaway"><p class="label">Takeaway</p><p>가짜 단서 제거 모델 · 서비스 API 연결</p></div></div>
+  </div>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>내용을 보지 않는 모델(FFT 기준선)의 AUC</figcaption><div class="fig-part"><div class="fig-head"><span class="h">점이 0.5(우연)에서 멀수록 데이터에 가짜 단서가 남아 있다는 뜻</span><span class="r"></span></div><div id="f-fft"></div><p class="fig-note">같은 코드가 0.015와 0.601 사이를 오간 건, 모델이 합성 흔적이 아니라 파일 형식 · 비율 같은 가짜 단서를 보고 있었다는 신호였다.</p></div></figure>
+ </div>
+</section>
+
+<nav class="pager">
+  <a href="more.html#p08"><span class="label">← PREV</span><span class="t">P08 INFLUENCE</span></a>
+  <a href="p02.html"><span class="label">NEXT →</span><span class="t">P02 PREDICTIVE MAINTENANCE</span></a>
+</nav>
+</main>
+<footer class="foot"><span>© 2026 LEE BOMIN</span><a href="../index.html#works">ALL WORKS ↑</a></footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/figs.js"></script>
+<script>
+
+const {mount}=PF, F=FIG;
+mount(document.getElementById('f-auc'), F.hbars({min:.4,max:1,ticks:[.4,.5,.6,.7,.8,.9,1],ref:.5,refLabel:'0.5 = 우연',noteW:170,
+ rows:[{k:'IMAGE',v:.907,note:'Community Forensics'},{k:'FACE',v:.858,note:'KoDF · 한국인 얼굴'},{k:'VOICE',v:.988,note:'ASVspoof2019'}]}));
+mount(document.getElementById('f-res'), w=>{
+ const X=F.lin(0,5,10,w-10), r=['1080p','720p','480p',null,'360p','240p'], pos=[0,1,2,2.55,3.4,4.6];
+ let s=`<line x1="${X(0)}" x2="${X(5)}" y1="40" y2="40" stroke="#C6C6C0"/>`;
+ r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A37"/>`+F.T(X(pos[i]),28,t,{a:'middle',fs:10.5,c:'#686863'}); });
+ s+=`<line x1="${X(2.55)}" x2="${X(2.55)}" y1="8" y2="86" stroke="#141414" stroke-width="1.2"/>`+F.T(X(2.55),6,'얼굴 170px',{a:'middle',fs:11,ko:true,b:true});
+ s+=`<rect x="${X(0)}" y="58" width="${X(2.55)-X(0)-4}" height="5" fill="#141414"/>`+F.T(X(0),80,'CLIP · 480p 이상',{fs:11,ko:true});
+ s+=`<rect x="${X(2.55)+4}" y="58" width="${X(5)-X(2.55)-4}" height="5" fill="#8C8C86"/>`+F.T(X(2.55)+8,80,w<520?'XCEPTION':'XCEPTION · 360p 이하 · 얼굴 170px 미만',{fs:11,ko:true});
+ return F.svg(w,92,s);});
+document.getElementById('f-bench').innerHTML=PF.cells(8,i=>i<7?'f':'',8);
+mount(document.getElementById('f-ood'), F.dotrows({min:.3,max:1,ticks:[.3,.5,.7,.9],ref:.5,refLabel:'0.5',rowH:28,inline:true,labelW:118,
+ rows:[['CLIP 마지막 층',.878],['CLIP 다층 · 선정',.834,1],['ConvNeXt-S',.831],['DINOv2-L',.821],['Xception',.796],['EfficientNet-B4',.754],['FFT 기준선',.486],['UnivFD 공개',.398]]
+ .map(([k,v,sel])=>({k,sel,sub:'',pts:[{v,t:v.toFixed(3),a:'start',dx:9,r:sel?5:3.5,c:sel?'#141414':'#8C8C86'}]}))}));
+mount(document.getElementById('f-fft'), F.dotrows({min:0,max:1,ticks:[0,.2,.4,.6,.8,1],band:[.45,.55],ref:.5,refLabel:'0.5 = 우연',notes:true,rowH:92,
+ rows:[{k:'01  BEFORE',sub:'같은 코드 · 실행 3번',range:true,note:'실행마다\n제각각',pts:[{v:.015,t:'0.015'},{v:.5,t:'0.500',below:true},{v:.601,t:'0.601'}]},
+       {k:'02  FIX 1',sub:'384 JPEG로 형식 통일',note:'우연 수준',pts:[{v:.49,t:'OOD 0.490',a:'start',dx:9},{v:.46,t:'외부 0.460',a:'end',dx:-9,below:true}]},
+       {k:'03  남은 단서',sub:'비율 · 크기 두 숫자만',note:'→ 정사각\n크롭 재학습',pts:[{v:.694,t:'0.694'}]}]}));
+
+</script>
+</body>
+</html>

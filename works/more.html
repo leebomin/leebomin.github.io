@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P05–08 SHORT · 이보민</title>
+<meta name="description" content="Olist SQL · 대학 쇠퇴 · 지방소멸위험 다변량 · 빈집 회귀 진단">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="run">
+  <a class="brand" href="../index.html">LEE BOMIN<span class="long"> — PORTFOLIO</span></a>
+  <nav class="tracker" aria-label="프로젝트"><a href="p01.html">P01</a><a href="p02.html">P02</a><a href="p03.html">P03</a><a href="p04.html">P04</a><span class="sep"></span><a href="more.html#p05" class="on">P05</a><a href="more.html#p06" class="on">P06</a><a href="more.html#p07" class="on">P07</a><a href="more.html#p08" class="on">P08</a></nav>
+  <span class="where">(P05–08) PROJECT · SHORT</span>
+</header>
+<main class="wrap">
+
+<section class="p-sec p-hero">
+ <div class="sec-head rv"><h1 class="sec-title">SHORT</h1><p class="sec-meta">P05–P08 · 2023–2026</p></div>
+ <div class="short-grid">
+ <article class="short" id="p05">
+  <div class="p-kicker rv"><span class="chip">P05</span>TOBIG'S · SQL 과제 · MySQL 8.0 <a class="btn" href="https://github.com/leebomin/tobigs-26th" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div>
+  <h2 class="p-title rv">JOIN FAN-OUT</h2><p class="p-sub rv">Olist 이커머스 SQL 분석</p>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>주문 1건이 여러 행으로 늘어나는 JOIN</figcaption><div class="fig-part"><div class="fig-head"><span class="h"></span><span class="r"></span></div><p class="label" style="margin-bottom:10px">ORDERS → JOIN ITEMS × PAYMENTS · 예시</p><div id="f-fan"></div><div style="margin-top:18px"><p class="label">OVER-COUNT</p><div id="f-over"></div></div></div></figure>
+  <div class="fl rv"><div><h5>FOUND</h5><p>JOIN 한 번으로 결제금액이 <span class="hl">28.23%</span> 과대 집계됐습니다. <b>주문 단위로 먼저 집계</b>해 행 수를 다시 맞췄습니다.</p></div><div><h5>LIMIT</h5><p>12월 −26.5%의 원인은 미확인</p></div></div>
+</article>
+ <article class="short" id="p06">
+  <div class="p-kicker rv"><span class="chip">P06</span>도시조사방법론 · 팀 5명 · 데이터 분석 · R · 2023.03–06</div>
+  <h2 class="p-title rv">EFFECT SIZE</h2><p class="p-sub rv">비수도권 대학 쇠퇴현황 분석</p>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>격차는 크고, 설명력은 작다</figcaption><div class="fig-part"><div class="fig-head"><span class="h"></span><span class="r"></span></div><p class="label" style="margin-bottom:6px">GS 누백 평균 · 낮을수록 선호</p><div id="f-gs"></div><div class="waffles" style="margin-top:18px;grid-template-columns:150px 1fr"><div id="w-r2"></div><div><p class="w-l">선호도 ~ 청년 순이동 · 시군구 81</p><p class="w-v">R² ≈ 0.11</p><p class="fig-note">칸 하나 = 1% · 설명된 몫 11칸</p></div></div></div></figure>
+  <div class="fl rv"><div><h5>FOUND</h5><p>GS 누백 격차는 뚜렷했지만 (수도권 24.0 vs 52.5, p&lt;0.001) 청년 순이동에 대한 설명력은 <b>11%</b>에 그쳤습니다.</p></div><div><h5>LIMIT</h5><p>2개 연도 · 81개 표본, 인과 아님</p></div></div>
+</article>
+ <article class="short" id="p07">
+  <div class="p-kicker rv"><span class="chip">P07</span>다변량통계학 · 개인 · SAS · 2024.09–12</div>
+  <h2 class="p-title rv">DEFINITION BIAS</h2><p class="p-sub rv">지방소멸위험지수 다변량 분석</p>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>주성분 4개 · 계산식이 겹치는 변수</figcaption><div class="fig-part"><div class="fig-head"><span class="h"></span><span class="r"></span></div><p class="label" style="margin-bottom:6px">SCREE · 9 COMPONENTS · EIGENVALUE · 칸 하나 = 0.2</p><div id="f-scree"></div><div style="margin-top:18px"><p class="label" style="margin-bottom:8px">두 변수의 계산식이 같은 분모를 품는다 · r = −0.908</p><div class="cards2"><div class="c"><small>독거노인 비율 =<br><b>독거노인</b> / <b>65세+</b></small></div><div class="c"><small>소멸위험 =<br><b>20–39 여성</b> / <b>65세+</b></small></div></div></div></div></figure>
+  <div class="fl rv"><div><h5>FOUND</h5><p>변수를 9 → 5개로 줄여도 adj R² <b>0.857</b>이 유지됐고, 주성분 4개가 <b>85.3%</b>를 설명했습니다.</p></div><div><h5>LIMIT</h5><p>공통 분모로 상관이 과장될 수 있음</p></div></div>
+</article>
+ <article class="short" id="p08">
+  <div class="p-kicker rv"><span class="chip">P08</span>회귀분석1 · 개인 · SAS · 2024.03–06</div>
+  <h2 class="p-title rv">INFLUENCE</h2><p class="p-sub rv">빈집 비율 회귀 진단</p>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>영향점 12곳 · 계수 부호 반전</figcaption><div class="fig-part"><div class="fig-head"><span class="h"></span><span class="r"></span></div><p class="label" style="margin-bottom:8px">COOK’S D · 시군구 261곳 · 큰 순 정렬 · ■ = 4/n 초과 12곳</p><div id="c-261"></div><div style="margin-top:18px"><p class="label">adj R² · 영향점 포함 / 제외</p><div id="f-r2"></div></div><div style="margin-top:14px"><p class="label" style="margin-bottom:8px">노후주택 · 단순 상관 vs 회귀 계수</p><div class="cards2"><div class="c"><span class="label">단순 상관</span><p class="p">+0.33</p></div><div class="c"><span class="label">회귀 계수</span><p class="p">(−)</p><small>다른 변수와 겹친 정보 때문에 부호 반전</small></div></div></div></div></figure>
+  <div class="fl rv"><div><h5>FOUND</h5><p>두 방법이 같은 4개 변수를 골라 adj R² <b>0.587</b>. 영향점 12곳을 빼면 0.633으로 바뀌어 <b>흔들림의 크기</b>를 보고했습니다.</p></div><div><h5>LIMIT</h5><p>계수 부호를 인과로 읽지 않음</p></div></div>
+</article>
+ </div>
+</section>
+
+<nav class="pager">
+  <a href="p04.html"><span class="label">← PREV</span><span class="t">P04 A/B TESTING</span></a>
+  <a href="p01.html"><span class="label">NEXT →</span><span class="t">P01 DEEPFAKE DETECTION</span></a>
+</nav>
+</main>
+<footer class="foot"><span>© 2026 LEE BOMIN</span><a href="../index.html#works">ALL WORKS ↑</a></footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/figs.js"></script>
+<script>
+
+const {mount}=PF, F=FIG;
+mount(document.getElementById('f-fan'), F.fanout({}));
+mount(document.getElementById('f-over'), F.hbars({min:0,max:32,ticks:[0,10,20,30],noteW:80,labelW:70,
+ rows:[{k:'결제금액',v:28.23,vt:'+28.23%'},{k:'판매금액',v:4.48,vt:'+4.48%',c:'#8C8C86'}]}));
+mount(document.getElementById('f-gs'), F.dotrows({min:0,max:70,ticks:[0,10,20,30,40,50,60,70],tf:0,rowH:62,
+ rows:[{k:'수도권',sub:'',pts:[{v:24,t:'24.0'}]},{k:'비수도권',sub:'Δ 28.5 · p<0.001',pts:[{v:52.5,t:'52.5'}]}]}));
+document.getElementById('w-r2').innerHTML=PF.cells(100,i=>i<11?'f':'',10);
+mount(document.getElementById('f-scree'), F.scree({ev:[5.28,1.22,.67,.49,.47,.38,.27,.17,.02],k:4,cum:'85.3%'}));
+document.getElementById('c-261').innerHTML=PF.cells(261,i=>i<12?'f':'',29);
+mount(document.getElementById('f-r2'), F.hbars({min:0,max:.8,ticks:[0,.2,.4,.6,.8],noteW:120,labelW:70,
+ rows:[{k:'포함',v:.587,vt:'0.587'},{k:'제외 시',v:.633,vt:'0.633',c:'#B9B9B3',note:'12곳 제외'}]}));
+
+</script>
+</body>
+</html>

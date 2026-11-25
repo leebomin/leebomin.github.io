@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PILL FINDER · 이보민</title>
+<meta name="description" content="알약 찾기 도우미 · 공식 문서 근거 LLM 웹앱">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="run">
+  <a class="brand" href="../index.html">LEE BOMIN<span class="long"> — PORTFOLIO</span></a>
+  <nav class="tracker" aria-label="프로젝트"><a href="p01.html">P01</a><a href="p02.html">P02</a><a href="p03.html" class="on">P03</a><a href="p04.html">P04</a><span class="sep"></span><a href="more.html#p05">P05</a><a href="more.html#p06">P06</a><a href="more.html#p07">P07</a><a href="more.html#p08">P08</a></nav>
+  <span class="where">(P03) PROJECT · MAIN</span>
+</header>
+<main class="wrap">
+
+<section class="p-sec p-hero" id="overview">
+ <header class="p-head rv"><div class="p-kicker"><span class="chip">P03</span>네이버클라우드 에이전틱 AI 과정 · 데모 · 2026.11 <a class="btn" href="https://github.com/leebomin/pill-finder" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div><h1 class="p-title">PILL FINDER</h1><p class="p-sub">알약 찾기 도우미 · 공식 문서 근거 LLM 웹앱</p></header>
+ <div class="p-grid">
+  <div class="rv">
+   <p class="p-intro">공식 자료만 근거로 알약 후보를 찾고, 일반의약품에 한해 <b>쉬운 말 요약</b>과 질문 답변을 주는 웹앱입니다. 진단 · 복용 지시는 하지 않습니다.</p>
+   <div class="did"><p class="label">What I did</p><ol><li><span class="n">1</span><p>계산 · 규칙은 코드, 답변은 HyperCLOVA X, 검토는 Claude API<br>→ <span class="hl">모델에게 맡기지 않을 것</span>부터 정의</p></li><li><span class="n">2</span><p>표현 목록에 걸리지 않은 응급 질문을 Qwen3 4B가 한 번 더 판단, 감지율 <b>3/20 → 20/20</b></p></li><li><span class="n">3</span><p>모든 답변에 근거 문단 또는 “공식 자료에 없음” 표시(<b>20/20</b>), 개인정보는 확인 전 외부 전송 차단(<b>9/10</b> 가림)</p></li></ol></div>
+   <dl class="facts"><div><dt>ROLE</dt><dd>개인 · 기획 · 모델 역할 설계 · 앱 · MCP 도구 구현 · 평가 설계</dd></div><div><dt>IMPACT</dt><dd>완료 기준 19개 중 17개 충족 · 외부 호출 없는 무료 모드로도 동작</dd></div><div><dt>MODEL</dt><dd>HyperCLOVA X(답변) · Qwen3 4B(판단) · Claude API(검토)</dd></div></dl>
+  </div>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>단계별 역할 · 평가 결과</figcaption><div class="fig-part"><div class="fig-head"><span class="h">01&nbsp;&nbsp;응급 질문 감지</span><span class="r">칸 하나 = 질문 1개</span></div><div class="rowfig"><span class="k">KEYWORD LIST</span><div id="c-1"></div><span class="v">3 / 20</span></div><div class="rowfig"><span class="k">+ QWEN3 4B</span><div id="c-2"></div><span class="v">20 / 20</span></div></div><div class="fig-part"><div class="fig-head"><span class="h">02&nbsp;&nbsp;PIPELINE</span><span class="r">모델에게 맡기지 않을 것부터</span></div><div class="flow"><div class="box"><span class="label">QUESTION</span><p>입력</p></div><span class="arr">→</span><div class="box"><span class="label">EMERGENCY</span><p>코드 + Qwen3 4B</p></div><span class="arr">→</span><div class="box"><span class="label">RETRIEVE</span><p>식약처 원문</p></div><span class="arr">→</span><div class="box on"><span class="label">ANSWER</span><p>HyperCLOVA X</p></div><span class="arr">→</span><div class="box"><span class="label">REVIEW</span><p>Claude API</p></div></div><div class="flow-sub"><span>규칙 · 검색은 코드</span><span>답변 · 검토만 LLM</span></div></div><div class="fig-part"><div class="fig-head"><span class="h">03&nbsp;&nbsp;안전 장치</span><span class="r">칸 하나 = 1건</span></div><div class="rowfig"><span class="k">CITATION</span><div id="c-3"></div><span class="v">20 / 20</span><div class="sub">근거 문단 또는 “공식 자료에 없음” 표시</div></div><div class="rowfig"><span class="k">PII MASK</span><div id="c-4"></div><span class="v">9 / 10</span><div class="sub">확인 전 외부 전송 0 / 10</div></div><div class="rowfig"><span class="k">DONE</span><div id="c-5"></div><span class="v">17 / 19</span><div class="sub">남은 2개는 사진 인식 측정 필요</div></div></div></figure>
+ </div>
+</section>
+
+<section class="p-sec" id="finding">
+ <div class="p-grid">
+  <div class="rv">
+   <div class="p-kicker"><span class="chip">P03</span><span class="sub-k">KEY FINDING · LLM · EVAL</span></div><h2 class="p-title">EVAL SET</h2><p class="p-sub">고정 평가셋 40문항 · 재측정</p>
+   <div class="story"><div class="blk"><h5>01&nbsp;&nbsp;SITUATION</h5><p>‘삼켰’, ‘한꺼번에’ 같은 <b>표현 목록</b>만으로는 응급 질문을 <b>3/20</b>밖에 잡지 못했습니다.</p></div><div class="blk"><h5>02&nbsp;&nbsp;DOUBT</h5><p>규칙을 고칠 때마다 직접 만든 질문으로 확인하면, 규칙에 맞춘 질문만 통과하는 <b>착시</b>가 생길 수 있었습니다.</p></div><div class="blk"><h5>03&nbsp;&nbsp;CHECK</h5><p>규칙을 보지 않은 에이전트가 쓴 <span class="hl">새 질문 40개</span>를 먼저 고정하고 그것으로만 평가했습니다. Qwen3 4B 판단을 더하자 <b>20/20</b>, 평가셋 안 추가 오탐 <b>0</b>, 약 <b>0.4초</b>였습니다.</p></div><div class="takeaway"><p class="label">Takeaway</p><p>응급 질문 감지 3/20 → 20/20</p></div></div>
+  </div>
+  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>규칙과 시험지를 다른 손에서</figcaption><div class="fig-part"><div class="fig-head"><span class="h">01&nbsp;&nbsp;SEPARATION</span><span class="r">규칙을 만든 쪽과 질문을 만든 쪽</span></div><div class="cards2" style="position:relative"><div class="c"><span class="label">RULE · 규칙</span><small style="font-size:14px;font-weight:700;color:var(--ink);margin-top:6px">표현 목록 + Qwen3 4B 판단</small></div><div class="c"><span class="label">AGENT · 질문 작성</span><small style="font-size:14px;font-weight:700;color:var(--ink);margin-top:6px">규칙을 보지 않고 질문 작성</small></div></div><p class="fig-note" style="text-align:center">┆ 서로 비공개 ┆</p></div><div class="fig-part"><div class="fig-head"><span class="h">02&nbsp;&nbsp;EVAL SET</span><span class="r">시험지 먼저 고정</span></div><div class="flow"><div class="box"><span class="label">STEP 1</span><p>질문 40개 먼저 고정</p></div><span class="arr">→</span><div class="box"><span class="label">STEP 2</span><p>규칙 · 모델 수정</p></div><span class="arr">→</span><div class="box"><span class="label">STEP 3</span><p>같은 40개로 재측정</p></div></div><div class="flow-sub"><span></span><span>↺ 2 → 3 반복 · 시험지는 바꾸지 않음</span></div></div><div class="fig-part"><div class="fig-head"><span class="h">03&nbsp;&nbsp;RESULT</span><span class="r">같은 40개로만 측정</span></div><div class="rowfig"><span class="k">KEYWORD LIST</span><div id="r-1"></div><span class="v">3 / 20</span></div><div class="rowfig"><span class="k">+ QWEN3 4B</span><div id="r-2"></div><span class="v">20 / 20</span><div class="sub">평가셋 기준 추가 오탐 0 · 응답 약 0.4초</div></div><div class="rowfig"><span class="k">LIMIT</span><div id="r-3"></div><span class="v">2 / 20</span><div class="sub">가정형 질문에도 119 안내가 뜨는 오탐 · 미해결 · 의료인 검수 전 데모</div></div></div></figure>
+ </div>
+</section>
+
+<nav class="pager">
+  <a href="p02.html"><span class="label">← PREV</span><span class="t">P02 PREDICTIVE MAINTENANCE</span></a>
+  <a href="p04.html"><span class="label">NEXT →</span><span class="t">P04 A/B TESTING</span></a>
+</nav>
+</main>
+<footer class="foot"><span>© 2026 LEE BOMIN</span><a href="../index.html#works">ALL WORKS ↑</a></footer>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/figs.js"></script>
+<script>
+
+const C=(id,n,k,cls)=>document.getElementById(id).innerHTML=PF.cells(n,i=>i<k?(cls||'f'):'',n);
+C('c-1',20,3);C('c-2',20,20);C('c-3',20,20);C('c-4',10,9);C('c-5',19,17);
+C('r-1',20,3);C('r-2',20,20);C('r-3',20,2,'g');
+
+</script>
+</body>
+</html>
