@@ -60,13 +60,14 @@
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const paper = getComputedStyle(document.body).backgroundColor;
       const e = t * t * (3 - 2 * t), c2 = Math.ceil(cols / 2);
       for (let k = 0; k < cols * rows; k++) {
         const i = k % cols, j = (k / cols) | 0, x = i * C, y = j * C;
         if (e > 0 && thr[k] <= e * 1.02) { /* pixel-art state: grey steps on a grid */
           let g = lum[k];
           const h = heat[k]; if (h > 0.3) g = Math.max(0, g - 40 * h); /* hover still answers in pixel-art mode */
-          ctx.fillStyle = PAPER; ctx.fillRect(x, y, C, C);
+          ctx.fillStyle = paper; ctx.fillRect(x, y, C, C);
           ctx.fillStyle = `rgb(${g},${g},${g})`; ctx.fillRect(x + .5, y + .5, C - 1, C - 1);
           continue;
         }
