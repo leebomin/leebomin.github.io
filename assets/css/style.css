@@ -40,7 +40,7 @@ b,strong{font-weight:700;color:var(--ink)}
 .muted{color:var(--mute)}
 
 /* ───────── shell: fixed sidebar + reading column ───────── */
-.shell{display:flex;max-width:1280px;margin:0 auto;min-height:100vh}
+.shell{display:flex;max-width:1400px;margin:0 auto;min-height:100vh}
 .side{
   position:sticky;top:0;height:100vh;width:var(--side);flex:none;
   padding:36px 32px 28px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;
@@ -263,9 +263,8 @@ figcaption{margin-top:9px;font-size:13px;color:var(--mute);line-height:1.65}
 .trail .chip.a{background:var(--ink);color:var(--paper)}
 @keyframes chip{0%{opacity:0;transform:translate(-50%,-50%) scale(.85)}18%{opacity:1;transform:translate(-50%,-50%) scale(1)}60%{opacity:1}100%{opacity:0;transform:translate(-50%,calc(-50% - 10px)) scale(.97)}}
 .rail{display:none}
-@media (min-width:1400px){
-  .shell{max-width:1400px}
-  .rail{display:block;flex:none;width:220px;margin-left:8px;padding:70px 0 40px}
+@media (min-width:1300px){
+  .rail{display:block;flex:none;width:min(220px,calc(100vw - 1170px));margin-left:8px;padding:70px 0 40px}
   .rail .trail{position:sticky;top:70px;height:calc(100vh - 140px);min-height:320px;margin:0}
 }
 @media (prefers-reduced-motion:reduce){.trail{display:none}}

@@ -40,7 +40,7 @@
       if (!r.width || !img.complete) return;
       dpr = Math.min(devicePixelRatio || 1, 2);
       W = r.width; H = r.width * img.height / img.width;
-      canvas.style.height = H + 'px';
+      canvas.style.aspectRatio = img.width + ' / ' + img.height; canvas.style.height = 'auto';
       canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
       cols = Math.ceil(W / C); rows = Math.ceil(H / C);
       rgb = sample(1); rgb2 = sample(2);
@@ -147,8 +147,9 @@
     mount(el, fn) {
       if (!el) return;
       let last = 0;
-      const go = () => { const w = Math.round(el.clientWidth); if (w && w !== last) { last = w; el.innerHTML = fn(w); } };
-      go(); new ResizeObserver(go).observe(el);
+      let q = 0;
+      const go = () => { q = 0; const w = Math.round(el.clientWidth); if (w && w !== last) { last = w; el.innerHTML = fn(w); } };
+      go(); new ResizeObserver(() => { if (!q) q = requestAnimationFrame(go); }).observe(el);
     },
     cells: (n, cls, cols) => `<div class="cells" style="grid-template-columns:repeat(${cols || n},1fr)">${Array.from({ length: n }, (_, i) => `<i class="${typeof cls === 'function' ? cls(i) : (cls || '')}"></i>`).join('')}</div>`,
   };
