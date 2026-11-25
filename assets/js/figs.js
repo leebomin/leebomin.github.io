@@ -2,7 +2,8 @@
 (() => {
   const INK = '#141414', INK2 = '#3A3A37', MUTE = '#686863', LINE = '#C6C6C0', CELL = '#B9B9B3', ACC = '#1F32A8', PAPER = '#ECECE8';
   const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
-  const T = (x, y, s, o = {}) => `<text x="${x}" y="${y}" font-size="${o.fs || 11}" ${o.a ? `text-anchor="${o.a}"` : ''} ${o.cls ? `class="${o.cls}"` : ''} style="${o.ko ? "font-family:'Gothic A1',sans-serif;font-weight:500;" : ''}${o.disp ? 'font-family:Inter,sans-serif;font-weight:600;' : ''}${o.b ? 'font-weight:700;' : ''}fill:${o.c || INK};letter-spacing:${o.ls ?? 0.02}em">${esc(s)}</text>`;
+  const KO = /[\uAC00-\uD7A3]/;
+  const T = (x, y, s, o = {}) => (o.ko === undefined && KO.test(s) && (o = { ...o, ko: true }), 0) || `<text x="${x}" y="${y}" font-size="${o.fs || 11}" ${o.a ? `text-anchor="${o.a}"` : ''} ${o.cls ? `class="${o.cls}"` : ''} style="${o.ko ? "font-family:'Gothic A1',sans-serif;font-weight:500;" : ''}${o.disp ? 'font-family:'Inter Tight',sans-serif;font-weight:600;' : ''}${o.b ? 'font-weight:700;' : ''}fill:${o.c || INK};letter-spacing:${o.ls ?? 0.02}em">${esc(s)}</text>`;
   const svg = (w, h, inner) => `<svg class="svgfig" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
   const lin = (min, max, a, b) => v => a + (v - min) / (max - min) * (b - a);
   const narrow = w => w < 520;

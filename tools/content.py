@@ -11,14 +11,15 @@ def thumb(cells, label, value):
     return f'<div class="thumb"><div class="tg" style="width:{w}%" data-cells="{n},{k},{cols},{cls}"></div><div class="tl"><span>{label}</span><b>{value}</b></div></div>'
 
 def pitem(code, meta, title, ko, line, href, th, gh=None):
-    tags = stag('자세히', href, '{AR}', False) + (stag('GitHub', f'https://github.com/{gh}', '{GH}') if gh else '')
+    tags = stag('GitHub', f'https://github.com/{gh}', '{GH}') if gh else ''
     return f'''<article class="pitem rv">
-  <a href="{href}" aria-label="{title}">{th}</a>
+  <a class="cover" href="{href}" aria-label="{title} {ko}"></a>
+  {th}
   <div class="pinfo">
     <div class="badge"><span class="k">{code}</span>{meta}</div>
-    <h3><a href="{href}">{title}</a><span class="ko">{ko}</span></h3>
+    <h3>{title}<span class="ko">{ko}</span></h3>
     <p>{line}</p>
-    <div class="small-tags">{tags}</div>
+    {'<div class="small-tags">' + tags + '</div>' if tags else ''}
   </div>
 </article>'''
 
@@ -69,8 +70,8 @@ def updates():
 
 INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티스트 이보민의 포트폴리오. 실험 설계 · 모델 평가와 검증 · 통계 모델링 · LLM 서비스.', body=f'''
 <section id="about" class="rv">
-  <div class="photo m" data-src="assets/img/portrait.png" aria-label="이보민 사진. 누르면 픽셀 그림으로 바뀝니다."></div>
-  <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span> <span class="muted">데이터로 판단하고, 그 판단을 다시 확인합니다.</span></h1>
+  <div class="photo m" data-src="assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
+  <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span></h1>
   <div class="prose">
     <p>서울시립대학교에서 도시행정학과 통계학을 공부하고 있습니다.</p>
     <p>점수 자체보다 <mark>그 점수가 어디서 나왔는지</mark>에 관심이 많습니다. 데이터에 남은 가짜 단서, 평가 방식, 판정 규칙처럼 결과를 흔들 수 있는 것을 살펴봅니다.</p>
@@ -357,7 +358,7 @@ mount(document.getElementById('f-logp'), F.logp({min:.001,max:1,ticks:[.001,.01,
 def short(code, id_, title, ko, meta, figs, found, limit, gh=None):
     links = stag('GitHub', f'https://github.com/{gh}', '{GH}') if gh else ''
     return f'''<section class="sec" id="{id_}" style="padding-top:56px">
-<div class="crumb label rv"><span>{code} · Short</span><span>/</span><span>{meta}</span></div>
+<div class="crumb label rv"><span>{code} · Short</span><span>/</span><span class="ko-t">{meta}</span></div>
 <h2 class="ptitle rv" style="font-size:24px">{title}</h2><p class="psub rv">{ko}</p>
 {'<div class="small-tags rv">' + links + '</div>' if links else ''}
 <div class="body" style="margin-top:12px">{figs}

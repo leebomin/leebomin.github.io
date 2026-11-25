@@ -19,7 +19,7 @@
 <aside class="side">
   <div>
     <a class="name" href="../index.html">이보민<small>Lee Bomin · Data Scientist</small></a>
-    <div class="photo" data-src="../assets/img/portrait.png" aria-label="이보민 사진. 누르면 픽셀 그림으로 바뀝니다."></div>
+    <div class="photo" data-src="../assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
     <nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav>
   </div>
   <div class="foot"><div class="icons"><a href="https://github.com/leebomin" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a href="https://velog.io/@leebomin" target="_blank" rel="noopener" aria-label="velog" title="velog"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><path d="M4.3 4.6l1.9-.3 1.1 5.6c.9-1.3 1.9-3.2 1.9-4.6 0-.5-.1-.8-.2-1l1.8-.4c.2.3.3.8.3 1.3 0 1.9-1.6 4.6-3.3 6.4H5.9z" fill="currentColor"/></svg></a><a href="mailto:ibomin88@gmail.com" aria-label="Email" title="ibomin88@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></a></div><p class="copy">© 2026 Lee Bomin</p></div>
@@ -27,28 +27,28 @@
 <main class="main">
 <div class="crumb label rv"><a href="../projects.html">Projects</a><span>/</span><span>P05–08 · Short</span></div>
 <h1 class="ptitle rv">Short projects</h1><p class="psub rv">SQL · 통계 수업과 과제에서 한 분석 네 가지</p><section class="sec" id="p05" style="padding-top:56px">
-<div class="crumb label rv"><span>P05 · Short</span><span>/</span><span>TOBIG'S SQL 과제 · MySQL 8.0</span></div>
+<div class="crumb label rv"><span>P05 · Short</span><span>/</span><span class="ko-t">TOBIG'S SQL 과제 · MySQL 8.0</span></div>
 <h2 class="ptitle rv" style="font-size:24px">Join Fan-out</h2><p class="psub rv">Olist 이커머스 SQL 분석</p>
 <div class="small-tags rv"><a class="stag" href="https://github.com/leebomin/tobigs-26th" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div>
 <div class="body" style="margin-top:12px"><figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>주문 1건이 여러 행으로 늘어나는 JOIN</span><span class=r>Orders → Items × Payments · 예시</span></div><div id="f-fan"></div></div><div class="fig-part"><div class=fig-head><span class=h>Over-count</span><span class=r></span></div><div id="f-over"></div></div></div></figure>
 <h3 class="rv">발견</h3><p class="rv">쿼리는 에러 없이 돌았지만, JOIN 한 번으로 결제금액이 <span class="hl">28.23%</span>(상품 판매금액은 4.48%) 과대 집계돼 있었습니다. 테이블마다 행 수와 고유 주문 수를 비교하고, 여러 행이 붙는 테이블은 <b>주문 단위로 먼저 집계</b>해 행 수를 다시 맞췄습니다.</p>
 <h3 class="rv">한계</h3><p class="rv">12월 매출 −26.5%가 부진인지 11월 행사 효과인지는 전년 동기 · 트래픽 데이터가 없어 확인하지 못했습니다.</p></div>
 </section><section class="sec" id="p06" style="padding-top:56px">
-<div class="crumb label rv"><span>P06 · Short</span><span>/</span><span>도시조사방법론 · 팀 5명 · 데이터 분석 · R · 2023.03–06</span></div>
+<div class="crumb label rv"><span>P06 · Short</span><span>/</span><span class="ko-t">도시조사방법론 · 팀 5명 · 데이터 분석 · R · 2023.03–06</span></div>
 <h2 class="ptitle rv" style="font-size:24px">Effect Size</h2><p class="psub rv">비수도권 대학 쇠퇴현황 분석</p>
 
 <div class="body" style="margin-top:12px"><figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>GS 누백 평균</span><span class=r>낮을수록 선호</span></div><div id="f-gs"></div></div><div class="fig-part"><div class=fig-head><span class=h>선호도 ~ 청년 순이동</span><span class=r>시군구 81 · 칸 하나 = 1%</span></div><div class="waffles" style="grid-template-columns:140px 1fr"><div data-cells="100,11,10,f"></div><div><p class="w-v">R² ≈ 0.11</p><p class="fig-note">설명된 몫은 11칸뿐입니다.</p></div></div></div></div></figure>
 <h3 class="rv">발견</h3><p class="rv">GS 누백 격차는 뚜렷했지만(수도권 24.0 vs 비수도권 52.5, Welch p&lt;0.001), 청년 순이동에 대한 설명력은 <b>11%</b>에 그쳤습니다. 유의성과 설명력을 나눠서 해석했습니다.</p>
 <h3 class="rv">한계</h3><p class="rv">2개 연도 · 81개 표본의 상관 분석이라 인과로 말하기 어렵습니다.</p></div>
 </section><section class="sec" id="p07" style="padding-top:56px">
-<div class="crumb label rv"><span>P07 · Short</span><span>/</span><span>다변량통계학 · 개인 · SAS · 2024.09–12</span></div>
+<div class="crumb label rv"><span>P07 · Short</span><span>/</span><span class="ko-t">다변량통계학 · 개인 · SAS · 2024.09–12</span></div>
 <h2 class="ptitle rv" style="font-size:24px">Definition Bias</h2><p class="psub rv">지방소멸위험지수 다변량 분석</p>
 
 <div class="body" style="margin-top:12px"><figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Scree · 9 components</span><span class=r>고유값 · 칸 하나 = 0.2</span></div><div id="f-scree"></div></div><div class="fig-part"><div class=fig-head><span class=h>계산식이 겹치는 두 변수</span><span class=r>r = −0.908</span></div><div class="cards2"><div class="c"><small>독거노인 비율 = <b>독거노인</b> / <b>65세+</b></small></div><div class="c"><small>소멸위험 = <b>20–39 여성</b> / <b>65세+</b></small></div></div></div></div></figure>
 <h3 class="rv">발견</h3><p class="rv">시군구 229곳 · 변수 9개로 회귀 · PCA · 인자분석 · LDA · MANOVA를 했습니다. 변수를 9 → 5개로 줄여도 adj R² <b>0.857</b>이 유지됐고, 주성분 4개가 <b>85.3%</b>를 설명했습니다.</p>
 <h3 class="rv">한계</h3><p class="rv">독거노인 비율과 반응변수가 같은 분모(65세 이상)를 품고 있어, 상관 −0.908의 상당 부분은 계산식에서 나올 수 있습니다.</p></div>
 </section><section class="sec" id="p08" style="padding-top:56px">
-<div class="crumb label rv"><span>P08 · Short</span><span>/</span><span>회귀분석1 · 개인 · SAS · 2024.03–06</span></div>
+<div class="crumb label rv"><span>P08 · Short</span><span>/</span><span class="ko-t">회귀분석1 · 개인 · SAS · 2024.03–06</span></div>
 <h2 class="ptitle rv" style="font-size:24px">Influence</h2><p class="psub rv">빈집 비율 회귀 진단</p>
 
 <div class="body" style="margin-top:12px"><figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Cook’s D</span><span class=r>시군구 261곳 · 큰 순 정렬 · ■ = 4/n 초과 12곳</span></div><div data-cells="261,12,29,f"></div></div><div class="fig-part"><div class=fig-head><span class=h>adj R²</span><span class=r>영향점 포함 / 제외</span></div><div id="f-r2"></div></div></div></figure>
