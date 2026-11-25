@@ -8,3 +8,11 @@
 - `assets/` — 스타일, 스크립트(그림은 실제 수치로 SVG를 그림), 이미지
 
 빌드 도구 없이 정적 파일 그대로 GitHub Pages에서 열립니다.
+
+## 프로젝트 페이지 고치기
+
+`works/*.html`은 `tools/pages.py`(내용)에서 만들어집니다. 내용을 고친 뒤 저장소 루트에서
+
+```
+python3 tools/build.py .
+```
