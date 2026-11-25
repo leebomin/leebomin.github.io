@@ -69,19 +69,15 @@ def updates():
 
 INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티스트 이보민의 포트폴리오. 실험 설계 · 모델 평가와 검증 · 통계 모델링 · LLM 서비스.', body=f'''
 <section id="about" class="rv">
-  <div class="photo m" data-src="assets/img/portrait.png" role="img" aria-label="이보민 사진"><span class="hint">TOUCH ▦</span></div>
+  <div class="photo m" data-src="assets/img/portrait.png" aria-label="이보민 사진. 누르면 픽셀 그림으로 바뀝니다."></div>
   <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span> <span class="muted">데이터로 판단하고, 그 판단을 다시 확인합니다.</span></h1>
   <div class="prose">
-    <p>서울시립대에서 <mark>도시행정과 통계학</mark>을 공부하고 있습니다. 지금은 <span class="u">TOBIG'S 26기</span> 멀티모달/CV 팀에서 딥페이크 탐지 모듈을 만들고 있고, 네이버클라우드 AI 에이전트 과정에서 공식 문서만 근거로 답하는 LLM 웹앱을 만들었습니다. 그 전에는 핀란드 Tampere University에서 교환학생으로 지냈고, 국토교통부 토지정책과 청년인턴과 통계청 대학생 기자단을 했습니다.</p>
-    <p>점수 자체보다 <mark>그 점수가 어디서 나왔는지</mark>에 관심이 많습니다. 데이터에 남은 가짜 단서, 평가 방식, 판정 규칙처럼 결과를 흔들 수 있는 것부터 살펴보고, 확인한 것과 못 한 것을 나눠서 보고합니다.</p>
+    <p>서울시립대학교에서 도시행정학과 통계학을 공부하고 있습니다.</p>
+    <p>점수 자체보다 <mark>그 점수가 어디서 나왔는지</mark>에 관심이 많습니다. 데이터에 남은 가짜 단서, 평가 방식, 판정 규칙처럼 결과를 흔들 수 있는 것을 살펴봅니다.</p>
   </div>
   <div class="tags"><span class="tag">실험 설계</span><span class="tag">모델 평가 · 검증</span><span class="tag">통계 모델링</span><span class="tag">LLM 서비스</span></div>
 </section>
 
-<section class="sec" id="updates">
-  <h2 class="sec-t">News</h2>
-  {updates()}
-</section>
 
 <section class="sec" id="projects">
   <h2 class="sec-t">Selected Projects</h2>
@@ -129,7 +125,7 @@ CV_PAGE = dict(title='CV · 이보민', desc='이보민의 경력 · 학력 · �
 
 <section class="sec" id="contact">
   <h2 class="sec-t">Contact</h2>
-  <p class="prose rv" style="margin-top:0">데이터가 말하는 것과 말하지 않는 것을 구분하는 일을 하고 싶습니다. <a class="u" href="mailto:ibomin88@gmail.com">ibomin88@gmail.com</a> 으로 연락 주세요.</p>
+  <p class="prose rv" style="margin-top:0">데이터가 말하는 것과 말하지 않는 것을 구분하는 일을 하고 싶습니다. <a class="u" href="mailto:ibomin88@gmail.com">ibomin88@gmail.com</a></p>
 </section>
 ''')
 
