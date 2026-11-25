@@ -3,50 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A/B TESTING · 이보민</title>
+<title>A/B Testing · 이보민</title>
 <meta name="description" content="숙박 앱 전환율 A/B 테스트 · 사전 판정 규칙">
+<meta property="og:title" content="A/B Testing · 이보민">
+<meta property="og:description" content="숙박 앱 전환율 A/B 테스트 · 사전 판정 규칙">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-<header class="run">
-  <a class="brand" href="../index.html">LEE BOMIN<span class="long"> — PORTFOLIO</span></a>
-  <nav class="tracker" aria-label="프로젝트"><a href="p01.html">P01</a><a href="p02.html">P02</a><a href="p03.html">P03</a><a href="p04.html" class="on">P04</a><span class="sep"></span><a href="more.html#p05">P05</a><a href="more.html#p06">P06</a><a href="more.html#p07">P07</a><a href="more.html#p08">P08</a></nav>
-  <span class="where">(P04) PROJECT · MAIN</span>
-</header>
-<main class="wrap">
-
-<section class="p-sec p-hero" id="overview">
- <header class="p-head rv"><div class="p-kicker"><span class="chip">P04</span>TOBIG'S · DA 트랙 과제 · 2026.10 <a class="btn" href="https://github.com/leebomin/tobigs-26th" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div><h1 class="p-title">A/B TESTING</h1><p class="p-sub">숙박 앱 전환율 A/B 테스트 · 사전 판정 규칙</p></header>
- <div class="p-grid">
-  <div class="rv">
-   <p class="p-intro">분석팀이 진단한 목록 → 상세 전환율 <b>약 10.7%p 격차</b>를 개선안으로 바꾸고, <b>결과를 보기 전에 정한 규칙</b>대로 실험을 설계 · 판정했습니다.</p>
-   <div class="did"><p class="label">What I did</p><ol><li><span class="n">1</span><p><b>사용자 단위</b> 배정 · delta method로 분산 보정, 디자인 효과 <b>1.59 → 2.11</b>을 반영해 MDE 3%p · 기간 <b>21일</b> 설정</p></li><li><span class="n">2</span><p>배정 비율(SRM p=0.71)과 <b>8일차 광고 캠페인</b> 전후를 분리 확인, 광고 이후 구간은 탐색적으로만 해석</p></li><li><span class="n">3</span><p>목록 → 상세 전환율 <span class="hl">+2.75%p</span> (95% CI 0.96~4.54, p=0.0026), 가드레일 유의한 악화 없음 → <b>단계적 배포 권고</b></p></li></ol></div>
-   <dl class="facts"><div><dt>ROLE</dt><dd>개인 과제 · 실험 설계 · 판정 규칙 · 분석 전 과정</dd></div><div><dt>IMPACT</dt><dd>+2.75%p · 가드레일 유의한 악화 없음 → 단계적 배포 권고</dd></div><div><dt>METHOD</dt><dd>사용자 단위 배정 · delta method · SRM 검정 · MDE</dd></div></dl>
+<header class="topbar"><a class="nm" href="../index.html">이보민</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav></header>
+<div class="shell">
+<aside class="side">
+  <div>
+    <a class="name" href="../index.html">이보민<small>Lee Bomin · Data Scientist</small></a>
+    <div class="photo" data-src="../assets/img/portrait.png" role="img" aria-label="이보민 사진. 커서를 올리면 그 주변이 픽셀로 바뀝니다."><span class="hint">HOVER ▦</span></div>
+    <nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav>
   </div>
-  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>격차 · 배정 · 효과 구간</figcaption><div class="fig-part"><div class="fig-head"><span class="h">01&nbsp;&nbsp;GAP</span><span class="r">관찰 격차 중 실험으로 확인된 몫 · %p</span></div><div id="f-gap"></div></div><div class="fig-part"><div class="fig-head"><span class="h">02&nbsp;&nbsp;ASSIGNMENT</span><span class="r">SRM p = 0.71</span></div><div id="f-asg"></div><p class="fig-note">사용자 단위 배정 · 두 그룹 비율이 기대와 다르지 않음</p></div><div class="fig-part"><div class="fig-head"><span class="h">03&nbsp;&nbsp;EFFECT</span><span class="r">목록 → 상세 전환율 · 95% CI · %p</span></div><div id="f-ci"></div><p class="fig-note">구간 전체가 0보다 큼 → 효과 있음 · p = 0.0026<br>매출 증가는 이 실험으로 확인하지 않음</p></div></figure>
- </div>
-</section>
+  <div class="foot"><div class="icons"><a href="https://github.com/leebomin" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a href="https://velog.io/@leebomin" target="_blank" rel="noopener" aria-label="velog" title="velog"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><path d="M4.3 4.6l1.9-.3 1.1 5.6c.9-1.3 1.9-3.2 1.9-4.6 0-.5-.1-.8-.2-1l1.8-.4c.2.3.3.8.3 1.3 0 1.9-1.6 4.6-3.3 6.4H5.9z" fill="currentColor"/></svg></a><a href="mailto:ibomin88@gmail.com" aria-label="Email" title="ibomin88@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></a></div><p class="copy">© 2026 Lee Bomin</p></div>
+</aside>
+<main class="main">
+<div class="crumb label rv"><a href="../projects.html">Projects</a><span>/</span><span>P04 · Main</span></div>
+<h1 class="ptitle rv">A/B Testing</h1><p class="psub rv">숙박 앱 전환율 A/B 테스트 · 사전 판정 규칙</p>
+<div class="small-tags rv"><a class="stag" href="https://github.com/leebomin/tobigs-26th" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div>
+<dl class="meta rv"><div><dt class="label">Period</dt><dd>2026.10</dd></div><div><dt class="label">Team</dt><dd>TOBIG'S DA 트랙 · 개인 과제</dd></div><div><dt class="label">Role</dt><dd>실험 설계 · 판정 규칙 · 분석 전 과정</dd></div><div><dt class="label">Method</dt><dd>사용자 단위 배정 · delta method · SRM 검정 · MDE</dd></div></dl>
+<div class="body">
+<p class="rv">분석팀이 진단한 promotion 채널의 목록 → 상세 전환율 <b>약 10.7%p 격차</b>를 개선안(목록 카드 할인가 표시)으로 바꾸고, <b>결과를 보기 전에 정한 규칙</b>대로 실험을 설계 · 판정했습니다.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Gap</span><span class=r>관찰 격차 중 실험으로 확인된 몫 · %p</span></div><div id="f-gap"></div></div><div class="fig-part"><div class=fig-head><span class=h>Effect</span><span class=r>목록 → 상세 전환율 · 95% CI · %p</span></div><div id="f-ci"></div></div></div><figcaption>구간 전체가 0보다 커서 효과가 있다고 판정했습니다(p = 0.0026). 매출 증가는 이 실험으로 확인하지 않았습니다.</figcaption></figure>
 
-<section class="p-sec" id="finding">
- <div class="p-grid">
-  <div class="rv">
-   <div class="p-kicker"><span class="chip">P04</span><span class="sub-k">KEY FINDING · EXPERIMENT</span></div><h2 class="p-title">PEEKING</h2><p class="p-sub">중간 확인(peeking) · 고정 기간 판정</p>
-   <div class="story"><div class="blk"><h5>01&nbsp;&nbsp;SITUATION</h5><p>같은 데이터로 <b>고정 기간 21일 판정</b>과 <b>매일 확인 후 중단</b>하는 방식을 비교했습니다.</p></div><div class="blk"><h5>02&nbsp;&nbsp;DOUBT</h5><p>매일 p값을 보다 멈추면 우연히 낮아진 날 결론이 나거나, 효과가 있어도 <b>출시를 접는</b> 판단이 나올 수 있었습니다.</p></div><div class="blk"><h5>03&nbsp;&nbsp;CHECK</h5><p>12일차에 멈추면 사용자 단위 p=<b>0.084</b>로 출시하지 않는 결론이었고, <span class="hl">21일 고정 판정</span>에서는 p=<b>0.0026</b>, +2.75%p였습니다.</p></div><div class="takeaway"><p class="label">Takeaway</p><p>판정 규칙은 결과보다 먼저</p></div></div>
-  </div>
-  <figure class="fig rv"><figcaption class="fig-cap"><span class="label">FIG.</span>같은 데이터 · 다른 중단 규칙</figcaption><div class="fig-part"><div class="fig-head"><span class="h">01&nbsp;&nbsp;TIMELINE</span><span class="r">21일 · 칸 하나 = 하루</span></div><div id="f-days"></div></div><div class="fig-part"><div class="fig-head"><span class="h">02&nbsp;&nbsp;DECISION</span><span class="r">같은 데이터 · 다른 규칙</span></div><div class="cards2"><div class="c"><span class="label">D12 · PEEK</span><p class="p">p = 0.084</p><small>사용자 단위로 유의하지 않음<br>→ 출시 안 함</small></div><div class="c on"><span class="label">D21 · FIXED</span><p class="p">p = 0.0026</p><small>+2.75%p · 가드레일 유의한 악화 없음<br>→ 단계적 배포 권고</small></div></div></div><div class="fig-part"><div class="fig-head"><span class="h">03&nbsp;&nbsp;P-VALUE</span><span class="r">로그 축 · 0.05 기준선</span></div><div id="f-logp"></div><p class="fig-note">8일차 광고 이후 구간은 전후를 나눠 탐색적으로만 해석</p></div></figure>
- </div>
-</section>
+<h2 class="rv">What I did<span class="ko">한 일</span></h2>
+<ol class="steps rv">
+<li><b>사용자 단위</b>로 배정하고 delta method로 분산을 보정했습니다. 디자인 효과 <b>1.59 → 2.11</b>을 반영해 MDE 3%p · 기간 <b>21일</b>을 정했습니다.</li>
+<li>배정 비율(SRM p = 0.71, 3,446명 vs 3,415명)과 <b>8일차 광고 캠페인</b> 전후를 나눠 확인하고, 광고 이후 구간은 탐색적으로만 해석했습니다.</li>
+<li>목록 → 상세 전환율 <span class="hl">+2.75%p</span> (95% CI 0.96~4.54), 가드레일 유의한 악화 없음 → <b>단계적 배포</b>를 권고했습니다.</li>
+</ol>
 
+<h2 class="rv">Key finding<span class="ko">Peeking · 중간 확인</span></h2>
+<h3 class="rv">상황</h3>
+<p class="rv">같은 데이터로 <b>고정 기간 21일 판정</b>과 <b>매일 확인 후 중단</b>하는 방식을 비교했습니다.</p>
+<h3 class="rv">의심</h3>
+<p class="rv">매일 p값을 보다 멈추면 우연히 낮아진 날 결론이 나거나, 효과가 있어도 <b>출시를 접는</b> 판단이 나올 수 있었습니다.</p>
+<h3 class="rv">확인</h3>
+<p class="rv">12일차에 멈추면 사용자 단위 p = <b>0.084</b>로 출시하지 않는 결론이었고, <span class="hl">21일 고정 판정</span>에서는 p = <b>0.0026</b>, +2.75%p였습니다.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Timeline</span><span class=r>21일 · 칸 하나 = 하루</span></div><div id="f-days"></div></div><div class="fig-part"><div class=fig-head><span class=h>Decision</span><span class=r>같은 데이터 · 다른 규칙</span></div><div class="cards2"><div class="c"><span class="label">D12 · Peek</span><p class="p">p = 0.084</p><small>사용자 단위로 유의하지 않음 → 출시 안 함</small></div><div class="c"><span class="label">D21 · Fixed</span><p class="p">p = 0.0026</p><small>+2.75%p · 가드레일 유의한 악화 없음 → 단계적 배포 권고</small></div></div></div><div class="fig-part"><div class=fig-head><span class=h>p-value</span><span class=r>로그 축 · 0.05 기준선</span></div><div id="f-logp"></div></div></div><figcaption>8일차 광고 이후 구간은 전후를 나눠 탐색적으로만 해석했습니다.</figcaption></figure>
+<p class="rv">관찰 격차 10.7%p 중 실험으로 확인된 건 2.75%p였습니다. 관찰된 차이를 하나의 원인으로 돌리지 않고, 판정 규칙과 분석 단위는 결과를 보기 전에 고정했습니다.</p>
+<div class="take rv"><span class="label">Takeaway</span><p>판정 규칙은 결과보다 먼저</p></div>
+</div>
 <nav class="pager">
-  <a href="p03.html"><span class="label">← PREV</span><span class="t">P03 PILL FINDER</span></a>
-  <a href="more.html"><span class="label">NEXT →</span><span class="t">P05–08 SHORT</span></a>
+  <a href="p03.html"><span class="label">← Prev</span><span class="t">P03 Pill Finder</span></a>
+  <a href="more.html"><span class="label">Next →</span><span class="t">P05–08</span></a>
 </nav>
 </main>
-<footer class="foot"><span>© 2026 LEE BOMIN</span><a href="../index.html#works">ALL WORKS ↑</a></footer>
+</div>
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/figs.js"></script>
 <script>
@@ -54,18 +64,15 @@
 const {mount}=PF, F=FIG;
 mount(document.getElementById('f-gap'), w=>{
  const X=F.lin(0,12,4,w-70); let s='';
- s+=`<rect x="${X(0)}" y="14" width="${X(10.7)-X(0)}" height="24" fill="none" stroke="#141414"/>`;
- s+=`<rect x="${X(0)}" y="14" width="${X(2.75)-X(0)}" height="24" fill="#1F32A8"/>`;
- s+=F.T(X(10.7)+8,32,'10.7',{disp:true,fs:18})+F.T(X(10.7)+8,48,'관찰 격차',{fs:10.5,ko:true,c:'#686863'});
- [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),58,t,{a:'middle',fs:10.5,c:'#686863'}));
- s+=F.T(X(0),78,'+2.75 · 실험으로 확인',{fs:11.5,ko:true,b:true,c:'#1F32A8'});
- return F.svg(w,84,s);});
-mount(document.getElementById('f-asg'), F.hbars({min:0,max:3600,ticks:[],noteW:70,labelW:110,
- rows:[{k:'A · CONTROL',v:3446,vt:'3,446',c:'#4A4A47'},{k:'B · 할인가',v:3415,vt:'3,415',c:'#4A4A47'}]}));
+ s+=`<rect x="${X(0)}" y="14" width="${X(10.7)-X(0)}" height="22" fill="none" stroke="#141414"/>`;
+ s+=`<rect x="${X(0)}" y="14" width="${X(2.75)-X(0)}" height="22" fill="#1F32A8"/>`;
+ s+=F.T(X(10.7)+8,30,'10.7',{disp:true,fs:16})+F.T(X(10.7)+8,46,'관찰 격차',{fs:10.5,ko:true,c:'#686863'});
+ [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686863'}));
+ s+=F.T(X(0),76,'+2.75 · 실험으로 확인',{fs:11.5,ko:true,b:true,c:'#1F32A8'});
+ return F.svg(w,82,s);});
 mount(document.getElementById('f-ci'), F.ci({min:0,max:6,lo:.96,hi:4.54,est:2.75,mde:3,zeroLabel:'효과 없음'}));
 mount(document.getElementById('f-days'), F.days({n:21,peek:12,ad:8,lab:[1,5,8,12,17,21]}));
-mount(document.getElementById('f-logp'), F.logp({min:.001,max:1,ticks:[.001,.01,.05,.1,1],alpha:.05,
- pts:[{v:.0026,t:'D21',c:'#141414'},{v:.084,t:'D12',c:'#141414'}]}));
+mount(document.getElementById('f-logp'), F.logp({min:.001,max:1,ticks:[.001,.01,.05,.1,1],alpha:.05,pts:[{v:.0026,t:'D21'},{v:.084,t:'D12'}]}));
 
 </script>
 </body>
