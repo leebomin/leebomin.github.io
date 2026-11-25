@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deepfake Detection · Bomin Lee</title>
+<meta name="description" content="Multimodal deepfake detection module · models chosen by performance on unseen data">
+<meta property="og:title" content="Deepfake Detection · Bomin Lee">
+<meta property="og:description" content="Multimodal deepfake detection module · models chosen by performance on unseen data">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="topbar"><a class="nm" href="../index.html">Bomin Lee</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../../works/p01.html" lang="ko">한국어</a><span>/</span><a href="../works/p01.html" lang="en" class=on>English</a></div></header>
+<div class="shell">
+<aside class="side">
+  <div>
+    <a class="name" href="../index.html">Bomin Lee<small>Data Scientist</small></a>
+    <div class="photo" data-src="../../assets/img/portrait.png" aria-label="Photo of Bomin Lee. Hover to pixelate around the cursor; click to turn the whole photo into pixel art."></div>
+    <nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav>
+  </div>
+  <div class="foot"><div class="lang"><a href="../../works/p01.html" lang="ko">한국어</a><span>/</span><a href="../works/p01.html" lang="en" class=on>English</a></div><div class="icons"><a href="https://github.com/leebomin" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a href="https://velog.io/@leebomin" target="_blank" rel="noopener" aria-label="velog" title="velog"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><path d="M4.3 4.6l1.9-.3 1.1 5.6c.9-1.3 1.9-3.2 1.9-4.6 0-.5-.1-.8-.2-1l1.8-.4c.2.3.3.8.3 1.3 0 1.9-1.6 4.6-3.3 6.4H5.9z" fill="currentColor"/></svg></a><a href="mailto:ibomin88@gmail.com" aria-label="Email" title="ibomin88@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></a></div><p class="copy">© 2026 Bomin Lee</p></div>
+</aside>
+<main class="main">
+<div class="crumb label rv"><a href="../projects.html">Projects</a><span>/</span><span>P01 · Main</span></div>
+<h1 class="ptitle rv">Deepfake Detection</h1><p class="psub rv">Multimodal deepfake detection module</p>
+
+<dl class="meta rv"><div><dt class="label">Period</dt><dd>2026.08–11</dd></div><div><dt class="label">Team</dt><dd>TOBIG'S Multimodal/CV team · 4</dd></div><div><dt class="label">Role</dt><dd>Owned the detection models · comparison · selection · inference API</dd></div><div><dt class="label">Model</dt><dd>Image CLIP-L/14 · Face CLIP + Xception · Voice wav2vec2 XLS-R</dd></div></dl>
+<div class="body">
+<p class="rv">For an investment-fraud detection service (a browser extension), I owned the module that decides whether an image, face video or voice is <b>synthetic</b>. We needed a model that holds up on <b>data it has never seen</b>, not one that scores well on its training data, so the AUC on external datasets not used for training was the first criterion.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>External AUC</span><span class=r>Datasets not used for training</span></div><div id="f-auc"></div></div></div><figcaption>All three modalities were measured on external data. The dashed line at 0.5 is chance.</figcaption></figure>
+
+<h2 class="rv">What I did<span class="ko"></span></h2>
+<ol class="steps rv">
+<li>Compared <b>12</b> image, face and voice candidates on external data, and used <b>bootstrap confidence intervals and paired comparisons</b> to make sure the differences were not chance.</li>
+<li>Reproducing video-call quality showed the winning model flips at low resolution (<b>360p and below</b>). The service now picks a model automatically by face size (<b>170px</b>).</li>
+<li>Passed <b>7 of 8</b> service benchmarks whose thresholds were fixed before seeing results, and connected the module to an API called by the backend and the extension (100% verdict agreement).</li>
+</ol>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Model choice by face size</span><span class=r>Video-call quality experiment</span></div><div id="f-res"></div></div><div class="fig-part"><div class=fig-head><span class=h>Service-path benchmarks</span><span class=r>8 criteria · fixed in advance</span></div><div class="rowfig" style="grid-template-columns:1fr 56px"><div data-cells="8,7,8,f" style="max-width:320px"></div><span class="v">7 / 8</span></div><p class="fig-note">The one miss: face detection rate on tab recordings, 0.351 (target 0.60). Voice reached AUC 0.999 even on tab recordings.</p></div></div></figure>
+
+<h2 class="rv">Key finding<span class="ko">Shortcut · fake cues</span></h2>
+<h3 class="rv">Situation</h3>
+<p class="rv">The first pipeline gave very different results on every run. The AUC of an <b>FFT baseline</b> that never looks at image content swung between <b>0.015 · 0.500 · 0.601</b>.</p>
+<h3 class="rv">Doubt</h3>
+<p class="rv">Real images had been drawn from only some shards, so the <span class="hl">file format</span> overlapped with the label. A model could answer by looking at JPEG vs PNG rather than synthesis traces.</p>
+<h3 class="rv">Check</h3>
+<p class="rv">After re-saving every image as <b>384 JPEG</b>, the baseline fell to <b>0.49</b>, chance level. Aspect ratio and size alone still reached <b>0.694</b>, so I retrained with <b>square crops</b>.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div id="f-fft"></div></div></div><figcaption>AUC of a model that ignores content (FFT baseline). The farther a dot is from 0.5 (grey band), the more fake cues remain in the data.</figcaption></figure>
+<div class="take rv"><span class="label">Takeaway</span><p>Fake cues removed · model connected to the service API</p></div>
+
+<h2 class="rv">Data &amp; Experiment<span class="ko">Data · model selection</span></h2>
+<dl class="dl rv"><div><dt class="label">Data</dt><dd>Training: images SID_Set · OpenFake / faces ThinothW / voice In-the-Wild<br>External eval: Community Forensics · KoDF · Celeb-DF · ASVspoof2019</dd></div><div><dt class="label">Preproc</dt><dd>Format cue → re-saved as 384 JPEG (baseline 0.49)<br>Ratio · size cue (AUC 0.694) → retrained on square crops</dd></div><div><dt class="label">Criteria</dt><dd>Best on the lower AUC of two external sets (0.856) · bootstrap P(best) 100% · significantly above the ensemble</dd></div></dl>
+<div class="dtable-wrap rv"><table class="dtable"><thead><tr><th>Modality</th><th>Eval set</th><th>Model</th><th>Ext. AUC</th><th>Note</th></tr></thead><tbody><tr><td class="">Image</td><td class="">Community Forensics</td><td class="">CLIP-L/14 multi-layer</td><td class="n">0.907</td><td class="">Square crop · best on both external sets</td></tr><tr><td class="">Face video</td><td class="">KoDF</td><td class="">CLIP-L/14</td><td class="n">0.858</td><td class="">+0.051 over Xception</td></tr><tr><td class="">Voice</td><td class="">ASVspoof2019</td><td class="">wav2vec2 XLS-R</td><td class="n">0.988</td><td class="">Phone line G.711 0.976</td></tr><tr><td class="">Threshold</td><td class="">KoDF</td><td class="">Fixed on validation set</td><td class="n">46%</td><td class="">Detection rate · needs recalibration</td></tr></tbody></table></div>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>AUC on unseen generators (OOD)</span><span class=r>Before square cropping</span></div><div id="f-ood"></div></div></div><figcaption>Final selection used the two external sets. Public UnivFD weights were trained on 2018 GANs and sit at chance.</figcaption></figure>
+<p class="rv">Internal validation scores can include the data cues the model learned, so I chose by AUC on unseen data. When candidates were close, I picked only after confidence intervals and paired comparisons showed the gap was real. AUC held, but at a fixed threshold the face detection rate dropped to 46%, so I also handed over the sample size needed for recalibration.</p>
+<div class="take rv"><span class="label">Takeaway</span><p>Chosen by scores on unseen data</p></div>
+</div>
+<nav class="pager">
+  <a href="more.html#p08"><span class="label">← Prev</span><span class="t">P08 Influence</span></a>
+  <a href="p02.html"><span class="label">Next →</span><span class="t">P02 Predictive Maintenance</span></a>
+</nav>
+</main>
+</div>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/figs.js"></script>
+<script>
+
+const {mount}=PF, F=FIG;
+mount(document.getElementById('f-auc'), F.hbars({min:.4,max:1,ticks:[.4,.5,.6,.7,.8,.9,1],ref:.5,refLabel:'0.5 = chance',noteW:160,
+ rows:[{k:'IMAGE',v:.907,note:'Community Forensics'},{k:'FACE',v:.858,note:'KoDF · Korean faces'},{k:'VOICE',v:.988,note:'ASVspoof2019'}]}));
+mount(document.getElementById('f-res'), w=>{
+ const X=F.lin(0,5,10,w-10), r=['1080p','720p','480p',null,'360p','240p'], pos=[0,1,2,2.55,3.4,4.6];
+ let s=`<line x1="${X(0)}" x2="${X(5)}" y1="40" y2="40" stroke="#C6C6C0"/>`;
+ r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A37"/>`+F.T(X(pos[i]),28,t,{a:'middle',fs:10.5,c:'#686863'}); });
+ s+=`<line x1="${X(2.55)}" x2="${X(2.55)}" y1="8" y2="86" stroke="#141414" stroke-width="1.2"/>`+F.T(X(2.55),6,'Face 170px',{a:'middle',fs:11,b:true});
+ s+=`<rect x="${X(0)}" y="58" width="${X(2.55)-X(0)-4}" height="5" fill="#141414"/>`+F.T(X(0),80,'CLIP · 480p and up',{fs:11});
+ s+=`<rect x="${X(2.55)+4}" y="58" width="${X(5)-X(2.55)-4}" height="5" fill="#8C8C86"/>`+F.T(X(2.55)+8,80,w<520?'XCEPTION':'XCEPTION · 360p and below · face under 170px',{fs:11});
+ return F.svg(w,92,s);});
+mount(document.getElementById('f-ood'), F.dotrows({min:.3,max:1,ticks:[.3,.5,.7,.9],ref:.5,refLabel:'0.5',rowH:26,inline:true,labelW:128,
+ rows:[['CLIP last layer',.878],['CLIP multi · chosen',.834,1],['ConvNeXt-S',.831],['DINOv2-L',.821],['Xception',.796],['EfficientNet-B4',.754],['FFT baseline',.486],['UnivFD public',.398]]
+ .map(([k,v,sel])=>({k,sel,sub:'',pts:[{v,t:v.toFixed(3),a:'start',dx:9,r:sel?5:3.5,c:sel?'#141414':'#8C8C86'}]}))}));
+mount(document.getElementById('f-fft'), F.dotrows({min:0,max:1,ticks:[0,.2,.4,.6,.8,1],band:[.45,.55],ref:.5,refLabel:'0.5 = chance',notes:true,rowH:88,
+ rows:[{k:'01  BEFORE',sub:'Same code · 3 runs',range:true,note:'Different\nevery run',pts:[{v:.015,t:'0.015'},{v:.5,t:'0.500',below:true},{v:.601,t:'0.601'}]},
+       {k:'02  FIX 1',sub:'All saved as 384 JPEG',note:'Chance level',pts:[{v:.49,t:'OOD 0.490',a:'start',dx:9},{v:.46,t:'Ext. 0.460',a:'end',dx:-9,below:true}]},
+       {k:'03  CUE LEFT',sub:'Ratio and size only',note:'→ retrain on\nsquare crops',pts:[{v:.694,t:'0.694'}]}]}));
+
+</script>
+</body>
+</html>

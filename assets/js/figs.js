@@ -2,8 +2,9 @@
 (() => {
   const INK = '#141414', INK2 = '#3A3A37', MUTE = '#686863', LINE = '#C6C6C0', CELL = '#B9B9B3', ACC = '#1F32A8', PAPER = '#ECECE8';
   const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const EN = document.documentElement.lang === 'en', TR = (k, e) => EN ? e : k;
   const KO = /[\uAC00-\uD7A3]/;
-  const T = (x, y, s, o = {}) => (o.ko === undefined && KO.test(s) && (o = { ...o, ko: true }), 0) || `<text x="${x}" y="${y}" font-size="${o.fs || 11}" ${o.a ? `text-anchor="${o.a}"` : ''} ${o.cls ? `class="${o.cls}"` : ''} style="${o.ko ? "font-family:'Gothic A1',sans-serif;font-weight:500;" : ''}${o.disp ? 'font-family:'Inter Tight',sans-serif;font-weight:600;' : ''}${o.b ? 'font-weight:700;' : ''}fill:${o.c || INK};letter-spacing:${o.ls ?? 0.02}em">${esc(s)}</text>`;
+  const T = (x, y, s, o = {}) => (o.ko === undefined && KO.test(s) && (o = { ...o, ko: true }), 0) || `<text x="${x}" y="${y}" font-size="${o.fs || 11}" ${o.a ? `text-anchor="${o.a}"` : ''} ${o.cls ? `class="${o.cls}"` : ''} style="${o.ko ? "font-family:'Gothic A1',sans-serif;font-weight:500;" : ''}${o.disp ? 'font-family:Inter Tight,sans-serif;font-weight:600;' : ''}${o.b ? 'font-weight:700;' : ''}fill:${o.c || INK};letter-spacing:${o.ls ?? 0.02}em">${esc(s)}</text>`;
   const svg = (w, h, inner) => `<svg class="svgfig" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
   const lin = (min, max, a, b) => v => a + (v - min) / (max - min) * (b - a);
   const narrow = w => w < 520;
@@ -92,7 +93,7 @@
       const H = 96, y = 50, lg = Math.log10, X = v => 16 + (lg(v) - lg(o.min)) / (lg(o.max) - lg(o.min)) * (w - 32);
       let s = `<line x1="${X(o.min)}" x2="${X(o.max)}" y1="${y}" y2="${y}" stroke="${INK2}" stroke-width=".8"/>`;
       o.ticks.forEach(t => { s += `<line x1="${X(t)}" x2="${X(t)}" y1="${y - 4}" y2="${y + 4}" stroke="${INK2}"/>` + T(X(t), y + 22, t, { a: 'middle', fs: 10.5, c: t === o.alpha ? INK : MUTE, b: t === o.alpha }); });
-      s += `<line x1="${X(o.alpha)}" x2="${X(o.alpha)}" y1="${y - 36}" y2="${y + 8}" stroke="${INK}" stroke-dasharray="2 3"/>` + T(X(o.alpha) - 6, y - 28, '← 유의', { a: 'end', fs: 10.5, ko: true });
+      s += `<line x1="${X(o.alpha)}" x2="${X(o.alpha)}" y1="${y - 36}" y2="${y + 8}" stroke="${INK}" stroke-dasharray="2 3"/>` + T(X(o.alpha) - 6, y - 28, TR('← 유의', '← significant'), { a: 'end', fs: 10.5, ko: true });
       o.pts.forEach(p => { s += `<rect x="${X(p.v) - 5}" y="${y - 5}" width="10" height="10" fill="${p.c || INK}"/>` + T(X(p.v), y - 14, p.t, { a: 'middle', fs: 10.5, c: p.c || INK }); });
       return svg(w, H, s);
     };
@@ -109,11 +110,11 @@
         if (o.lab.includes(i + 1)) s += T(x, y + cw + 16, 'D' + (i + 1), { fs: w < 520 ? 8.5 : 10.5, c: MUTE });
       }
       const xa = (o.ad - 1) * (cw + gap) + cw / 2;
-      s += T(xa, y - 8, '광고', { a: 'middle', fs: 10.5, ko: true });
+      s += T(xa, y - 8, TR('광고', 'ad'), { a: 'middle', fs: 10.5, ko: true });
       const xp = o.peek * (cw + gap) - gap / 2;
-      s += `<line x1="${xp}" x2="${xp}" y1="${y - 26}" y2="${y + cw + 4}" stroke="${INK}" stroke-width="1.4"/>` + T(xp + 5, y - 16, 'PEEK · 중단', { fs: 10.5, ko: true, b: true });
+      s += `<line x1="${xp}" x2="${xp}" y1="${y - 26}" y2="${y + cw + 4}" stroke="${INK}" stroke-width="1.4"/>` + T(xp + 5, y - 16, TR('PEEK · 중단', 'PEEK · stop'), { fs: 10.5, ko: true, b: true });
       const xf = w - .7;
-      s += `<line x1="${xf}" x2="${xf}" y1="${y - 26}" y2="${y + cw + 22}" stroke="${INK}" stroke-width="1.4"/>` + T(xf, y + cw + 36, 'FIXED · 판정', { a: 'end', fs: 10.5, ko: true, b: true });
+      s += `<line x1="${xf}" x2="${xf}" y1="${y - 26}" y2="${y + cw + 22}" stroke="${INK}" stroke-width="1.4"/>` + T(xf, y + cw + 36, TR('FIXED · 판정', 'FIXED · decide'), { a: 'end', fs: 10.5, ko: true, b: true });
       return svg(w, H, s);
     };
   }
@@ -134,7 +135,7 @@
         s += T(x + cwid / 2, H - 6, 'PC' + (i + 1), { a: 'middle', fs: w < 520 ? 8.5 : 10, c: on ? INK : MUTE });
       });
       const xk = L + o.k * bw;
-      s += `<line x1="${xk}" x2="${xk}" y1="${top - 20}" y2="${H - B}" stroke="${INK}" stroke-dasharray="2 3"/>` + T(xk + 6, top - 8, `PC1–${o.k} 누적 ${o.cum}`, { fs: 11, ko: true, b: true });
+      s += `<line x1="${xk}" x2="${xk}" y1="${top - 20}" y2="${H - B}" stroke="${INK}" stroke-dasharray="2 3"/>` + T(xk + 6, top - 8, TR(`PC1–${o.k} 누적 ${o.cum}`, `PC1–${o.k} cumulative ${o.cum}`), { fs: 11, ko: true, b: true });
       return svg(w, H, s);
     };
   }

@@ -10,8 +10,10 @@ def thumb(cells, label, value):
     w = min(100, round(84 * cols / rows / 1.68))  # % of thumb inner width, grid height ≈ 84px
     return f'<div class="thumb"><div class="tg" style="width:{w}%" data-cells="{n},{k},{cols},{cls}"></div><div class="tl"><span>{label}</span><b>{value}</b></div></div>'
 
-def pitem(code, meta, title, ko, line, href, th, gh=None):
-    tags = stag('GitHub', f'https://github.com/{gh}', '{GH}') if gh else ''
+DEMO_P03 = 'https://leebomin.github.io/pill-finder/demo'
+
+def pitem(code, meta, title, ko, line, href, th, gh=None, demo=None):
+    tags = (stag('Demo', demo) if demo else '') + (stag('GitHub', f'https://github.com/{gh}', '{GH}') if gh else '')
     return f'''<article class="pitem rv">
   <a class="cover" href="{href}" aria-label="{title} {ko}"></a>
   {th}
@@ -28,11 +30,11 @@ _P = ([
         '이미지 · 얼굴 영상 · 음성 후보 12종을 <b>처음 보는 데이터</b>로 비교해 골랐습니다. 파일 형식에 남은 가짜 단서를 먼저 지웠습니다.',
         'works/p01.html', thumb((100, 91, 10, 'f'), '외부 AUC · 칸=0.01', '0.907')),
   pitem('P02', '미래내일 일경험 · 제주항공 · 2026 · 동상', 'Predictive Maintenance', '항공 엔진 정비 시점 결정',
-        '잔여수명을 확률분포로 예측해 정비 시점을 정했습니다. 팀이 기대한 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.',
+        '잔여수명을 확률분포로 예측해 정비 시점을 정했습니다. 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.',
         'works/p02.html', thumb((100, 12, 10, 'f'), '정비 전 고장 · 칸=1%', '0.119'), gh='leebomin/jejuairline'),
   pitem('P03', '네이버클라우드 에이전틱 AI 과정 · 2026', 'Pill Finder', '공식 문서 근거 LLM 웹앱',
         '모델에게 맡기지 않을 것부터 정하고, 규칙을 보지 않은 질문 40개로 평가했습니다. 응급 질문 감지 <b>3/20 → 20/20</b>.',
-        'works/p03.html', thumb((20, 20, 10, 'f'), '응급 질문 감지', '20/20'), gh='leebomin/pill-finder'),
+        'works/p03.html', thumb((20, 20, 10, 'f'), '응급 질문 감지', '20/20'), gh='leebomin/pill-finder', demo=DEMO_P03),
   pitem('P04', "TOBIG'S · DA 트랙 과제 · 2026", 'A/B Testing', '숙박 앱 전환율 실험',
         '결과를 보기 전에 판정 규칙을 고정했습니다. 12일차에 멈췄다면 뒤집혔을 결론을 21일 고정 판정으로 확인했습니다.',
         'works/p04.html', thumb((12, 3, 12, 'f'), '관찰 격차 10.7 중 · %p', '+2.75'), gh='leebomin/tobigs-26th'),
@@ -70,7 +72,7 @@ def updates():
 
 INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티스트 이보민의 포트폴리오. 실험 설계 · 모델 평가와 검증 · 통계 모델링 · LLM 서비스.', body=f'''
 <section id="about" class="rv">
-  <div class="photo m" data-src="assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
+  <div class="photo m" data-src="{{A}}assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
   <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span></h1>
   <div class="prose">
     <p>서울시립대학교에서 도시행정학과 통계학을 공부하고 있습니다.</p>
@@ -91,7 +93,6 @@ INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티�
 
 PROJECTS_PAGE = dict(title='Projects · 이보민', desc='이보민의 프로젝트 — 모델 평가, 실험 설계, 통계 분석, LLM 서비스.', body=f'''
 <h1 class="pg-t rv">Projects</h1>
-<p class="pg-sub rv">점수가 어디서 나왔는지 확인한 기록입니다. 메인 프로젝트 4개와 수업 · 과제에서 한 짧은 분석 4개.</p>
 <div class="plist">{PROJECTS}</div>
 ''')
 
@@ -237,11 +238,11 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='엔진 잔여수�
 
 {h2('What I did', '한 일')}
 <ol class="steps rv">
-<li>평가 방식을 다시 점검해, 팀이 기대한 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
+<li>평가 방식을 다시 점검해, 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
 <li>1D-CNN 앙상블의 예측 분포를 conformal로 보정해, 90% 구간이 실제로 <b>0.902</b>를 덮는 것을 확인했습니다.</li>
 <li>보정된 확률로 정비 시점을 정해 정비 전 고장 확률을 <span class="hl">0.196 → 0.119</span>로 낮췄습니다.</li>
 </ol>
-{fig([('90% 예측 구간 커버리지', '', '<div id="f-cov"></div><p class="fig-note">“90% 구간”이라고 예측한 범위 안에 실제 잔여수명의 90.2%가 들어왔습니다. 이 확률을 믿고 결정해도 된다는 근거입니다.</p>'),
+{fig([('90% 예측 구간 커버리지', '', '<div id="f-cov"></div><p class="fig-note">“90% 구간”이라고 예측한 범위 안에 실제 잔여수명의 90.2%가 들어왔습니다.</p>'),
       ('정책 시뮬레이션 · 엔진 34대 · 참고치', '칸 하나 = 엔진 1대', rowfig('평균 기반', '34,34,34,f', '1 / 34').replace('data-cells="34,34,34,f"', 'id="e-a"') + rowfig('확률 기반', '34,34,34,f', '0 / 34') + '<p class="fig-note">× = 정비 전에 고장 난 엔진. 1대 차이라 단독 근거로 쓰지 않았습니다.</p>')])}
 
 {h2('Key finding', 'Leakage · 데이터 누수')}
@@ -285,7 +286,7 @@ mount(document.getElementById('f-rmse'), w=>{
 PAGES['p03.html'] = dict(title='Pill Finder', desc='알약 찾기 도우미 · 공식 문서 근거 LLM 웹앱',
  prev=('p02.html', 'P02 Predictive Maintenance'), next=('p04.html', 'P04 A/B Testing'),
  body=top('P03', 'Main', 'Pill Finder', '알약 찾기 도우미 · 공식 문서 근거 LLM 웹앱',
-  [stag('GitHub', 'https://github.com/leebomin/pill-finder', '{GH}')],
+  [stag('Demo', DEMO_P03), stag('GitHub', 'https://github.com/leebomin/pill-finder', '{GH}')],
   [('Period', '2026.11'), ('Team', '개인 · 네이버클라우드 에이전틱 AI 과정'), ('Role', '기획 · 모델 역할 설계 · 앱 · MCP 도구 · 평가 설계'), ('Model', 'HyperCLOVA X(답변) · Qwen3 4B(판단) · Claude API(검토)')]) + f'''
 <div class="body">
 <p class="rv">1인 가구가 남은 약을 확인할 때 쓰는 도구입니다. 공식 자료만 근거로 알약 후보를 찾고, 일반의약품에 한해 <b>쉬운 말 요약</b>과 질문 답변을 줍니다. 진단 · 복용 지시는 하지 않으며, 의료인 검수 전 데모입니다.</p>
@@ -369,10 +370,10 @@ def short(code, id_, title, ko, meta, figs, found, limit, gh=None):
 PAGES['more.html'] = dict(title='P05–08', desc='Olist SQL · 대학 쇠퇴 · 지방소멸위험 다변량 · 빈집 회귀 진단',
  prev=('p04.html', 'P04 A/B Testing'), next=('p01.html', 'P01 Deepfake Detection'),
  body='''<div class="crumb label rv"><a href="../projects.html">Projects</a><span>/</span><span>P05–08 · Short</span></div>
-<h1 class="ptitle rv">Short projects</h1><p class="psub rv">SQL · 통계 수업과 과제에서 한 분석 네 가지</p>''' +
+<h1 class="ptitle rv">Short projects</h1>''' +
  short('P05', 'p05', 'Join Fan-out', 'Olist 이커머스 SQL 분석', "TOBIG'S SQL 과제 · MySQL 8.0",
    fig([('주문 1건이 여러 행으로 늘어나는 JOIN', 'Orders → Items × Payments · 예시', '<div id="f-fan"></div>'), ('Over-count', '', '<div id="f-over"></div>')]),
-   '쿼리는 에러 없이 돌았지만, JOIN 한 번으로 결제금액이 <span class="hl">28.23%</span>(상품 판매금액은 4.48%) 과대 집계돼 있었습니다. 테이블마다 행 수와 고유 주문 수를 비교하고, 여러 행이 붙는 테이블은 <b>주문 단위로 먼저 집계</b>해 행 수를 다시 맞췄습니다.',
+   '쿼리는 에러 없이 돌았지만, JOIN 한 번으로 결제금액이 <span class="hl">28.23%</span>(상품 판매금액은 4.48%) 과대 집계되어 있었습니다. 테이블마다 행 수와 고유 주문 수를 비교하고, 여러 행이 붙는 테이블은 <b>주문 단위로 먼저 집계</b>해 행 수를 다시 맞췄습니다.',
    '12월 매출 −26.5%가 부진인지 11월 행사 효과인지는 전년 동기 · 트래픽 데이터가 없어 확인하지 못했습니다.', gh='leebomin/tobigs-26th') +
  short('P06', 'p06', 'Effect Size', '비수도권 대학 쇠퇴현황 분석', '도시조사방법론 · 팀 5명 · 데이터 분석 · R · 2023.03–06',
    fig([('GS 누백 평균', '낮을수록 선호', '<div id="f-gs"></div>'), ('선호도 ~ 청년 순이동', '시군구 81 · 칸 하나 = 1%', '<div class="waffles" style="grid-template-columns:140px 1fr"><div data-cells="100,11,10,f"></div><div><p class="w-v">R² ≈ 0.11</p><p class="fig-note">설명된 몫은 11칸뿐입니다.</p></div></div>')]),

@@ -243,3 +243,9 @@ figcaption{margin-top:9px;font-size:13px;color:var(--mute);line-height:1.65}
 .more a{display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--ink);padding-bottom:2px}
 .more svg{width:10px;height:10px}
 .topbar nav a.on{text-decoration:underline;text-underline-offset:4px}
+.lang{display:flex;gap:6px;align-items:center;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--mute)}
+.lang a{color:var(--mute);transition:color .2s}.lang a:hover,.lang a.on{color:var(--ink)}
+.lang a.on{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.lang a[lang=ko]{font-family:var(--body)}
+.topbar .lang{display:none}
+@media (max-width:1024px){.topbar .lang{display:flex;font-size:11px}}

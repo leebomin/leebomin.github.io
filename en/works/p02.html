@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Predictive Maintenance · Bomin Lee</title>
+<meta name="description" content="Probabilistic remaining-life prediction for engines · maintenance timing">
+<meta property="og:title" content="Predictive Maintenance · Bomin Lee">
+<meta property="og:description" content="Probabilistic remaining-life prediction for engines · maintenance timing">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="topbar"><a class="nm" href="../index.html">Bomin Lee</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../../works/p02.html" lang="ko">한국어</a><span>/</span><a href="../works/p02.html" lang="en" class=on>English</a></div></header>
+<div class="shell">
+<aside class="side">
+  <div>
+    <a class="name" href="../index.html">Bomin Lee<small>Data Scientist</small></a>
+    <div class="photo" data-src="../../assets/img/portrait.png" aria-label="Photo of Bomin Lee. Hover to pixelate around the cursor; click to turn the whole photo into pixel art."></div>
+    <nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav>
+  </div>
+  <div class="foot"><div class="lang"><a href="../../works/p02.html" lang="ko">한국어</a><span>/</span><a href="../works/p02.html" lang="en" class=on>English</a></div><div class="icons"><a href="https://github.com/leebomin" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a href="https://velog.io/@leebomin" target="_blank" rel="noopener" aria-label="velog" title="velog"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><path d="M4.3 4.6l1.9-.3 1.1 5.6c.9-1.3 1.9-3.2 1.9-4.6 0-.5-.1-.8-.2-1l1.8-.4c.2.3.3.8.3 1.3 0 1.9-1.6 4.6-3.3 6.4H5.9z" fill="currentColor"/></svg></a><a href="mailto:ibomin88@gmail.com" aria-label="Email" title="ibomin88@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></a></div><p class="copy">© 2026 Bomin Lee</p></div>
+</aside>
+<main class="main">
+<div class="crumb label rv"><a href="../projects.html">Projects</a><span>/</span><span>P02 · Main</span></div>
+<h1 class="ptitle rv">Predictive Maintenance</h1><p class="psub rv">Probabilistic engine life prediction · maintenance timing</p>
+<div class="small-tags rv"><a class="stag" href="https://github.com/leebomin/jejuairline" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div><span class="award">Aero AI Track competition · Bronze · 2026.07</span>
+<dl class="meta rv"><div><dt class="label">Period</dt><dd>2026.06–07</dd></div><div><dt class="label">Team</dt><dd>Future Work Experience · Aerospace Industry-Academia Institute × Jeju Air · 4</dd></div><div><dt class="label">Role</dt><dd>Team lead · 1D-CNN ensemble · co-built conformal · report</dd></div><div><dt class="label">Model</dt><dd>1D-CNN ensemble + conformal · likelihood-ratio Bayesian fusion</dd></div></dl>
+<div class="body">
+<p class="rv">Servicing too late causes faults; servicing too often costs money. I built a PoC that predicts an engine’s remaining useful life as a <b>probability distribution</b> rather than a single number, and uses that asymmetry to set the <b>maintenance time</b>. Data: 34 engines from N-CMAPSS (a NASA simulation) and 28,935 real flights from NGAFID.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Probability of failure before service</span><span class=r>One cell = 1%</span></div><div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">Previous policy</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">After calibration</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">Out of 100 maintenance decisions, failures before service fell from about 20 to 12.</p></div></div></div></figure>
+
+<h2 class="rv">What I did<span class="ko"></span></h2>
+<ol class="steps rv">
+<li>Re-examined the evaluation and found that the expected 15–20% gain was <b>data leakage</b>.</li>
+<li>Calibrated the 1D-CNN ensemble’s predictive distribution with conformal prediction; the 90% interval actually covered <b>0.902</b>.</li>
+<li>Timed maintenance with the calibrated probabilities, lowering failure-before-service from <span class="hl">0.196 → 0.119</span>.</li>
+</ol>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>90% prediction interval coverage</span><span class=r></span></div><div id="f-cov"></div><p class="fig-note">90.2% of true remaining lives fell inside the predicted “90% interval”.</p></div><div class="fig-part"><div class=fig-head><span class=h>Policy simulation · 34 engines · reference only</span><span class=r>One cell = one engine</span></div><div class="rowfig"><span class="k">Mean-based</span><div id="e-a"></div><span class="v">1 / 34</span></div><div class="rowfig"><span class="k">Probabilistic</span><div data-cells="34,34,34,f"></div><span class="v">0 / 34</span></div><p class="fig-note">× = engine that failed before service. A one-engine gap, so not used as evidence on its own.</p></div></div></figure>
+
+<h2 class="rv">Key finding<span class="ko">Leakage</span></h2>
+<h3 class="rv">Situation</h3>
+<p class="rv">Adding an “LCC short-haul weight” improved RMSE by <b>15–20%</b>, far more than teammates saw on the same data.</p>
+<h3 class="rv">Doubt</h3>
+<p class="rv">The gain jumped around between runs. The scaler and feature selection were being <span class="hl">fit outside the cross-validation folds</span>, so test information leaked into training.</p>
+<h3 class="rv">Check</h3>
+<p class="rv">Moving preprocessing inside the folds made the effect vanish to <b>≈ 0</b>. I rejected the hypothesis and fixed <b>5 more bugs</b> with the same cause.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Before · preprocess first, split later</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Data</span><p>All data<br><small>incl. test data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>Scaler · feature selection<br><small>on all data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>Train / test</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>After · split first, preprocess on training data only</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Split</span><p>Train / test</p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>Scaler · feature selection<br><small>on training data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Apply</span><p>Only applied to test</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>RMSE improvement</span><span class=r></span></div><div id="f-rmse"></div></div></div><figcaption>The apparent 15–20% came from having already seen the test data.</figcaption></figure>
+<div class="take rv"><span class="label">Takeaway</span><p>The better the number, the sooner to check its source</p></div>
+
+<h2 class="rv">Data &amp; Experiment<span class="ko">Interval calibration · maintenance decision</span></h2>
+<dl class="dl rv"><div><dt class="label">Data</dt><dd>N-CMAPSS 34 engines (NASA simulation) · NGAFID 28,935 real flights (diagnosis)</dd></div><div><dt class="label">Preproc</dt><dd>Scaler and feature selection fit only inside CV folds</dd></div><div><dt class="label">Unit</dt><dd>Engine-level CV · no engine in both train and test</dd></div><div><dt class="label">Decision</dt><dd>Maintenance time reflecting late (fault) vs early (cost) asymmetry</dd></div></dl>
+<div class="dtable-wrap rv"><table class="dtable"><thead><tr><th>Metric</th><th>Baseline</th><th>Final</th><th>How</th></tr></thead><tbody><tr><td class="">Failure before service</td><td class="n">0.196</td><td class="n">0.119</td><td class="">Timing from calibrated distribution</td></tr><tr><td class="">90% interval coverage</td><td class="n">—</td><td class="n">0.902</td><td class="">1D-CNN ensemble + conformal</td></tr><tr><td class="">Failures in policy sim</td><td class="n">best: 1</td><td class="n">0 / 34</td><td class="">Mean-based → probabilistic policy</td></tr><tr><td class="">Real-flight diagnosis AUC</td><td class="n">0.76</td><td class="n">0.849</td><td class="">Likelihood-ratio Bayesian fusion</td></tr></tbody></table></div>
+<p class="rv">Once RMSE hit the limit of the data size, bigger models no longer improved maintenance decisions. So I first made sure the 90% interval really covered 90%, then set maintenance timing from those probabilities.</p>
+<div class="take rv"><span class="label">Takeaway</span><p>Trustworthy intervals over bigger models</p></div>
+</div>
+<nav class="pager">
+  <a href="p01.html"><span class="label">← Prev</span><span class="t">P01 Deepfake Detection</span></a>
+  <a href="p03.html"><span class="label">Next →</span><span class="t">P03 Pill Finder</span></a>
+</nav>
+</main>
+</div>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/figs.js"></script>
+<script>
+
+const {mount}=PF, F=FIG;
+const w=document.querySelectorAll('.waffles [data-cells]');
+w[0].innerHTML=PF.cells(100,i=>i>=80?'g':'',10); w[1].innerHTML=PF.cells(100,i=>i>=88?'f':'',10);
+document.getElementById('e-a').innerHTML=PF.cells(34,i=>i===23?'x':'f',34);
+mount(document.getElementById('f-cov'), F.target({v:.902,t:.9,tl:'Target 90%',vt:'0.902'}));
+mount(document.getElementById('f-rmse'), w=>{
+ const X=F.lin(0,22,70,w-90); let s='';
+ [0,5,10,15,20].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="4" y2="76" stroke="#C6C6C0" stroke-width=".6"/>`+F.T(X(t),92,t+'%',{a:'middle',fs:10.5,c:'#686863'});});
+ s+=F.T(0,24,'BEFORE',{fs:11,b:true})+`<rect x="${X(0)}" y="12" width="${X(15)-X(0)}" height="16" fill="#141414"/>`;
+ for(let x=X(15);x<X(20);x+=4) s+=`<rect x="${x}" y="12" width="2" height="16" fill="#141414"/>`;
+ s+=F.T(X(20)+8,25,'+15~20%',{disp:true,fs:15});
+ s+=F.T(0,62,'AFTER',{fs:11,b:true})+`<rect x="${X(0)}" y="50" width="3" height="16" fill="#141414"/>`+F.T(X(0)+12,63,'≈ 0',{disp:true,fs:15});
+ return F.svg(w,98,s);});
+
+</script>
+</body>
+</html>

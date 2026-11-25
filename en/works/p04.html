@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A/B Testing · Bomin Lee</title>
+<meta name="description" content="Lodging app conversion A/B test · decision rule fixed in advance">
+<meta property="og:title" content="A/B Testing · Bomin Lee">
+<meta property="og:description" content="Lodging app conversion A/B test · decision rule fixed in advance">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<header class="topbar"><a class="nm" href="../index.html">Bomin Lee</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../../works/p04.html" lang="ko">한국어</a><span>/</span><a href="../works/p04.html" lang="en" class=on>English</a></div></header>
+<div class="shell">
+<aside class="side">
+  <div>
+    <a class="name" href="../index.html">Bomin Lee<small>Data Scientist</small></a>
+    <div class="photo" data-src="../../assets/img/portrait.png" aria-label="Photo of Bomin Lee. Hover to pixelate around the cursor; click to turn the whole photo into pixel art."></div>
+    <nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav>
+  </div>
+  <div class="foot"><div class="lang"><a href="../../works/p04.html" lang="ko">한국어</a><span>/</span><a href="../works/p04.html" lang="en" class=on>English</a></div><div class="icons"><a href="https://github.com/leebomin" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a><a href="https://velog.io/@leebomin" target="_blank" rel="noopener" aria-label="velog" title="velog"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x=".5" y=".5" width="15" height="15" fill="none" stroke="currentColor"/><path d="M4.3 4.6l1.9-.3 1.1 5.6c.9-1.3 1.9-3.2 1.9-4.6 0-.5-.1-.8-.2-1l1.8-.4c.2.3.3.8.3 1.3 0 1.9-1.6 4.6-3.3 6.4H5.9z" fill="currentColor"/></svg></a><a href="mailto:ibomin88@gmail.com" aria-label="Email" title="ibomin88@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></a></div><p class="copy">© 2026 Bomin Lee</p></div>
+</aside>
+<main class="main">
+<div class="crumb label rv"><a href="../projects.html">Projects</a><span>/</span><span>P04 · Main</span></div>
+<h1 class="ptitle rv">A/B Testing</h1><p class="psub rv">Lodging app conversion A/B test · rule fixed in advance</p>
+<div class="small-tags rv"><a class="stag" href="https://github.com/leebomin/tobigs-26th" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div>
+<dl class="meta rv"><div><dt class="label">Period</dt><dd>2026.10</dd></div><div><dt class="label">Team</dt><dd>TOBIG'S DA track · individual assignment</dd></div><div><dt class="label">Role</dt><dd>Experiment design · decision rule · full analysis</dd></div><div><dt class="label">Method</dt><dd>User-level assignment · delta method · SRM test · MDE</dd></div></dl>
+<div class="body">
+<p class="rv">The analytics team had diagnosed a <b>gap of about 10.7%p</b> in list → detail conversion for the promotion channel. I tested a fix (showing the discounted price on list cards) and designed and judged the experiment by <b>rules set before seeing the results</b>.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Gap</span><span class=r>Share of the observed gap confirmed by the experiment · %p</span></div><div id="f-gap"></div></div><div class="fig-part"><div class=fig-head><span class=h>Effect</span><span class=r>List → detail conversion · 95% CI · %p</span></div><div id="f-ci"></div></div></div><figcaption>The whole interval is above 0, so the effect was judged real (p = 0.0026). Revenue impact was not tested here.</figcaption></figure>
+
+<h2 class="rv">What I did<span class="ko"></span></h2>
+<ol class="steps rv">
+<li>Assigned by <b>user</b> and corrected the variance with the delta method. With a design effect of <b>1.59 → 2.11</b>, set MDE 3%p and a <b>21-day</b> duration.</li>
+<li>Checked the split (SRM p = 0.71, 3,446 vs 3,415 users) and split the analysis around a <b>day-8 ad campaign</b>, treating the post-ad period as exploratory only.</li>
+<li>List → detail conversion <span class="hl">+2.75%p</span> (95% CI 0.96–4.54), no significant guardrail harm → recommended a <b>staged rollout</b>.</li>
+</ol>
+
+<h2 class="rv">Key finding<span class="ko">Peeking</span></h2>
+<h3 class="rv">Situation</h3>
+<p class="rv">On the same data I compared a <b>fixed 21-day decision</b> with <b>checking daily and stopping</b>.</p>
+<h3 class="rv">Doubt</h3>
+<p class="rv">Watching p-values daily can end the test on a lucky low day, or <b>drop a launch</b> even when the effect is real.</p>
+<h3 class="rv">Check</h3>
+<p class="rv">Stopping on day 12 gave user-level p = <b>0.084</b>, meaning no launch; the <span class="hl">fixed 21-day decision</span> gave p = <b>0.0026</b>, +2.75%p.</p>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Timeline</span><span class=r>21 days · one cell = one day</span></div><div id="f-days"></div></div><div class="fig-part"><div class=fig-head><span class=h>Decision</span><span class=r>Same data · different rules</span></div><div class="cards2"><div class="c"><span class="label">D12 · Peek</span><p class="p">p = 0.084</p><small>Not significant at user level → no launch</small></div><div class="c"><span class="label">D21 · Fixed</span><p class="p">p = 0.0026</p><small>+2.75%p · no significant guardrail harm → staged rollout</small></div></div></div><div class="fig-part"><div class=fig-head><span class=h>p-value</span><span class=r>Log scale · 0.05 line</span></div><div id="f-logp"></div></div></div><figcaption>The post-ad period from day 8 was analysed separately and read as exploratory only.</figcaption></figure>
+<p class="rv">Of the 10.7%p observed gap, the experiment confirmed 2.75%p. I did not pin the observed gap on a single cause, and fixed the decision rule and unit of analysis before seeing results.</p>
+<div class="take rv"><span class="label">Takeaway</span><p>Decision rules come before results</p></div>
+</div>
+<nav class="pager">
+  <a href="p03.html"><span class="label">← Prev</span><span class="t">P03 Pill Finder</span></a>
+  <a href="more.html"><span class="label">Next →</span><span class="t">P05–08</span></a>
+</nav>
+</main>
+</div>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/figs.js"></script>
+<script>
+
+const {mount}=PF, F=FIG;
+mount(document.getElementById('f-gap'), w=>{
+ const X=F.lin(0,12,4,w-90); let s='';
+ s+=`<rect x="${X(0)}" y="14" width="${X(10.7)-X(0)}" height="22" fill="none" stroke="#141414"/>`;
+ s+=`<rect x="${X(0)}" y="14" width="${X(2.75)-X(0)}" height="22" fill="#1F32A8"/>`;
+ s+=F.T(X(10.7)+8,30,'10.7',{disp:true,fs:16})+F.T(X(10.7)+8,46,'Observed gap',{fs:10.5,c:'#686863'});
+ [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686863'}));
+ s+=F.T(X(0),76,'+2.75 · confirmed by experiment',{fs:11.5,b:true,c:'#1F32A8'});
+ return F.svg(w,82,s);});
+mount(document.getElementById('f-ci'), F.ci({min:0,max:6,lo:.96,hi:4.54,est:2.75,mde:3,zeroLabel:'No effect'}));
+mount(document.getElementById('f-days'), F.days({n:21,peek:12,ad:8,lab:[1,5,8,12,17,21]}));
+mount(document.getElementById('f-logp'), F.logp({min:.001,max:1,ticks:[.001,.01,.05,.1,1],alpha:.05,pts:[{v:.0026,t:'D21'},{v:.084,t:'D12'}]}));
+
+</script>
+</body>
+</html>
