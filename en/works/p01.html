@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=637d499e">
+<link rel="stylesheet" href="../../assets/css/style.css?v=f1efa3db">
 </head>
 <body>
 <header class="topbar"><a class="nm" href="../index.html">Bomin Lee</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../../works/p01.html" lang="ko">한국어</a><span>/</span><a href="../works/p01.html" lang="en" class=on>English</a></div></header>
@@ -66,7 +66,7 @@
 <aside class="rail" aria-hidden="true"><div class="trail" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2"></div></aside>
 </div>
 <script src="../../assets/js/main.js?v=5d62d564"></script>
-<script src="../../assets/js/figs.js?v=1843bd58"></script>
+<script src="../../assets/js/figs.js?v=b9caeb46"></script>
 <script>
 
 const {mount}=PF, F=FIG;
@@ -75,7 +75,7 @@ mount(document.getElementById('f-auc'), F.hbars({min:.4,max:1,ticks:[.4,.5,.6,.7
 mount(document.getElementById('f-res'), w=>{
  const X=F.lin(0,5,10,w-10), r=['1080p','720p','480p',null,'360p','240p'], pos=[0,1,2,2.55,3.4,4.6];
  let s=`<line x1="${X(0)}" x2="${X(5)}" y1="40" y2="40" stroke="#C8C8C8"/>`;
- r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A3A"/>`+F.T(X(pos[i]),28,t,{a:'middle',fs:10.5,c:'#686868'}); });
+ r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A3A"/>`+F.T(X(pos[i]),28,t,{a:i?'middle':'start',fs:10.5,c:'#686868'}); });
  s+=`<line x1="${X(2.55)}" x2="${X(2.55)}" y1="8" y2="86" stroke="#141414" stroke-width="1.2"/>`+F.T(X(2.55),6,'Face 170px',{a:'middle',fs:11,b:true});
  s+=`<rect x="${X(0)}" y="58" width="${X(2.55)-X(0)-4}" height="5" fill="#141414"/>`+F.T(X(0),80,'CLIP · 480p and up',{fs:11});
  s+=`<rect x="${X(2.55)+4}" y="58" width="${X(5)-X(2.55)-4}" height="5" fill="#8C8C8C"/>`+F.T(X(2.55)+8,80,w<520?'XCEPTION':'XCEPTION · 360p and below · face under 170px',{fs:11});

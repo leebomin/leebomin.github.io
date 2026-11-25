@@ -136,7 +136,7 @@ mount(document.getElementById('f-auc'), F.hbars({min:.4,max:1,ticks:[.4,.5,.6,.7
 mount(document.getElementById('f-res'), w=>{
  const X=F.lin(0,5,10,w-10), r=['1080p','720p','480p',null,'360p','240p'], pos=[0,1,2,2.55,3.4,4.6];
  let s=`<line x1="${X(0)}" x2="${X(5)}" y1="40" y2="40" stroke="#C8C8C8"/>`;
- r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A3A"/>`+F.T(X(pos[i]),28,t,{a:'middle',fs:10.5,c:'#686868'}); });
+ r.forEach((t,i)=>{ if(!t) return; s+=`<line x1="${X(pos[i])}" x2="${X(pos[i])}" y1="36" y2="44" stroke="#3A3A3A"/>`+F.T(X(pos[i]),28,t,{a:i?'middle':'start',fs:10.5,c:'#686868'}); });
  s+=`<line x1="${X(2.55)}" x2="${X(2.55)}" y1="8" y2="86" stroke="#141414" stroke-width="1.2"/>`+F.T(X(2.55),6,'Face 170px',{a:'middle',fs:11,b:true});
  s+=`<rect x="${X(0)}" y="58" width="${X(2.55)-X(0)-4}" height="5" fill="#141414"/>`+F.T(X(0),80,'CLIP · 480p and up',{fs:11});
  s+=`<rect x="${X(2.55)+4}" y="58" width="${X(5)-X(2.55)-4}" height="5" fill="#8C8C8C"/>`+F.T(X(2.55)+8,80,w<520?'XCEPTION':'XCEPTION · 360p and below · face under 170px',{fs:11});
@@ -268,11 +268,11 @@ PAGES['p04.html'] = dict(title='A/B Testing', desc='Lodging app conversion A/B t
  script='''
 const {mount}=PF, F=FIG;
 mount(document.getElementById('f-gap'), w=>{
- const X=F.lin(0,12,4,w-90); let s='';
+ const X=F.lin(0,10.7,4,w-92); let s='';
  s+=`<rect x="${X(0)}" y="14" width="${X(10.7)-X(0)}" height="22" fill="none" stroke="#141414"/>`;
  s+=`<rect x="${X(0)}" y="14" width="${X(2.75)-X(0)}" height="22" fill="#1F32A8"/>`;
  s+=F.T(X(10.7)+8,30,'10.7',{disp:true,fs:16})+F.T(X(10.7)+8,46,'Observed gap',{fs:10.5,c:'#686868'});
- [0,2,4,6,8,10,12].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686868'}));
+ [0,2,4,6,8,10].forEach(t=>s+=F.T(X(t),56,t,{a:'middle',fs:10.5,c:'#686868'}));
  s+=F.T(X(0),76,'+2.75 · confirmed by experiment',{fs:11.5,b:true,c:'#1F32A8'});
  return F.svg(w,82,s);});
 mount(document.getElementById('f-ci'), F.ci({min:0,max:6,lo:.96,hi:4.54,est:2.75,mde:3,zeroLabel:'No effect'}));

@@ -74,11 +74,11 @@
   /* confidence interval on an axis */
   function ci(o) {
     return w => {
-      const H = 118, y = 64, X = lin(o.min, o.max, 14, w - 14);
+      const H = 128, y = 74, X = lin(o.min, o.max, 14, w - 14);
       let s = `<line x1="${X(o.min)}" x2="${X(o.max)}" y1="${y + 18}" y2="${y + 18}" stroke="${INK2}" stroke-width=".8"/>`;
       for (let t = o.min; t <= o.max; t++) s += `<line x1="${X(t)}" x2="${X(t)}" y1="${y + 14}" y2="${y + 22}" stroke="${INK2}"/>` + T(X(t), y + 38, t, { a: 'middle', fs: 10.5, c: MUTE });
-      s += `<line x1="${X(0)}" x2="${X(0)}" y1="${y - 46}" y2="${y + 18}" stroke="${MUTE}" stroke-width="1.5"/>` + T(X(0) + 6, y - 38, o.zeroLabel, { fs: 10.5, ko: true, c: MUTE });
-      if (o.mde != null) s += `<line x1="${X(o.mde)}" x2="${X(o.mde)}" y1="${y - 30}" y2="${y + 18}" stroke="${INK}" stroke-dasharray="2 3"/>` + T(X(o.mde) + 5, y - 22, `MDE ${o.mde}`, { fs: 10.5 });
+      s += `<line x1="${X(0)}" x2="${X(0)}" y1="${y - 46}" y2="${y + 18}" stroke="${MUTE}" stroke-width="1.5"/>` + T(X(0) + 6, y - 42, o.zeroLabel, { fs: 10.5, ko: true, c: MUTE });
+      if (o.mde != null) s += `<line x1="${X(o.mde)}" x2="${X(o.mde)}" y1="${y - 50}" y2="${y + 18}" stroke="${INK}" stroke-dasharray="2 3"/>` + T(X(o.mde) + 5, y - 42, `MDE ${o.mde}`, { fs: 10.5 });
       s += `<line x1="${X(o.lo)}" x2="${X(o.hi)}" y1="${y}" y2="${y}" stroke="${INK}" stroke-width="3"/>`;
       s += `<line x1="${X(o.lo)}" x2="${X(o.lo)}" y1="${y - 6}" y2="${y + 6}" stroke="${INK}" stroke-width="1.5"/><line x1="${X(o.hi)}" x2="${X(o.hi)}" y1="${y - 6}" y2="${y + 6}" stroke="${INK}" stroke-width="1.5"/>`;
       s += T(X(o.lo), y - 12, o.lo, { a: 'middle', fs: 11 }) + T(X(o.hi), y - 12, o.hi, { a: 'middle', fs: 11 });
@@ -107,7 +107,7 @@
       for (let i = 0; i < n; i++) {
         const x = i * (cw + gap), seen = i < o.peek;
         s += `<rect x="${x + .5}" y="${y + .5}" width="${cw - 1}" height="${cw - 1}" fill="${seen ? CELL : 'none'}" stroke="${seen ? '#8C8C8C' : '#8C8C8C'}" stroke-width=".8"/>`;
-        if (o.lab.includes(i + 1)) s += T(x, y + cw + 16, 'D' + (i + 1), { fs: w < 520 ? 8.5 : 10.5, c: MUTE });
+        if (o.lab.includes(i + 1)) s += T(i === n - 1 ? x + cw : x, y + cw + 16, 'D' + (i + 1), { a: i === n - 1 ? 'end' : 'start', fs: w < 520 ? 8.5 : 10.5, c: MUTE });
       }
       const xa = (o.ad - 1) * (cw + gap) + cw / 2;
       s += T(xa, y - 8, TR('광고', 'ad'), { a: 'middle', fs: 10.5, ko: true });
@@ -148,7 +148,7 @@
       const xr = w - colW - 4;
       const map = [0, 1, 2, 3, 3, 4, 5, 6, 6, 6, 7, 8, 9, 9, 10, 11]; /* order index for each joined row */
       const dup = new Set(map.filter((v, i) => map.indexOf(v) !== i || map.lastIndexOf(v) !== i));
-      let s = T(0, 12, `ORDER (${ord})`, { fs: 10.5, b: true }) + T(xr, 12, `AFTER JOIN (${rows})`, { fs: 10.5, b: true });
+      let s = T(0, 12, `ORDER (${ord})`, { fs: 10.5, b: true }) + T(w, 12, `AFTER JOIN (${rows})`, { a: 'end', fs: 10.5, b: true });
       const cellRow = (x, y, k, fillN) => { let r = ''; for (let c = 0; c < k; c++) r += `<rect x="${x + c * (cw + 1.5)}" y="${y}" width="${cw}" height="${rh - 4}" fill="${c < fillN ? INK : CELL}"/>`; return r; };
       for (let i = 0; i < ord; i++) { const y = top + (i * rows / ord) * rh; s += cellRow(0, y, cols, 2); }
       map.forEach((oi, j) => {
