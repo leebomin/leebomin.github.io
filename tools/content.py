@@ -127,7 +127,7 @@ CV_PAGE = dict(title='CV · 이보민', desc='이보민의 경력 · 학력 · �
 
 <section class="sec" id="contact">
   <h2 class="sec-t">Contact</h2>
-  <p class="prose rv" style="margin-top:0">데이터가 말하는 것과 말하지 않는 것을 구분하는 일을 하고 싶습니다. <a class="u" href="mailto:ibomin88@gmail.com">ibomin88@gmail.com</a></p>
+  <p class="prose rv" style="margin-top:0"><a class="u" href="mailto:ibomin88@gmail.com">ibomin88@gmail.com</a></p>
 </section>
 ''')
 

@@ -84,7 +84,7 @@ CV_PAGE = dict(title='CV · Bomin Lee', desc='Experience, education, skills and 
 
 <section class="sec" id="contact">
   <h2 class="sec-t">Contact</h2>
-  <p class="prose rv" style="margin-top:0">I want to work on telling apart what the data says from what it doesn’t. <a class="u" href="mailto:ibomin88@gmail.com">ibomin88@gmail.com</a></p>
+  <p class="prose rv" style="margin-top:0"><a class="u" href="mailto:ibomin88@gmail.com">ibomin88@gmail.com</a></p>
 </section>
 ''')
 
