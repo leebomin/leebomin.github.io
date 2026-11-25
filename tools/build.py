@@ -42,11 +42,11 @@ def shell(pre, main, active):
 <div class="shell">
 <aside class="side">
   <div>
-    <a class="name" href="{pre}index.html">이보민<small>Lee Bomin · Data Scientist</small></a>
+    <a class="name" href="{pre}index.html">이보민<small>Bomin Lee · Data Scientist</small></a>
     <div class="photo" data-src="{pre}assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
     <nav>{navs}</nav>
   </div>
-  <div class="foot"><div class="icons">{icons}</div><p class="copy">© 2026 Lee Bomin</p></div>
+  <div class="foot"><div class="icons">{icons}</div><p class="copy">© 2026 Bomin Lee</p></div>
 </aside>
 <main class="main">
 {main}

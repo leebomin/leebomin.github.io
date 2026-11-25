@@ -74,7 +74,7 @@ INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티�
   <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span></h1>
   <div class="prose">
     <p>서울시립대학교에서 도시행정학과 통계학을 공부하고 있습니다.</p>
-    <p>모델을 만들고, 그 결과가 정말 맞는지 다시 확인하는 일을 주로 합니다. 최근에는 딥페이크 탐지, 항공 엔진 정비 예측, 공식 문서 기반 LLM 웹앱을 만들었습니다.</p>
+    <p>모델을 만들고, 그 결과가 정말 맞는지 다시 확인하는 일을 주로 합니다.<br>최근에는 딥페이크 탐지, 항공 엔진 정비 예측, 공식 문서 기반 LLM 웹앱을 만들었습니다.</p>
   </div>
   <div class="tags"><span class="tag">실험 설계</span><span class="tag">모델 평가 · 검증</span><span class="tag">통계 모델링</span><span class="tag">LLM 서비스</span></div>
 </section>
