@@ -55,7 +55,7 @@ PROJECTS_PAGE = dict(title='Projects · Bomin Lee', desc='Projects by Bomin Lee:
 
 CV_PAGE = dict(title='CV · Bomin Lee', desc='Experience, education, skills and certificates of Bomin Lee.', body='''
 <h1 class="pg-t rv">CV</h1>
-<section class="sec" id="experience" style="margin-top:28px">
+<section class="sec" id="experience" style="padding-top:0">
   <h2 class="sec-t">Experience</h2>
   <ul class="rows rv">
     <li><time>2026.08–</time><span>TOBIG'S 26th cohort · DA track · Multimodal/CV team</span><span class="r">P01 · P04 · P05</span></li>

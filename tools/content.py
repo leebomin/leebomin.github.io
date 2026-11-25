@@ -98,7 +98,7 @@ PROJECTS_PAGE = dict(title='Projects · 이보민', desc='이보민의 프로젝
 
 CV_PAGE = dict(title='CV · 이보민', desc='이보민의 경력 · 학력 · 기술 · 자격.', body=f'''
 <h1 class="pg-t rv">CV</h1>
-<section class="sec" id="experience" style="margin-top:28px">
+<section class="sec" id="experience" style="padding-top:0">
   <h2 class="sec-t">Experience</h2>
   <ul class="rows rv">
     <li><time>2026.08–</time><span>TOBIG'S 26기 · DA 트랙 · 멀티모달/CV 팀</span><span class="r">P01 · P04 · P05</span></li>
