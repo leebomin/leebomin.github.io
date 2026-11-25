@@ -256,13 +256,20 @@ figcaption{margin-top:9px;font-size:13px;color:var(--mute);line-height:1.65}
 .topbar .lang{display:none}
 @media (max-width:1024px){.topbar .lang{display:flex;font-size:11px}}
 
-.trail{position:relative;height:200px;margin:0 0 32px;border:1px solid var(--line-2);background-color:var(--box);
+.trail{position:relative;height:180px;margin:24px 0 0;border:1px solid var(--line-2);background-color:var(--box);
   background-image:radial-gradient(var(--line) 1px,transparent 1.2px);background-size:12px 12px;background-position:6px 6px;overflow:hidden;cursor:crosshair;touch-action:pan-y}
 .trail .chip{position:absolute;transform:translate(-50%,-50%) rotate(var(--r,0deg));padding:3px 9px;font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;white-space:nowrap;
   background:var(--paper);color:var(--ink);border:1px solid var(--ink);pointer-events:none;animation:chip 1.4s cubic-bezier(.2,.7,.3,1) forwards}
 .trail .chip.d{background:var(--ink);color:var(--paper)}
 .trail .chip.a{background:var(--accent);border-color:var(--accent);color:var(--paper)}
 @keyframes chip{0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--r)) scale(.6)}12%{opacity:1;transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}70%{opacity:1}100%{opacity:0;transform:translate(-50%,-80%) rotate(var(--r)) scale(.9)}}
+#about{position:relative}
+#about .trail.sq{order:9}
+@media (min-width:1400px){
+  .shell{max-width:1440px}
+  #about .trail.sq{position:absolute;left:calc(100% + 40px);top:6px;width:250px;height:auto;aspect-ratio:1;margin:0}
+}
+@media (max-width:1024px){#about .trail.sq{display:none}}
 @media (prefers-reduced-motion:reduce){.trail{display:none}}
 
 /* ───────── dark mode: follows the device setting ───────── */

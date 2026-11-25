@@ -79,6 +79,7 @@ INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티�
     <p>모델을 만들고, 그 결과가 정말 맞는지 다시 확인하는 일을 주로 합니다.<br>최근에는 딥페이크 탐지, 항공 엔진 정비 예측, 공식 문서 기반 LLM 웹앱을 만들었습니다.</p>
   </div>
   <div class="tags"><span class="tag">실험 설계</span><span class="tag">모델 평가 · 검증</span><span class="tag">통계 모델링</span><span class="tag">LLM 서비스</span></div>
+  <div class="trail sq" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2" aria-hidden="true"></div>
 </section>
 
 
@@ -93,7 +94,6 @@ INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티�
 
 PROJECTS_PAGE = dict(title='Projects · 이보민', desc='이보민의 프로젝트 — 모델 평가, 실험 설계, 통계 분석, LLM 서비스.', body=f'''
 <h1 class="pg-t rv">Projects</h1>
-<div class="trail rv" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2" aria-hidden="true"></div>
 <div class="plist">{PROJECTS}</div>
 ''')
 

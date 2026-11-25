@@ -39,6 +39,7 @@ INDEX = dict(title='Bomin Lee · Data Scientist', desc='Portfolio of Bomin Lee, 
     <p>I build models, then check again whether their results actually hold up.<br>Recently I built deepfake detection, aircraft engine maintenance prediction, and an LLM web app grounded in official documents.</p>
   </div>
   <div class="tags"><span class="tag">Experiment design</span><span class="tag">Model evaluation · validation</span><span class="tag">Statistical modeling</span><span class="tag">LLM services</span></div>
+  <div class="trail sq" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2" aria-hidden="true"></div>
 </section>
 
 <section class="sec" id="projects">
@@ -50,7 +51,6 @@ INDEX = dict(title='Bomin Lee · Data Scientist', desc='Portfolio of Bomin Lee, 
 
 PROJECTS_PAGE = dict(title='Projects · Bomin Lee', desc='Projects by Bomin Lee: model evaluation, experiment design, statistical analysis, LLM services.', body=f'''
 <h1 class="pg-t rv">Projects</h1>
-<div class="trail rv" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2" aria-hidden="true"></div>
 <div class="plist">{PROJECTS}</div>
 ''')
 
