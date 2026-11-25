@@ -63,6 +63,7 @@ def shell(pre, a, main, active, lang, rel):
 <main class="main">
 {main}
 </main>
+<aside class="rail" aria-hidden="true"><div class="trail" data-words="AUC|CLIP|conformal|A/B test|SRM|MDE|RAG|MCP|SQL|JOIN|PCA|regression|bootstrap|1D-CNN|leakage|eval set|OOD|p-value|VIF|Cook’s D|delta method|wav2vec2"></div></aside>
 </div>
 """
 

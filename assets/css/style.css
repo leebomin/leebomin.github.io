@@ -265,13 +265,12 @@ figcaption{margin-top:9px;font-size:13px;color:var(--mute);line-height:1.65}
 .trail .chip.d{background:var(--chip-2)}
 .trail .chip.a{background:var(--ink);color:var(--paper)}
 @keyframes chip{0%{opacity:0;transform:translate(-50%,-50%) scale(.85)}18%{opacity:1;transform:translate(-50%,-50%) scale(1)}60%{opacity:1}100%{opacity:0;transform:translate(-50%,calc(-50% - 10px)) scale(.97)}}
-#about{position:relative}
-#about .trail.sq{order:9}
+.rail{display:none}
 @media (min-width:1400px){
-  .shell{max-width:1360px}
-  #about .trail.sq{position:absolute;left:calc(100% + 32px);top:6px;width:220px;height:auto;aspect-ratio:1;margin:0}
+  .shell{max-width:1400px}
+  .rail{display:block;flex:none;width:220px;margin-left:8px;padding:70px 0 40px}
+  .rail .trail{position:sticky;top:70px;height:calc(100vh - 140px);min-height:320px;margin:0}
 }
-@media (max-width:1024px){#about .trail.sq{display:none}}
 @media (prefers-reduced-motion:reduce){.trail{display:none}}
 
 /* ───────── dark mode: follows the device setting ───────── */
