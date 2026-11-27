@@ -43,9 +43,9 @@
 
 <h2 class="rv">Key finding<span class="ko">Leakage · 데이터 누수</span></h2>
 <h3 class="rv">상황</h3>
-<p class="rv">‘LCC 단거리 가중치’를 넣자 RMSE가 <b>15~20% 개선</b>됐습니다. 같은 데이터로 실험한 팀원들의 결과와 비교하면 지나치게 큰 폭이었습니다.</p>
+<p class="rv">‘LCC 단거리 가중치’를 넣자 RMSE가 <b>15~20% 개선</b>됐습니다.</p>
 <h3 class="rv">의심</h3>
-<p class="rv">개선폭이 실행마다 들쭉날쭉했습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
+<p class="rv">같은 데이터로 실험한 팀원들의 모델에서는 개선이 거의 없었는데, 제 결과만 크게 좋았습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
 <h3 class="rv">확인</h3>
 <p class="rv">전처리를 폴드 안으로 옮기자 효과는 <b>≈ 0</b>으로 사라졌습니다. 가설을 기각하고, 같은 원인으로 생긴 <b>버그 5건</b>도 함께 고쳤습니다.</p>
 <figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Before · 전처리 먼저, 나누기는 나중</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Data</span><p>전체 데이터<br><small>평가 데이터 포함</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>스케일러 · 변수 선택<br><small>전체 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>학습 / 평가</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>After · 나누기 먼저, 전처리는 학습 데이터로만</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Split</span><p>학습 / 평가</p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>스케일러 · 변수 선택<br><small>학습 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">Apply</span><p>평가에는 적용만</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>RMSE 개선폭</span><span class=r></span></div><div id="f-rmse"></div></div></div><figcaption>개선처럼 보였던 15~20%는 평가 데이터를 미리 본 효과였습니다.</figcaption></figure>
