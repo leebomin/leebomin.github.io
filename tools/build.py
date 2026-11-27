@@ -44,7 +44,7 @@ def shell(pre, a, main, active, lang, rel):
     langs = (f'<div class="lang"><a href="{ko_url}" lang="ko"{" class=on" if not en else ""}>한국어</a><span>/</span>'
              f'<a href="{en_url}" lang="en"{" class=on" if en else ""}>English</a></div>')
     name = 'Bomin Lee' if en else '이보민'
-    sub = 'Data Science' if en else 'Bomin Lee · Data Science'
+    sub = 'Data Scientist' if en else 'Bomin Lee · Data Scientist'
     alt = ('Photo of Bomin Lee. Hover to pixelate around the cursor; click to turn the whole photo into pixel art.' if en
            else '이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다.')
     icons = (f'<a href="https://github.com/leebomin" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">{ICON["gh"]}</a>'

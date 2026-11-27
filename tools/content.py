@@ -70,7 +70,7 @@ def updates():
     lis = ''.join(f'<li><div class="upd"><time>{d}</time><span>{t}</span></div></li>' for d, t in rest)
     return f'''<details class="updates rv"><summary><div class="upd"><time>{first[0]}</time><span>{first[1]}</span></div><svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6l4 4 4-4"/></svg></summary><ul>{lis}</ul></details>'''
 
-INDEX = dict(title='이보민 · Portfolio', desc='이보민의 데이터 분석 포트폴리오. 실험 설계 · 모델 평가와 검증 · 통계 모델링 · LLM 서비스.', body=f'''
+INDEX = dict(title='이보민 · Data Scientist', desc='이보민의 데이터 분석 포트폴리오. 실험 설계 · 모델 평가와 검증 · 통계 모델링 · LLM 서비스.', body=f'''
 <section id="about" class="rv">
   <div class="photo m" data-src="{{A}}assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
   <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span></h1>

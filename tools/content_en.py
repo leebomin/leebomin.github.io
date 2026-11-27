@@ -30,7 +30,7 @@ _P = ([
 PROJECTS = ''.join(_P)
 MAIN4 = ''.join(_P[:4])
 
-INDEX = dict(title='Bomin Lee · Portfolio', desc='Data analysis portfolio of Bomin Lee. Experiment design · model evaluation and validation · statistical modeling · LLM services.', body=f'''
+INDEX = dict(title='Bomin Lee · Data Scientist', desc='Data analysis portfolio of Bomin Lee. Experiment design · model evaluation and validation · statistical modeling · LLM services.', body=f'''
 <section id="about" class="rv">
   <div class="photo m" data-src="{{A}}assets/img/portrait.png" aria-label="Photo of Bomin Lee. Tap to turn it into pixel art."></div>
   <h1 class="headline"><span class="ko">Hi, I’m Bomin Lee.</span></h1>
