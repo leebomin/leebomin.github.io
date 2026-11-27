@@ -30,8 +30,8 @@ _P = ([
         '처음 보는 데이터에서 AUC 이미지 <b>0.907</b> · 얼굴 0.858 · 음성 0.988. 파일 형식에 남은 가짜 단서를 먼저 지우고, 후보 12종을 비교해 골랐습니다.',
         'works/p01.html', thumb((100, 91, 10, 'f'), '외부 AUC · 칸=0.01', '0.907')),
   pitem('P02', '미래내일 일경험 · 제주항공 · 2026 · 동상', 'Predictive Maintenance', '항공 엔진 정비 시점 결정',
-        '정비 전 고장 확률 <b>0.196 → 0.119</b>(시뮬레이션 PoC). 한 실행에서만 크게 보인 15~20% 개선이 데이터 누수였음을 찾아 바로잡았습니다.',
-        'works/p02.html', thumb((100, 12, 10, 'f'), '정비 전 고장 · 칸=1%', '0.119'), gh='leebomin/jejuairline'),
+        '시뮬레이션 정비 전 고장 확률 <b>19.6% → 11.9%</b>. 한 실행에서만 크게 보인 15~20% 개선이 데이터 누수였음을 찾아 바로잡았습니다.',
+        'works/p02.html', thumb((100, 12, 10, 'f'), '정비 전 고장 · 칸=1%', '11.9%'), gh='leebomin/jejuairline'),
   pitem('P03', '네이버클라우드 에이전틱 AI 과정 · 2026', 'Pill Finder', '공식 문서 근거 LLM 웹앱',
         '응급 질문 감지 <b>3/20 → 20/20</b>(데모). 모델에게 맡기지 않을 것부터 정하고, 규칙을 보지 않은 질문 40개로 평가했습니다.',
         'works/p03.html', thumb((20, 20, 10, 'f'), '응급 질문 감지', '20/20'), gh='leebomin/pill-finder', demo=DEMO_P03),
@@ -75,8 +75,8 @@ INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티�
   <div class="photo m" data-src="{{A}}assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
   <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span></h1>
   <div class="prose">
-    <p>서울시립대학교에서 도시행정학과 통계학을 공부하고 있습니다.</p>
-    <p>모델을 만들고, 그 결과가 정말 맞는지 다시 확인하는 일을 주로 합니다.<br>최근에는 딥페이크 탐지, 항공 엔진 정비 예측, 공식 문서 기반 LLM 웹앱을 만들었습니다.</p>
+    <p>데이터 누수와 잘못된 실험 결론을 걸러내, 믿고 쓸 수 있는 분석과 모델을 만드는 데이터 사이언티스트 이보민입니다.</p>
+    <p>서울시립대학교에서 도시행정학과 통계학을 전공하고 있습니다(2027.02 졸업 예정).<br>전환율 A/B 테스트, 항공 엔진 정비 시점 예측, 공식 문서 근거 LLM 웹앱에서 데이터 누수와 성급한 실험 결론을 걸러내고, 검증된 결과로 판단하는 기준을 세웠습니다.</p>
   </div>
   <div class="tags"><span class="tag">실험 설계</span><span class="tag">모델 평가 · 검증</span><span class="tag">통계 모델링</span><span class="tag">LLM 서비스</span></div>
 </section>
@@ -235,13 +235,13 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='엔진 잔여수�
 <p class="scope rv"><span class="label">Scope</span>운영 배포가 아닌 PoC입니다. N-CMAPSS는 NASA 시뮬레이션 데이터이고, 엔진 34대 정책 시뮬레이션은 표본이 작아 참고치로만 봅니다.</p>
 <div class="body">
 <p class="rv">정비가 늦으면 결함이 생기고, 너무 잦으면 비용이 듭니다. 엔진 잔여수명을 숫자 하나가 아니라 <b>확률분포</b>로 예측하고, 이 비대칭을 반영해 <b>정비 시점</b>을 정하는 PoC를 만들었습니다. 데이터는 NASA 시뮬레이션인 N-CMAPSS 엔진 34대와 NGAFID 실비행 28,935편입니다.</p>
-{fig([('정비 전 고장 확률', '칸 하나 = 1%', '<div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">기존 정책</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">확률 보정 후</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">100번 정비 결정 중 정비하기 전에 고장 나는 경우가 약 20번에서 12번으로 줄었습니다.</p></div>')])}
+{fig([('정비 전 고장 확률', '칸 하나 = 1%', '<div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">기존 정책</p><p class="w-v dim">19.6%</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">확률 보정 후</p><p class="w-v">11.9%</p></div><p class="w-txt fig-note">100번 정비 결정 중 정비하기 전에 고장 나는 경우가 약 20번에서 12번으로 줄었습니다.</p></div>')])}
 
 {h2('What I did', '한 일')}
 <ol class="steps rv">
 <li>한 실행에서만 크게 보인 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
 <li>1D-CNN 앙상블의 예측 분포를 conformal로 보정해, 90% 구간이 실제로 <b>0.902</b>를 덮는 것을 확인했습니다.</li>
-<li>보정된 확률로 정비 시점을 정해 정비 전 고장 확률을 <span class="hl">0.196 → 0.119</span>로 낮췄습니다.</li>
+<li>보정된 확률로 정비 시점을 정해 시뮬레이션 정비 전 고장 확률을 <span class="hl">19.6% → 11.9%</span>로 낮췄습니다.</li>
 </ol>
 {fig([('90% 예측 구간 커버리지', '', '<div id="f-cov"></div><p class="fig-note">“90% 구간”이라고 예측한 범위 안에 실제 잔여수명의 90.2%가 들어왔습니다.</p>'),
       ('정책 시뮬레이션 · 엔진 34대 · 참고치', '칸 하나 = 엔진 1대', rowfig('평균 기반', '34,34,34,f', '1 / 34').replace('data-cells="34,34,34,f"', 'id="e-a"') + rowfig('확률 기반', '34,34,34,f', '0 / 34') + '<p class="fig-note">× = 정비 전에 고장 난 엔진. 1대 차이라 단독 근거로 쓰지 않았습니다.</p>')])}
@@ -261,7 +261,7 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='엔진 잔여수�
 {h2('Data &amp; Experiment', '예측 구간 보정 · 정비 결정')}
 {dl([('Data', 'N-CMAPSS 엔진 34대 (NASA 시뮬레이션) · NGAFID 실비행 28,935편 (진단)'), ('Preproc', '스케일러 · 변수선택을 교차검증 폴드 안에서만 fit'), ('Unit', '엔진 단위 교차검증 · 같은 엔진이 학습 · 평가에 섞이지 않게'), ('Decision', '늦은 정비(결함)와 잦은 정비(비용)의 비대칭을 반영한 정비 시점')])}
 {table(['Metric', 'Baseline', 'Final', 'How'], [
-  ['정비 전 고장 확률', '0.196', '0.119', '보정된 분포로 정비 시점 결정'],
+  ['정비 전 고장 확률(시뮬레이션)', '19.6%', '11.9%', '보정된 분포로 정비 시점 결정'],
   ['90% 구간 커버리지', '—', '0.902', '1D-CNN 앙상블 + conformal'],
   ['정책 시뮬 고장', '최선 1대', '0 / 34', '평균 기반 → 확률 기반 정책'],
   ['실비행 진단 AUC', '0.76', '0.849', '우도비 베이즈 결합']], (1, 2))}

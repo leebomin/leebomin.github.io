@@ -32,13 +32,13 @@
 <p class="scope rv"><span class="label">Scope</span>운영 배포가 아닌 PoC입니다. N-CMAPSS는 NASA 시뮬레이션 데이터이고, 엔진 34대 정책 시뮬레이션은 표본이 작아 참고치로만 봅니다.</p>
 <div class="body">
 <p class="rv">정비가 늦으면 결함이 생기고, 너무 잦으면 비용이 듭니다. 엔진 잔여수명을 숫자 하나가 아니라 <b>확률분포</b>로 예측하고, 이 비대칭을 반영해 <b>정비 시점</b>을 정하는 PoC를 만들었습니다. 데이터는 NASA 시뮬레이션인 N-CMAPSS 엔진 34대와 NGAFID 실비행 28,935편입니다.</p>
-<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>정비 전 고장 확률</span><span class=r>칸 하나 = 1%</span></div><div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">기존 정책</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">확률 보정 후</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">100번 정비 결정 중 정비하기 전에 고장 나는 경우가 약 20번에서 12번으로 줄었습니다.</p></div></div></div></figure>
+<figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>정비 전 고장 확률</span><span class=r>칸 하나 = 1%</span></div><div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">기존 정책</p><p class="w-v dim">19.6%</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">확률 보정 후</p><p class="w-v">11.9%</p></div><p class="w-txt fig-note">100번 정비 결정 중 정비하기 전에 고장 나는 경우가 약 20번에서 12번으로 줄었습니다.</p></div></div></div></figure>
 
 <h2 class="rv">What I did<span class="ko">한 일</span></h2>
 <ol class="steps rv">
 <li>한 실행에서만 크게 보인 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
 <li>1D-CNN 앙상블의 예측 분포를 conformal로 보정해, 90% 구간이 실제로 <b>0.902</b>를 덮는 것을 확인했습니다.</li>
-<li>보정된 확률로 정비 시점을 정해 정비 전 고장 확률을 <span class="hl">0.196 → 0.119</span>로 낮췄습니다.</li>
+<li>보정된 확률로 정비 시점을 정해 시뮬레이션 정비 전 고장 확률을 <span class="hl">19.6% → 11.9%</span>로 낮췄습니다.</li>
 </ol>
 <figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>90% 예측 구간 커버리지</span><span class=r></span></div><div id="f-cov"></div><p class="fig-note">“90% 구간”이라고 예측한 범위 안에 실제 잔여수명의 90.2%가 들어왔습니다.</p></div><div class="fig-part"><div class=fig-head><span class=h>정책 시뮬레이션 · 엔진 34대 · 참고치</span><span class=r>칸 하나 = 엔진 1대</span></div><div class="rowfig"><span class="k">평균 기반</span><div id="e-a"></div><span class="v">1 / 34</span></div><div class="rowfig"><span class="k">확률 기반</span><div data-cells="34,34,34,f"></div><span class="v">0 / 34</span></div><p class="fig-note">× = 정비 전에 고장 난 엔진. 1대 차이라 단독 근거로 쓰지 않았습니다.</p></div></div></figure>
 
@@ -54,7 +54,7 @@
 
 <h2 class="rv">Data &amp; Experiment<span class="ko">예측 구간 보정 · 정비 결정</span></h2>
 <dl class="dl rv"><div><dt class="label">Data</dt><dd>N-CMAPSS 엔진 34대 (NASA 시뮬레이션) · NGAFID 실비행 28,935편 (진단)</dd></div><div><dt class="label">Preproc</dt><dd>스케일러 · 변수선택을 교차검증 폴드 안에서만 fit</dd></div><div><dt class="label">Unit</dt><dd>엔진 단위 교차검증 · 같은 엔진이 학습 · 평가에 섞이지 않게</dd></div><div><dt class="label">Decision</dt><dd>늦은 정비(결함)와 잦은 정비(비용)의 비대칭을 반영한 정비 시점</dd></div></dl>
-<div class="dtable-wrap rv"><table class="dtable"><thead><tr><th>Metric</th><th>Baseline</th><th>Final</th><th>How</th></tr></thead><tbody><tr><td class="">정비 전 고장 확률</td><td class="n">0.196</td><td class="n">0.119</td><td class="">보정된 분포로 정비 시점 결정</td></tr><tr><td class="">90% 구간 커버리지</td><td class="n">—</td><td class="n">0.902</td><td class="">1D-CNN 앙상블 + conformal</td></tr><tr><td class="">정책 시뮬 고장</td><td class="n">최선 1대</td><td class="n">0 / 34</td><td class="">평균 기반 → 확률 기반 정책</td></tr><tr><td class="">실비행 진단 AUC</td><td class="n">0.76</td><td class="n">0.849</td><td class="">우도비 베이즈 결합</td></tr></tbody></table></div>
+<div class="dtable-wrap rv"><table class="dtable"><thead><tr><th>Metric</th><th>Baseline</th><th>Final</th><th>How</th></tr></thead><tbody><tr><td class="">정비 전 고장 확률(시뮬레이션)</td><td class="n">19.6%</td><td class="n">11.9%</td><td class="">보정된 분포로 정비 시점 결정</td></tr><tr><td class="">90% 구간 커버리지</td><td class="n">—</td><td class="n">0.902</td><td class="">1D-CNN 앙상블 + conformal</td></tr><tr><td class="">정책 시뮬 고장</td><td class="n">최선 1대</td><td class="n">0 / 34</td><td class="">평균 기반 → 확률 기반 정책</td></tr><tr><td class="">실비행 진단 AUC</td><td class="n">0.76</td><td class="n">0.849</td><td class="">우도비 베이즈 결합</td></tr></tbody></table></div>
 <p class="rv">RMSE가 데이터 규모의 한계에 닿은 뒤에는 모델을 더 키워도 정비 결정이 나아지지 않았습니다. 그래서 예측 구간이 실제로 90%를 덮는지를 먼저 맞추고, 그 확률로 정비 시점을 정했습니다.</p>
 <div class="take rv"><span class="label">Takeaway</span><p>모델 크기보다 예측 구간의 신뢰도</p></div>
 </div>

@@ -6,8 +6,8 @@ _P = ([
         'AUC on unseen data: image <b>0.907</b> · face 0.858 · voice 0.988. Removed a fake cue left in the file format first, then compared 12 candidates.',
         'works/p01.html', thumb((100, 91, 10, 'f'), 'External AUC · cell=0.01', '0.907')),
   pitem('P02', 'Future Work Experience · Jeju Air · 2026 · Bronze', 'Predictive Maintenance', 'When to service an aircraft engine',
-        'Failure before service <b>0.196 → 0.119</b> (simulation PoC). Found that a 15–20% gain seen in a single run was data leakage, and fixed it.',
-        'works/p02.html', thumb((100, 12, 10, 'f'), 'Failure before service · cell=1%', '0.119'), gh='leebomin/jejuairline'),
+        'Simulated probability of failure before service <b>19.6% → 11.9%</b>. Found that a 15–20% gain seen in a single run was data leakage, and fixed it.',
+        'works/p02.html', thumb((100, 12, 10, 'f'), 'Failure before service · cell=1%', '11.9%'), gh='leebomin/jejuairline'),
   pitem('P03', 'NAVER Cloud Agentic AI course · 2026', 'Pill Finder', 'LLM web app grounded in official documents',
         'Emergency detection <b>3/20 → 20/20</b> (demo). Decided first what the model should not do, then evaluated on 40 questions written without seeing the rules.',
         'works/p03.html', thumb((20, 20, 10, 'f'), 'Emergency questions caught', '20/20'), gh='leebomin/pill-finder', demo=DEMO_P03),
@@ -35,8 +35,8 @@ INDEX = dict(title='Bomin Lee · Data Scientist', desc='Portfolio of Bomin Lee, 
   <div class="photo m" data-src="{{A}}assets/img/portrait.png" aria-label="Photo of Bomin Lee. Tap to turn it into pixel art."></div>
   <h1 class="headline"><span class="ko">Hi, I’m Bomin Lee.</span></h1>
   <div class="prose">
-    <p>I study Urban Administration and Statistics at the University of Seoul.</p>
-    <p>I build models, then check again whether their results actually hold up.<br>Recently I built deepfake detection, aircraft engine maintenance prediction, and an LLM web app grounded in official documents.</p>
+    <p>I’m Bomin Lee, a data scientist who filters out data leakage and wrong experiment conclusions to build analyses and models people can trust.</p>
+    <p>I study Urban Administration and Statistics at the University of Seoul (graduating Feb 2027).<br>In a conversion A/B test, aircraft engine maintenance timing, and an LLM web app grounded in official documents, I filtered out data leakage and hasty experiment conclusions and set standards for deciding on verified results.</p>
   </div>
   <div class="tags"><span class="tag">Experiment design</span><span class="tag">Model evaluation · validation</span><span class="tag">Statistical modeling</span><span class="tag">LLM services</span></div>
 </section>
@@ -159,13 +159,13 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='Probabilistic rem
 <p class="scope rv"><span class="label">Scope</span>A PoC, not a production deployment. N-CMAPSS is NASA simulation data, and the 34-engine policy simulation is too small to be more than a reference.</p>
 <div class="body">
 <p class="rv">Servicing too late causes faults; servicing too often costs money. I built a PoC that predicts an engine’s remaining useful life as a <b>probability distribution</b> rather than a single number, and uses that asymmetry to set the <b>maintenance time</b>. Data: 34 engines from N-CMAPSS (a NASA simulation) and 28,935 real flights from NGAFID.</p>
-{fig([('Probability of failure before service', 'One cell = 1%', '<div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">Previous policy</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">After calibration</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">Out of 100 maintenance decisions, failures before service fell from about 20 to 12.</p></div>')])}
+{fig([('Probability of failure before service', 'One cell = 1%', '<div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">Previous policy</p><p class="w-v dim">19.6%</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">After calibration</p><p class="w-v">11.9%</p></div><p class="w-txt fig-note">Out of 100 maintenance decisions, failures before service fell from about 20 to 12.</p></div>')])}
 
 {h2('What I did', '')}
 <ol class="steps rv">
 <li>Found that a 15–20% gain seen in a single run was <b>data leakage</b>.</li>
 <li>Calibrated the 1D-CNN ensemble’s predictive distribution with conformal prediction; the 90% interval actually covered <b>0.902</b>.</li>
-<li>Timed maintenance with the calibrated probabilities, lowering failure-before-service from <span class="hl">0.196 → 0.119</span>.</li>
+<li>Timed maintenance with the calibrated probabilities, lowering the simulated probability of failure before service from <span class="hl">19.6% → 11.9%</span>.</li>
 </ol>
 {fig([('90% prediction interval coverage', '', '<div id="f-cov"></div><p class="fig-note">90.2% of true remaining lives fell inside the predicted “90% interval”.</p>'),
       ('Policy simulation · 34 engines · reference only', 'One cell = one engine', rowfig('Mean-based', '34,34,34,f', '1 / 34').replace('data-cells="34,34,34,f"', 'id="e-a"') + rowfig('Probabilistic', '34,34,34,f', '0 / 34') + '<p class="fig-note">× = engine that failed before service. A one-engine gap, so not used as evidence on its own.</p>')])}
@@ -185,7 +185,7 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='Probabilistic rem
 {h2('Data &amp; Experiment', 'Interval calibration · maintenance decision')}
 {dl([('Data', 'N-CMAPSS 34 engines (NASA simulation) · NGAFID 28,935 real flights (diagnosis)'), ('Preproc', 'Scaler and feature selection fit only inside CV folds'), ('Unit', 'Engine-level CV · no engine in both train and test'), ('Decision', 'Maintenance time reflecting late (fault) vs early (cost) asymmetry')])}
 {table(['Metric', 'Baseline', 'Final', 'How'], [
-  ['Failure before service', '0.196', '0.119', 'Timing from calibrated distribution'],
+  ['Failure before service (simulated)', '19.6%', '11.9%', 'Timing from calibrated distribution'],
   ['90% interval coverage', '—', '0.902', '1D-CNN ensemble + conformal'],
   ['Failures in policy sim', 'best: 1', '0 / 34', 'Mean-based → probabilistic policy'],
   ['Real-flight diagnosis AUC', '0.76', '0.849', 'Likelihood-ratio Bayesian fusion']], (1, 2))}
