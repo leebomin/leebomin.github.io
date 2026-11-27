@@ -247,9 +247,9 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='엔진 잔여수�
 
 {h2('Key finding', 'Leakage · 데이터 누수')}
 <h3 class="rv">상황</h3>
-<p class="rv">‘LCC 단거리 가중치’를 넣자 RMSE가 <b>15~20% 개선</b>됐습니다. 같은 데이터로 실험한 팀원들의 결과와 비교하면 지나치게 큰 폭이었습니다.</p>
+<p class="rv">‘LCC 단거리 가중치’를 넣자 RMSE가 <b>15~20% 개선</b>됐습니다.</p>
 <h3 class="rv">의심</h3>
-<p class="rv">개선폭이 실행마다 들쭉날쭉했습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
+<p class="rv">같은 데이터로 실험한 팀원들과 비교했을 때 제 결과만 눈에 띄게 좋게 나왔습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
 <h3 class="rv">확인</h3>
 <p class="rv">전처리를 폴드 안으로 옮기자 효과는 <b>≈ 0</b>으로 사라졌습니다. 가설을 기각하고, 같은 원인으로 생긴 <b>버그 5건</b>도 함께 고쳤습니다.</p>
 {fig([('Before · 전처리 먼저, 나누기는 나중', '', '<div class="flow"><div class="box"><span class="label">Data</span><p>전체 데이터<br><small>평가 데이터 포함</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>스케일러 · 변수 선택<br><small>전체 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>학습 / 평가</p></div></div>'),
