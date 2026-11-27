@@ -30,12 +30,12 @@ _P = ([
 PROJECTS = ''.join(_P)
 MAIN4 = ''.join(_P[:4])
 
-INDEX = dict(title='Bomin Lee · Data Scientist', desc='Portfolio of Bomin Lee, data scientist. Experiment design · model evaluation and validation · statistical modeling · LLM services.', body=f'''
+INDEX = dict(title='Bomin Lee · Portfolio', desc='Data analysis portfolio of Bomin Lee. Experiment design · model evaluation and validation · statistical modeling · LLM services.', body=f'''
 <section id="about" class="rv">
   <div class="photo m" data-src="{{A}}assets/img/portrait.png" aria-label="Photo of Bomin Lee. Tap to turn it into pixel art."></div>
   <h1 class="headline"><span class="ko">Hi, I’m Bomin Lee.</span></h1>
   <div class="prose">
-    <p>I’m Bomin Lee, a data scientist who filters out data leakage and wrong experiment conclusions to build analyses and models people can trust.</p>
+    <p>I want to build analyses and models people can trust, by filtering out data leakage and wrong experiment conclusions.</p>
     <p>I study Urban Administration and Statistics at the University of Seoul (graduating Feb 2027).<br>In a conversion A/B test, aircraft engine maintenance timing, and an LLM web app grounded in official documents, I filtered out data leakage and hasty experiment conclusions and set standards for deciding on verified results.</p>
   </div>
   <div class="tags"><span class="tag">Experiment design</span><span class="tag">Model evaluation · validation</span><span class="tag">Statistical modeling</span><span class="tag">LLM services</span></div>

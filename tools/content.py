@@ -70,12 +70,12 @@ def updates():
     lis = ''.join(f'<li><div class="upd"><time>{d}</time><span>{t}</span></div></li>' for d, t in rest)
     return f'''<details class="updates rv"><summary><div class="upd"><time>{first[0]}</time><span>{first[1]}</span></div><svg class="chev" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6l4 4 4-4"/></svg></summary><ul>{lis}</ul></details>'''
 
-INDEX = dict(title='이보민 · Data Scientist', desc='데이터 사이언티스트 이보민의 포트폴리오. 실험 설계 · 모델 평가와 검증 · 통계 모델링 · LLM 서비스.', body=f'''
+INDEX = dict(title='이보민 · Portfolio', desc='이보민의 데이터 분석 포트폴리오. 실험 설계 · 모델 평가와 검증 · 통계 모델링 · LLM 서비스.', body=f'''
 <section id="about" class="rv">
   <div class="photo m" data-src="{{A}}assets/img/portrait.png" aria-label="이보민 사진. 커서를 올리면 그 주변이, 누르면 사진 전체가 픽셀로 바뀝니다."></div>
   <h1 class="headline"><span class="ko">안녕하세요, 이보민입니다.</span></h1>
   <div class="prose">
-    <p>데이터 누수와 잘못된 실험 결론을 걸러내, 믿고 쓸 수 있는 분석과 모델을 만드는 데이터 사이언티스트 이보민입니다.</p>
+    <p>데이터 누수와 잘못된 실험 결론을 걸러내, 믿고 쓸 수 있는 분석과 모델을 만드는 일을 하고 싶습니다.</p>
     <p>서울시립대학교에서 도시행정학과 통계학을 전공하고 있습니다(2027.02 졸업 예정).<br>전환율 A/B 테스트, 항공 엔진 정비 시점 예측, 공식 문서 근거 LLM 웹앱에서 데이터 누수와 성급한 실험 결론을 걸러내고, 검증된 결과로 판단하는 기준을 세웠습니다.</p>
   </div>
   <div class="tags"><span class="tag">실험 설계</span><span class="tag">모델 평가 · 검증</span><span class="tag">통계 모델링</span><span class="tag">LLM 서비스</span></div>
