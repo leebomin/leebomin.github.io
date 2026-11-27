@@ -173,7 +173,7 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='Probabilistic rem
 <h3 class="rv">Situation</h3>
 <p class="rv">Adding an “LCC short-haul weight” improved RMSE by <b>15–20%</b>.</p>
 <h3 class="rv">Doubt</h3>
-<p class="rv">Teammates saw almost no gain on the same data; only my result looked much better. The scaler and feature selection were being <span class="hl">fit outside the cross-validation folds</span>, so test information leaked into training.</p>
+<p class="rv">Compared with teammates working on the same data, only my result came out noticeably better. The scaler and feature selection were being <span class="hl">fit outside the cross-validation folds</span>, so test information leaked into training.</p>
 <h3 class="rv">Check</h3>
 <p class="rv">Moving preprocessing inside the folds made the effect vanish to <b>≈ 0</b>. I rejected the hypothesis and fixed <b>5 more bugs</b> with the same cause.</p>
 {fig([('Before · preprocess first, split later', '', '<div class="flow"><div class="box"><span class="label">Data</span><p>All data<br><small>incl. test data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>Scaler · feature selection<br><small>on all data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>Train / test</p></div></div>'),
