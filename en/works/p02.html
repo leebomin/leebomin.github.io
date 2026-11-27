@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/style.css?v=3f52b0cd">
+<link rel="stylesheet" href="../../assets/css/style.css?v=2b52410d">
 </head>
 <body>
 <header class="topbar"><a class="nm" href="../index.html">Bomin Lee</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../../works/p02.html" lang="ko">한국어</a><span>/</span><a href="../works/p02.html" lang="en" class=on>English</a></div></header>
@@ -29,13 +29,14 @@
 <h1 class="ptitle rv">Predictive Maintenance</h1><p class="psub rv">Probabilistic engine life prediction · maintenance timing</p>
 <div class="small-tags rv"><a class="stag" href="https://github.com/leebomin/jejuairline" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div><span class="award">Aero AI Track competition · Bronze · 2026.07</span>
 <dl class="meta rv"><div><dt class="label">Period</dt><dd>2026.06–07</dd></div><div><dt class="label">Team</dt><dd>Future Work Experience · Aerospace Industry-Academia Institute × Jeju Air · 4</dd></div><div><dt class="label">Role</dt><dd>Team lead · 1D-CNN ensemble · co-built conformal · report</dd></div><div><dt class="label">Model</dt><dd>1D-CNN ensemble + conformal · likelihood-ratio Bayesian fusion</dd></div></dl>
+<p class="scope rv"><span class="label">Scope</span>A PoC, not a production deployment. N-CMAPSS is NASA simulation data, and the 34-engine policy simulation is too small to be more than a reference.</p>
 <div class="body">
 <p class="rv">Servicing too late causes faults; servicing too often costs money. I built a PoC that predicts an engine’s remaining useful life as a <b>probability distribution</b> rather than a single number, and uses that asymmetry to set the <b>maintenance time</b>. Data: 34 engines from N-CMAPSS (a NASA simulation) and 28,935 real flights from NGAFID.</p>
 <figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Probability of failure before service</span><span class=r>One cell = 1%</span></div><div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">Previous policy</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">After calibration</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">Out of 100 maintenance decisions, failures before service fell from about 20 to 12.</p></div></div></div></figure>
 
 <h2 class="rv">What I did<span class="ko"></span></h2>
 <ol class="steps rv">
-<li>Re-examined the evaluation and found that the expected 15–20% gain was <b>data leakage</b>.</li>
+<li>Found that a 15–20% gain seen in a single run was <b>data leakage</b>.</li>
 <li>Calibrated the 1D-CNN ensemble’s predictive distribution with conformal prediction; the 90% interval actually covered <b>0.902</b>.</li>
 <li>Timed maintenance with the calibrated probabilities, lowering failure-before-service from <span class="hl">0.196 → 0.119</span>.</li>
 </ol>
@@ -43,9 +44,9 @@
 
 <h2 class="rv">Key finding<span class="ko">Leakage</span></h2>
 <h3 class="rv">Situation</h3>
-<p class="rv">Adding an “LCC short-haul weight” improved RMSE by <b>15–20%</b>, far more than teammates saw on the same data.</p>
+<p class="rv">In one run, adding an “LCC short-haul weight” appeared to improve RMSE by <b>15–20%</b>.</p>
 <h3 class="rv">Doubt</h3>
-<p class="rv">The gain jumped around between runs. The scaler and feature selection were being <span class="hl">fit outside the cross-validation folds</span>, so test information leaked into training.</p>
+<p class="rv">Re-running the same setup did not reproduce it. The scaler and feature selection were being <span class="hl">fit outside the cross-validation folds</span>, so test information leaked into training.</p>
 <h3 class="rv">Check</h3>
 <p class="rv">Moving preprocessing inside the folds made the effect vanish to <b>≈ 0</b>. I rejected the hypothesis and fixed <b>5 more bugs</b> with the same cause.</p>
 <figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Before · preprocess first, split later</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Data</span><p>All data<br><small>incl. test data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>Scaler · feature selection<br><small>on all data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>Train / test</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>After · split first, preprocess on training data only</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Split</span><p>Train / test</p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>Scaler · feature selection<br><small>on training data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Apply</span><p>Only applied to test</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>RMSE improvement</span><span class=r></span></div><div id="f-rmse"></div></div></div><figcaption>The apparent 15–20% came from having already seen the test data.</figcaption></figure>

@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=3f52b0cd">
+<link rel="stylesheet" href="../assets/css/style.css?v=2b52410d">
 </head>
 <body>
 <header class="topbar"><a class="nm" href="../index.html">이보민</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../works/p04.html" lang="ko" class=on>한국어</a><span>/</span><a href="../en/works/p04.html" lang="en">English</a></div></header>
@@ -29,6 +29,7 @@
 <h1 class="ptitle rv">A/B Testing</h1><p class="psub rv">숙박 앱 전환율 A/B 테스트 · 사전 판정 규칙</p>
 <div class="small-tags rv"><a class="stag" href="https://github.com/leebomin/tobigs-26th" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div>
 <dl class="meta rv"><div><dt class="label">Period</dt><dd>2026.10</dd></div><div><dt class="label">Team</dt><dd>TOBIG'S DA 트랙 · 개인 과제</dd></div><div><dt class="label">Role</dt><dd>실험 설계 · 판정 규칙 · 분석 전 과정</dd></div><div><dt class="label">Method</dt><dd>사용자 단위 배정 · delta method · SRM 검정 · MDE</dd></div></dl>
+<p class="scope rv"><span class="label">Scope</span>TOBIG'S 과제 데이터로 한 실험이라, 결론은 실제 출시가 아닌 단계적 배포 권고입니다.</p>
 <div class="body">
 <p class="rv">분석팀이 진단한 promotion 채널의 목록 → 상세 전환율 <b>약 10.7%p 격차</b>를 개선안(목록 카드 할인가 표시)으로 바꾸고, <b>결과를 보기 전에 정한 규칙</b>대로 실험을 설계 · 판정했습니다.</p>
 <figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Gap</span><span class=r>관찰 격차 중 실험으로 확인된 몫 · %p</span></div><div id="f-gap"></div></div><div class="fig-part"><div class=fig-head><span class=h>Effect</span><span class=r>목록 → 상세 전환율 · 95% CI · %p</span></div><div id="f-ci"></div></div></div><figcaption>구간 전체가 0보다 커서 효과가 있다고 판정했습니다(p = 0.0026). 매출 증가는 이 실험으로 확인하지 않았습니다.</figcaption></figure>

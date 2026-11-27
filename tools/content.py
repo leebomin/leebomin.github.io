@@ -27,19 +27,19 @@ def pitem(code, meta, title, ko, line, href, th, gh=None, demo=None):
 
 _P = ([
   pitem('P01', "TOBIG'S · 멀티모달/CV 팀 · 2026", 'Deepfake Detection', '멀티모달 딥페이크 탐지 모듈',
-        '이미지 · 얼굴 영상 · 음성 후보 12종을 <b>처음 보는 데이터</b>로 비교해 골랐습니다. 파일 형식에 남은 가짜 단서를 먼저 지웠습니다.',
+        '처음 보는 데이터에서 AUC 이미지 <b>0.907</b> · 얼굴 0.858 · 음성 0.988. 파일 형식에 남은 가짜 단서를 먼저 지우고, 후보 12종을 비교해 골랐습니다.',
         'works/p01.html', thumb((100, 91, 10, 'f'), '외부 AUC · 칸=0.01', '0.907')),
   pitem('P02', '미래내일 일경험 · 제주항공 · 2026 · 동상', 'Predictive Maintenance', '항공 엔진 정비 시점 결정',
-        '잔여수명을 확률분포로 예측해 정비 시점을 정했습니다. 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.',
+        '정비 전 고장 확률 <b>0.196 → 0.119</b>(시뮬레이션 PoC). 한 실행에서만 크게 보인 15~20% 개선이 데이터 누수였음을 찾아 바로잡았습니다.',
         'works/p02.html', thumb((100, 12, 10, 'f'), '정비 전 고장 · 칸=1%', '0.119'), gh='leebomin/jejuairline'),
   pitem('P03', '네이버클라우드 에이전틱 AI 과정 · 2026', 'Pill Finder', '공식 문서 근거 LLM 웹앱',
-        '모델에게 맡기지 않을 것부터 정하고, 규칙을 보지 않은 질문 40개로 평가했습니다. 응급 질문 감지 <b>3/20 → 20/20</b>.',
+        '응급 질문 감지 <b>3/20 → 20/20</b>(데모). 모델에게 맡기지 않을 것부터 정하고, 규칙을 보지 않은 질문 40개로 평가했습니다.',
         'works/p03.html', thumb((20, 20, 10, 'f'), '응급 질문 감지', '20/20'), gh='leebomin/pill-finder', demo=DEMO_P03),
   pitem('P04', "TOBIG'S · DA 트랙 과제 · 2026", 'A/B Testing', '숙박 앱 전환율 실험',
-        '결과를 보기 전에 판정 규칙을 고정했습니다. 12일차에 멈췄다면 뒤집혔을 결론을 21일 고정 판정으로 확인했습니다.',
+        '관찰 격차 10.7%p 중 실험으로 확인된 효과 <b>+2.75%p</b>. 결과를 보기 전에 판정 규칙을 고정해, 12일차에 멈췄다면 뒤집혔을 결론을 막았습니다.',
         'works/p04.html', thumb((12, 3, 12, 'f'), '관찰 격차 10.7 중 · %p', '+2.75'), gh='leebomin/tobigs-26th'),
   pitem('P05', "TOBIG'S · SQL 과제 · 2026", 'Join Fan-out', 'Olist 이커머스 SQL 분석',
-        '에러 없이 돈 쿼리에서 JOIN 중복으로 결제금액이 28.23% 부풀어 있었습니다.',
+        'JOIN 한 번으로 결제금액 <b>28.23% 과대 집계</b>. 주문 단위로 먼저 집계한 뒤 결합해 행 수를 다시 맞췄습니다.',
         'works/more.html#p05', thumb((100, 28, 10, 'f'), '과대 집계 · 칸=1%', '+28.23%'), gh='leebomin/tobigs-26th'),
   pitem('P06', '도시조사방법론 · 팀 · 2023', 'Effect Size', '비수도권 대학 쇠퇴현황 분석',
         '격차는 뚜렷했지만(p&lt;0.001) 청년 순이동에 대한 설명력은 11%였습니다.',
@@ -107,15 +107,15 @@ CV_PAGE = dict(title='CV · 이보민', desc='이보민의 경력 · 학력 · �
     <li><time>2025.09–12</time><span>국토교통부 토지정책과 청년인턴</span><span class="r"></span></li>
     <li><time>2025.01–05</time><span>Tampere University 교환학생 · 핀란드</span><span class="r"></span></li>
     <li><time>2024.03–25.02</time><span>통계청 대학생 기자단 16기</span><span class="r">통계 콘텐츠 기사</span></li>
-    <li><time>2022.03–</time><span>서울시립대 도시행정 · 통계학</span><span class="r">GPA 4.19 / 4.5</span></li>
+    <li><time>2022.03–27.02</time><span>서울시립대학교 도시행정학 · 통계학 (2027.02 졸업 예정)</span><span class="r">GPA 4.19 / 4.5</span></li>
   </ul>
 </section>
 
 <section class="sec" id="skills">
   <h2 class="sec-t">Skills &amp; Credentials</h2>
   <div class="skills rv">
-    <div><b>Python</b><span>pandas · sklearn · PyTorch</span></div>
     <div><b>SQL</b><span>MySQL · SQLite</span></div>
+    <div><b>Python</b><span>pandas · sklearn · PyTorch</span></div>
     <div><b>R · SAS</b><span>R · SAS · Jamovi</span></div>
     <div><b>통계 검정 · 회귀</b><span>t-test · 회귀 · VIF</span></div>
     <div><b>실험 설계</b><span>SRM · MDE · CI</span></div>
@@ -232,13 +232,14 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='엔진 잔여수�
   [stag('GitHub', 'https://github.com/leebomin/jejuairline', '{GH}')],
   [('Period', '2026.06–07'), ('Team', '미래내일 일경험 · 항공우주산학융합원 × 제주항공 · 4명'), ('Role', '팀장 · 1D-CNN 앙상블 · conformal 공동 구현 · 보고서'), ('Model', '1D-CNN 앙상블 + conformal · 우도비 베이즈 결합')],
   award='에어로AI트랙 경진대회 동상 · 2026.07') + f'''
+<p class="scope rv"><span class="label">Scope</span>운영 배포가 아닌 PoC입니다. N-CMAPSS는 NASA 시뮬레이션 데이터이고, 엔진 34대 정책 시뮬레이션은 표본이 작아 참고치로만 봅니다.</p>
 <div class="body">
 <p class="rv">정비가 늦으면 결함이 생기고, 너무 잦으면 비용이 듭니다. 엔진 잔여수명을 숫자 하나가 아니라 <b>확률분포</b>로 예측하고, 이 비대칭을 반영해 <b>정비 시점</b>을 정하는 PoC를 만들었습니다. 데이터는 NASA 시뮬레이션인 N-CMAPSS 엔진 34대와 NGAFID 실비행 28,935편입니다.</p>
 {fig([('정비 전 고장 확률', '칸 하나 = 1%', '<div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">기존 정책</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">확률 보정 후</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">100번 정비 결정 중 정비하기 전에 고장 나는 경우가 약 20번에서 12번으로 줄었습니다.</p></div>')])}
 
 {h2('What I did', '한 일')}
 <ol class="steps rv">
-<li>평가 방식을 다시 점검해, 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
+<li>한 실행에서만 크게 보인 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
 <li>1D-CNN 앙상블의 예측 분포를 conformal로 보정해, 90% 구간이 실제로 <b>0.902</b>를 덮는 것을 확인했습니다.</li>
 <li>보정된 확률로 정비 시점을 정해 정비 전 고장 확률을 <span class="hl">0.196 → 0.119</span>로 낮췄습니다.</li>
 </ol>
@@ -247,9 +248,9 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='엔진 잔여수�
 
 {h2('Key finding', 'Leakage · 데이터 누수')}
 <h3 class="rv">상황</h3>
-<p class="rv">‘LCC 단거리 가중치’를 넣자 RMSE가 <b>15~20% 개선</b>됐습니다. 같은 데이터로 실험한 팀원들의 결과와 비교하면 지나치게 큰 폭이었습니다.</p>
+<p class="rv">‘LCC 단거리 가중치’를 넣은 한 실행에서만 RMSE가 <b>15~20% 개선</b>된 것으로 크게 보였습니다.</p>
 <h3 class="rv">의심</h3>
-<p class="rv">개선폭이 실행마다 들쭉날쭉했습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
+<p class="rv">같은 설정으로 다시 돌리면 그만큼의 개선이 나오지 않았습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
 <h3 class="rv">확인</h3>
 <p class="rv">전처리를 폴드 안으로 옮기자 효과는 <b>≈ 0</b>으로 사라졌습니다. 가설을 기각하고, 같은 원인으로 생긴 <b>버그 5건</b>도 함께 고쳤습니다.</p>
 {fig([('Before · 전처리 먼저, 나누기는 나중', '', '<div class="flow"><div class="box"><span class="label">Data</span><p>전체 데이터<br><small>평가 데이터 포함</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>스케일러 · 변수 선택<br><small>전체 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>학습 / 평가</p></div></div>'),
@@ -288,6 +289,7 @@ PAGES['p03.html'] = dict(title='Pill Finder', desc='알약 찾기 도우미 · �
  body=top('P03', 'Main', 'Pill Finder', '알약 찾기 도우미 · 공식 문서 근거 LLM 웹앱',
   [stag('Demo', DEMO_P03), stag('GitHub', 'https://github.com/leebomin/pill-finder', '{GH}')],
   [('Period', '2026.11'), ('Team', '개인 · 네이버클라우드 에이전틱 AI 과정'), ('Role', '기획 · 모델 역할 설계 · 앱 · MCP 도구 · 평가 설계'), ('Model', 'HyperCLOVA X(답변) · Qwen3 4B(판단) · Claude API(검토)')]) + f'''
+<p class="scope rv"><span class="label">Scope</span>배포 서비스가 아닌 데모이며, 의료인 검수를 받지 않았습니다. 응급 질문은 20문항이라 20/20의 95% 구간은 약 83~100%입니다.</p>
 <div class="body">
 <p class="rv">1인 가구가 남은 약을 확인할 때 쓰는 도구입니다. 공식 자료만 근거로 알약 후보를 찾고, 일반의약품에 한해 <b>쉬운 말 요약</b>과 질문 답변을 줍니다. 진단 · 복용 지시는 하지 않으며, 의료인 검수 전 데모입니다.</p>
 {fig([('Pipeline', '모델에게 맡기지 않을 것부터', '<div class="flow"><div class="box"><span class="label">Question</span><p>입력</p></div><span class="arr">→</span><div class="box"><span class="label">Emergency</span><p>코드 + Qwen3 4B</p></div><span class="arr">→</span><div class="box"><span class="label">Retrieve</span><p>식약처 원문</p></div><span class="arr">→</span><div class="box on"><span class="label">Answer</span><p>HyperCLOVA X</p></div><span class="arr">→</span><div class="box"><span class="label">Review</span><p>Claude API</p></div></div><div class="flow-sub"><span>규칙 · 검색은 코드</span><span>답변 · 검토만 LLM</span></div>')])}
@@ -317,6 +319,7 @@ PAGES['p04.html'] = dict(title='A/B Testing', desc='숙박 앱 전환율 A/B 테
  body=top('P04', 'Main', 'A/B Testing', '숙박 앱 전환율 A/B 테스트 · 사전 판정 규칙',
   [stag('GitHub', 'https://github.com/leebomin/tobigs-26th', '{GH}')],
   [('Period', '2026.10'), ('Team', "TOBIG'S DA 트랙 · 개인 과제"), ('Role', '실험 설계 · 판정 규칙 · 분석 전 과정'), ('Method', '사용자 단위 배정 · delta method · SRM 검정 · MDE')]) + f'''
+<p class="scope rv"><span class="label">Scope</span>TOBIG'S 과제 데이터로 한 실험이라, 결론은 실제 출시가 아닌 단계적 배포 권고입니다.</p>
 <div class="body">
 <p class="rv">분석팀이 진단한 promotion 채널의 목록 → 상세 전환율 <b>약 10.7%p 격차</b>를 개선안(목록 카드 할인가 표시)으로 바꾸고, <b>결과를 보기 전에 정한 규칙</b>대로 실험을 설계 · 판정했습니다.</p>
 {fig([('Gap', '관찰 격차 중 실험으로 확인된 몫 · %p', '<div id="f-gap"></div>'), ('Effect', '목록 → 상세 전환율 · 95% CI · %p', '<div id="f-ci"></div>')], '구간 전체가 0보다 커서 효과가 있다고 판정했습니다(p = 0.0026). 매출 증가는 이 실험으로 확인하지 않았습니다.')}

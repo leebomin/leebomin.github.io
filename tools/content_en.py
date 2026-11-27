@@ -3,19 +3,19 @@ from content import DEMO_P03, stag, thumb, pitem, top, fig, h2, take, rowfig, ta
 
 _P = ([
   pitem('P01', "TOBIG'S · Multimodal/CV team · 2026", 'Deepfake Detection', 'Multimodal deepfake detection module',
-        'Compared 12 image, face-video and voice candidates on <b>data they had never seen</b>, after first removing a fake cue left in the file format.',
+        'AUC on unseen data: image <b>0.907</b> · face 0.858 · voice 0.988. Removed a fake cue left in the file format first, then compared 12 candidates.',
         'works/p01.html', thumb((100, 91, 10, 'f'), 'External AUC · cell=0.01', '0.907')),
   pitem('P02', 'Future Work Experience · Jeju Air · 2026 · Bronze', 'Predictive Maintenance', 'When to service an aircraft engine',
-        'Predicted remaining useful life as a probability distribution to time maintenance, and found that the expected 15–20% gain was <b>data leakage</b>.',
+        'Failure before service <b>0.196 → 0.119</b> (simulation PoC). Found that a 15–20% gain seen in a single run was data leakage, and fixed it.',
         'works/p02.html', thumb((100, 12, 10, 'f'), 'Failure before service · cell=1%', '0.119'), gh='leebomin/jejuairline'),
   pitem('P03', 'NAVER Cloud Agentic AI course · 2026', 'Pill Finder', 'LLM web app grounded in official documents',
-        'Decided first what the model should not do, then evaluated on 40 questions written without seeing the rules. Emergency detection <b>3/20 → 20/20</b>.',
+        'Emergency detection <b>3/20 → 20/20</b> (demo). Decided first what the model should not do, then evaluated on 40 questions written without seeing the rules.',
         'works/p03.html', thumb((20, 20, 10, 'f'), 'Emergency questions caught', '20/20'), gh='leebomin/pill-finder', demo=DEMO_P03),
   pitem('P04', "TOBIG'S · DA track assignment · 2026", 'A/B Testing', 'Conversion experiment for a lodging app',
-        'Fixed the decision rule before looking at results. Stopping on day 12 would have reversed the conclusion; the fixed 21-day rule confirmed the effect.',
+        'Of a 10.7%p observed gap, the experiment confirmed <b>+2.75%p</b>. Fixing the decision rule in advance avoided the reversed conclusion a day-12 stop would have given.',
         'works/p04.html', thumb((12, 3, 12, 'f'), 'Of a 10.7 observed gap · %p', '+2.75'), gh='leebomin/tobigs-26th'),
   pitem('P05', "TOBIG'S · SQL assignment · 2026", 'Join Fan-out', 'Olist e-commerce SQL analysis',
-        'A query that ran without errors inflated payment totals by 28.23% through duplicated JOIN rows.',
+        'One JOIN <b>over-counted payments by 28.23%</b>. Aggregated to order level before joining and re-checked row counts.',
         'works/more.html#p05', thumb((100, 28, 10, 'f'), 'Over-count · cell=1%', '+28.23%'), gh='leebomin/tobigs-26th'),
   pitem('P06', 'Urban Research Methods · team · 2023', 'Effect Size', 'Decline of universities outside the capital region',
         'The gap was clear (p&lt;0.001), yet it explained only 11% of young people’s net migration.',
@@ -64,15 +64,15 @@ CV_PAGE = dict(title='CV · Bomin Lee', desc='Experience, education, skills and 
     <li><time>2025.09–12</time><span>Youth Intern, Land Policy Division, Ministry of Land, Infrastructure and Transport</span><span class="r"></span></li>
     <li><time>2025.01–05</time><span>Exchange student, Tampere University · Finland</span><span class="r"></span></li>
     <li><time>2024.03–25.02</time><span>Statistics Korea student reporter, 16th cohort</span><span class="r">Articles on statistics</span></li>
-    <li><time>2022.03–</time><span>University of Seoul · Urban Administration, Statistics</span><span class="r">GPA 4.19 / 4.5</span></li>
+    <li><time>2022.03–27.02</time><span>University of Seoul · Urban Administration, Statistics (graduating Feb 2027)</span><span class="r">GPA 4.19 / 4.5</span></li>
   </ul>
 </section>
 
 <section class="sec" id="skills">
   <h2 class="sec-t">Skills &amp; Credentials</h2>
   <div class="skills rv">
-    <div><b>Python</b><span>pandas · sklearn · PyTorch</span></div>
     <div><b>SQL</b><span>MySQL · SQLite</span></div>
+    <div><b>Python</b><span>pandas · sklearn · PyTorch</span></div>
     <div><b>R · SAS</b><span>R · SAS · Jamovi</span></div>
     <div><b>Tests · Regression</b><span>t-test · regression · VIF</span></div>
     <div><b>Experiment design</b><span>SRM · MDE · CI</span></div>
@@ -156,13 +156,14 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='Probabilistic rem
   [stag('GitHub', 'https://github.com/leebomin/jejuairline', '{GH}')],
   [('Period', '2026.06–07'), ('Team', 'Future Work Experience · Aerospace Industry-Academia Institute × Jeju Air · 4'), ('Role', 'Team lead · 1D-CNN ensemble · co-built conformal · report'), ('Model', '1D-CNN ensemble + conformal · likelihood-ratio Bayesian fusion')],
   award='Aero AI Track competition · Bronze · 2026.07') + f'''
+<p class="scope rv"><span class="label">Scope</span>A PoC, not a production deployment. N-CMAPSS is NASA simulation data, and the 34-engine policy simulation is too small to be more than a reference.</p>
 <div class="body">
 <p class="rv">Servicing too late causes faults; servicing too often costs money. I built a PoC that predicts an engine’s remaining useful life as a <b>probability distribution</b> rather than a single number, and uses that asymmetry to set the <b>maintenance time</b>. Data: 34 engines from N-CMAPSS (a NASA simulation) and 28,935 real flights from NGAFID.</p>
 {fig([('Probability of failure before service', 'One cell = 1%', '<div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">Previous policy</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">After calibration</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">Out of 100 maintenance decisions, failures before service fell from about 20 to 12.</p></div>')])}
 
 {h2('What I did', '')}
 <ol class="steps rv">
-<li>Re-examined the evaluation and found that the expected 15–20% gain was <b>data leakage</b>.</li>
+<li>Found that a 15–20% gain seen in a single run was <b>data leakage</b>.</li>
 <li>Calibrated the 1D-CNN ensemble’s predictive distribution with conformal prediction; the 90% interval actually covered <b>0.902</b>.</li>
 <li>Timed maintenance with the calibrated probabilities, lowering failure-before-service from <span class="hl">0.196 → 0.119</span>.</li>
 </ol>
@@ -171,9 +172,9 @@ PAGES['p02.html'] = dict(title='Predictive Maintenance', desc='Probabilistic rem
 
 {h2('Key finding', 'Leakage')}
 <h3 class="rv">Situation</h3>
-<p class="rv">Adding an “LCC short-haul weight” improved RMSE by <b>15–20%</b>, far more than teammates saw on the same data.</p>
+<p class="rv">In one run, adding an “LCC short-haul weight” appeared to improve RMSE by <b>15–20%</b>.</p>
 <h3 class="rv">Doubt</h3>
-<p class="rv">The gain jumped around between runs. The scaler and feature selection were being <span class="hl">fit outside the cross-validation folds</span>, so test information leaked into training.</p>
+<p class="rv">Re-running the same setup did not reproduce it. The scaler and feature selection were being <span class="hl">fit outside the cross-validation folds</span>, so test information leaked into training.</p>
 <h3 class="rv">Check</h3>
 <p class="rv">Moving preprocessing inside the folds made the effect vanish to <b>≈ 0</b>. I rejected the hypothesis and fixed <b>5 more bugs</b> with the same cause.</p>
 {fig([('Before · preprocess first, split later', '', '<div class="flow"><div class="box"><span class="label">Data</span><p>All data<br><small>incl. test data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>Scaler · feature selection<br><small>on all data</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>Train / test</p></div></div>'),
@@ -212,6 +213,7 @@ PAGES['p03.html'] = dict(title='Pill Finder', desc='Pill Finder · LLM web app g
  body=top('P03', 'Main', 'Pill Finder', 'LLM web app grounded in official documents',
   [stag('Demo', DEMO_P03), stag('GitHub', 'https://github.com/leebomin/pill-finder', '{GH}')],
   [('Period', '2026.11'), ('Team', 'Solo · NAVER Cloud Agentic AI course'), ('Role', 'Planning · model roles · app · MCP tools · evaluation design'), ('Model', 'HyperCLOVA X (answers) · Qwen3 4B (triage) · Claude API (review)')]) + f'''
+<p class="scope rv"><span class="label">Scope</span>A demo, not a deployed service, and not reviewed by medical professionals. With 20 emergency questions, the 95% interval for 20/20 is roughly 83–100%.</p>
 <div class="body">
 <p class="rv">A tool for people living alone to check leftover medicine. It finds pill candidates using only official sources and, for over-the-counter drugs only, gives a <b>plain-language summary</b> and answers questions. It never diagnoses or tells you what to take, and it is a demo awaiting review by medical professionals.</p>
 {fig([('Pipeline', 'Start from what the model should not do', '<div class="flow"><div class="box"><span class="label">Question</span><p>Input</p></div><span class="arr">→</span><div class="box"><span class="label">Emergency</span><p>Code + Qwen3 4B</p></div><span class="arr">→</span><div class="box"><span class="label">Retrieve</span><p>MFDS source text</p></div><span class="arr">→</span><div class="box on"><span class="label">Answer</span><p>HyperCLOVA X</p></div><span class="arr">→</span><div class="box"><span class="label">Review</span><p>Claude API</p></div></div><div class="flow-sub"><span>Rules and search in code</span><span>LLM only for answers and review</span></div>')])}
@@ -241,6 +243,7 @@ PAGES['p04.html'] = dict(title='A/B Testing', desc='Lodging app conversion A/B t
  body=top('P04', 'Main', 'A/B Testing', 'Lodging app conversion A/B test · rule fixed in advance',
   [stag('GitHub', 'https://github.com/leebomin/tobigs-26th', '{GH}')],
   [('Period', '2026.10'), ('Team', "TOBIG'S DA track · individual assignment"), ('Role', 'Experiment design · decision rule · full analysis'), ('Method', 'User-level assignment · delta method · SRM test · MDE')]) + f'''
+<p class="scope rv"><span class="label">Scope</span>Run on TOBIG'S assignment data, so the conclusion is a staged-rollout recommendation, not an actual launch.</p>
 <div class="body">
 <p class="rv">The analytics team had diagnosed a <b>gap of about 10.7%p</b> in list → detail conversion for the promotion channel. I tested a fix (showing the discounted price on list cards) and designed and judged the experiment by <b>rules set before seeing the results</b>.</p>
 {fig([('Gap', 'Share of the observed gap confirmed by the experiment · %p', '<div id="f-gap"></div>'), ('Effect', 'List → detail conversion · 95% CI · %p', '<div id="f-ci"></div>')], 'The whole interval is above 0, so the effect was judged real (p = 0.0026). Revenue impact was not tested here.')}

@@ -286,3 +286,5 @@ figcaption{margin-top:9px;font-size:13px;color:var(--mute);line-height:1.65}
   .svgfig [fill="#FFFFFF" i]{fill:var(--paper)} .svgfig [stroke="#FFFFFF" i]{stroke:var(--paper)}
   .svgfig [fill="#1F32A8" i]{fill:var(--accent)} .svgfig [stroke="#1F32A8" i]{stroke:var(--accent)}
 }
+.scope{margin:-8px 0 22px;padding:10px 14px;border:1px dashed var(--line);font-size:13px;line-height:1.7;color:var(--ink-2)}
+.scope .label{display:inline-block;margin-right:10px}

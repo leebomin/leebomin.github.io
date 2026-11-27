@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=3f52b0cd">
+<link rel="stylesheet" href="../assets/css/style.css?v=2b52410d">
 </head>
 <body>
 <header class="topbar"><a class="nm" href="../index.html">이보민</a><nav><a href="../index.html">About</a><a href="../projects.html" class=on aria-current=page>Projects</a><a href="../cv.html">CV</a></nav><div class="lang"><a href="../works/p02.html" lang="ko" class=on>한국어</a><span>/</span><a href="../en/works/p02.html" lang="en">English</a></div></header>
@@ -29,13 +29,14 @@
 <h1 class="ptitle rv">Predictive Maintenance</h1><p class="psub rv">엔진 잔여수명 확률 예측 · 정비 시점 결정</p>
 <div class="small-tags rv"><a class="stag" href="https://github.com/leebomin/jejuairline" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a></div><span class="award">에어로AI트랙 경진대회 동상 · 2026.07</span>
 <dl class="meta rv"><div><dt class="label">Period</dt><dd>2026.06–07</dd></div><div><dt class="label">Team</dt><dd>미래내일 일경험 · 항공우주산학융합원 × 제주항공 · 4명</dd></div><div><dt class="label">Role</dt><dd>팀장 · 1D-CNN 앙상블 · conformal 공동 구현 · 보고서</dd></div><div><dt class="label">Model</dt><dd>1D-CNN 앙상블 + conformal · 우도비 베이즈 결합</dd></div></dl>
+<p class="scope rv"><span class="label">Scope</span>운영 배포가 아닌 PoC입니다. N-CMAPSS는 NASA 시뮬레이션 데이터이고, 엔진 34대 정책 시뮬레이션은 표본이 작아 참고치로만 봅니다.</p>
 <div class="body">
 <p class="rv">정비가 늦으면 결함이 생기고, 너무 잦으면 비용이 듭니다. 엔진 잔여수명을 숫자 하나가 아니라 <b>확률분포</b>로 예측하고, 이 비대칭을 반영해 <b>정비 시점</b>을 정하는 PoC를 만들었습니다. 데이터는 NASA 시뮬레이션인 N-CMAPSS 엔진 34대와 NGAFID 실비행 28,935편입니다.</p>
 <figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>정비 전 고장 확률</span><span class=r>칸 하나 = 1%</span></div><div class="waffles"><div><div data-cells="100,0,10,"></div><p class="w-l">기존 정책</p><p class="w-v dim">0.196</p></div><div><div data-cells="100,0,10,"></div><p class="w-l">확률 보정 후</p><p class="w-v">0.119</p></div><p class="w-txt fig-note">100번 정비 결정 중 정비하기 전에 고장 나는 경우가 약 20번에서 12번으로 줄었습니다.</p></div></div></div></figure>
 
 <h2 class="rv">What I did<span class="ko">한 일</span></h2>
 <ol class="steps rv">
-<li>평가 방식을 다시 점검해, 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
+<li>한 실행에서만 크게 보인 15~20% 개선이 <b>데이터 누수</b>였음을 찾았습니다.</li>
 <li>1D-CNN 앙상블의 예측 분포를 conformal로 보정해, 90% 구간이 실제로 <b>0.902</b>를 덮는 것을 확인했습니다.</li>
 <li>보정된 확률로 정비 시점을 정해 정비 전 고장 확률을 <span class="hl">0.196 → 0.119</span>로 낮췄습니다.</li>
 </ol>
@@ -43,9 +44,9 @@
 
 <h2 class="rv">Key finding<span class="ko">Leakage · 데이터 누수</span></h2>
 <h3 class="rv">상황</h3>
-<p class="rv">‘LCC 단거리 가중치’를 넣자 RMSE가 <b>15~20% 개선</b>됐습니다. 같은 데이터로 실험한 팀원들의 결과와 비교하면 지나치게 큰 폭이었습니다.</p>
+<p class="rv">‘LCC 단거리 가중치’를 넣은 한 실행에서만 RMSE가 <b>15~20% 개선</b>된 것으로 크게 보였습니다.</p>
 <h3 class="rv">의심</h3>
-<p class="rv">개선폭이 실행마다 들쭉날쭉했습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
+<p class="rv">같은 설정으로 다시 돌리면 그만큼의 개선이 나오지 않았습니다. 확인해 보니 스케일러와 변수 선택이 <span class="hl">교차검증 폴드 밖에서 fit</span>되어, 평가셋 정보가 학습에 섞이고 있었습니다.</p>
 <h3 class="rv">확인</h3>
 <p class="rv">전처리를 폴드 안으로 옮기자 효과는 <b>≈ 0</b>으로 사라졌습니다. 가설을 기각하고, 같은 원인으로 생긴 <b>버그 5건</b>도 함께 고쳤습니다.</p>
 <figure class="fig rv"><div class="fig-box"><div class="fig-part"><div class=fig-head><span class=h>Before · 전처리 먼저, 나누기는 나중</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Data</span><p>전체 데이터<br><small>평가 데이터 포함</small></p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>스케일러 · 변수 선택<br><small>전체 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">Split</span><p>학습 / 평가</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>After · 나누기 먼저, 전처리는 학습 데이터로만</span><span class=r></span></div><div class="flow"><div class="box"><span class="label">Split</span><p>학습 / 평가</p></div><span class="arr">→</span><div class="box"><span class="label">Fit</span><p>스케일러 · 변수 선택<br><small>학습 데이터 기준</small></p></div><span class="arr">→</span><div class="box"><span class="label">Apply</span><p>평가에는 적용만</p></div></div></div><div class="fig-part"><div class=fig-head><span class=h>RMSE 개선폭</span><span class=r></span></div><div id="f-rmse"></div></div></div><figcaption>개선처럼 보였던 15~20%는 평가 데이터를 미리 본 효과였습니다.</figcaption></figure>
