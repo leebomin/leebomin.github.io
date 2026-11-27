@@ -26,7 +26,7 @@ def head(title, desc, a, lang):
 <meta name="description" content="{desc}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<link rel="icon" href="{a}assets/img/favicon.svg?v=monkey3" type="image/svg+xml">
+<link rel="icon" href="{a}assets/img/favicon.svg?v=monkey4" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
